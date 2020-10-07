@@ -21,3 +21,4 @@ export const {
 export const selectMovies = state => state.moviesSlice
 export const selectSelectedPage = state => selectMovies(state).selectedPage
 export const pageInformation = state => selectMovies(state).pageInformations
+export default moviesSlice.reducer
