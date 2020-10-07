@@ -1,22 +1,17 @@
 import React from "react"
 import { Wrapper } from "./styled"
 
-const GridTemplate = ({ content }) => (
+const GridTemplate = ({ content }) =>{
+    return (
     <Wrapper>
-        {content.map((fragment) => (
-            <div>
-                {fragment.name}
-            </div>
-        ))}
+      {content.map((fragment) => (
+    <div>
+        {fragment.title}
+    </div>)
+      )}
     </Wrapper>
-)
-
+)}
 export default GridTemplate
 
 
 
-/*{content.map((fragment) => {
-    <Tile>
-        {fragment.name}
-    </Tile>
-      })}*/
