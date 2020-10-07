@@ -1,9 +1,12 @@
 import React from 'react';
+import Container from '../Common';
 
 function Movies() {
 
   return (
-    <p>movies</p>
+    <Container>
+      <p>movies</p>
+    </Container>
   );
 };
 
