@@ -23,6 +23,6 @@ export const usePopularMovies = (page) => {
             console.log(error)
         }
     };
-    useEffect(() => { getPopularMovies(1) }, []);
+    useEffect(() => { getPopularMovies(page) }, [page]);
     return popularMovies.results;
 }

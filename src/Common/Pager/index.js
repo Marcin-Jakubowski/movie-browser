@@ -1,12 +1,15 @@
 import React from "react"
-import { useSelector } from "react-redux"
-import { selectPageInformation, selectSelectedPage } from "../../Movies/MoviesSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { selectPageInformation, selectSelectedPage, setSelectedPage } from "../../Movies/MoviesSlice"
 import { Wrapper, ButtonContainer, Button, TextContainer, Counter } from "./styled"
 
 const Pager = () => {
 
+    const dispatch = useDispatch()
+
     const page = useSelector(selectSelectedPage)
     const currentPageInformation = useSelector(selectPageInformation)
+
     const maxPage = currentPageInformation.total_pages
 
     return (
@@ -14,11 +17,13 @@ const Pager = () => {
             <ButtonContainer>
                 <Button
                     disabled={page === 1}
+                    onClick={() => dispatch(setSelectedPage("first"))}
                 >
                     First
                 </Button>
                 <Button
                     disabled={page === 1}
+                    onClick={() => dispatch(setSelectedPage("previous"))}
                 >
                     Previous
                 </Button>
@@ -36,11 +41,13 @@ const Pager = () => {
             <ButtonContainer>
                 <Button
                     disabled={page === maxPage}
+                    onClick={() => dispatch(setSelectedPage("next"))}
                 >
                     Next
                 </Button>
                 <Button
                     disabled={page === maxPage}
+                    onClick={() => dispatch(setSelectedPage(maxPage))}
                 >
                     Last
                 </Button>
