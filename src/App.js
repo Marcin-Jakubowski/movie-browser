@@ -9,10 +9,10 @@ export default () => (
     <nav>
       <NavList>
         <NavListItem>
-          <StyledNavLink to="/movies">Movies</StyledNavLink>
+          <StyledNavLink to="/movies">MOVIES</StyledNavLink>
         </NavListItem>
         <NavListItem>
-          <StyledNavLink to="/people">People</StyledNavLink>
+          <StyledNavLink to="/people">PEOPLE</StyledNavLink>
         </NavListItem>
       </NavList>
       <Switch>

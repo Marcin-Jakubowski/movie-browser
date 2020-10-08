@@ -8,9 +8,11 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
 }))`
     text-decoration: none;
     color: white;
+    padding: 13.5px;
     
     &.${activeClassName} {
-        font-weight: bold;
+        border: 1px solid white;
+        border-radius: 24px;
     }
     &:link {
         color: white
@@ -25,13 +27,12 @@ export const NavList = styled.ul`
     text-decoration: none;
     list-style: none;
     background-color: black;
-    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     margin: 0;
-
-    @media (max-width: 767px) {
-        grid-template-columns: 1fr;
-    }
+    height: 94px;
+    font-size: 14px;
+    line-height: 21px;
 `;
