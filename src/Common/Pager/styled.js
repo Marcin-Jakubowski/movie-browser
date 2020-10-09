@@ -6,6 +6,11 @@ export const Wrapper = styled.nav`
     height: 36px;
     margin: 40px auto;
     justify-content: space-between;
+
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+            width: 232px;
+            margin: 32px auto;
+        }
 `
 
 export const ButtonContainer = styled.div`

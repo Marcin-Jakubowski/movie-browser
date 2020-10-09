@@ -17,7 +17,10 @@ function Movies() {
   return (
     <Container>
       <Header text={"Popular Movies"} />
-      <GridTemplate content={popularMovies} />
+      <GridTemplate 
+      content={popularMovies}
+      type={"movies"}
+      />
       <Pager/>
     </Container>
   );

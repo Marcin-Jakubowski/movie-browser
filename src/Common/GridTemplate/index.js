@@ -1,9 +1,11 @@
 import React from "react"
 import { Wrapper } from "./styled"
 
-const GridTemplate = ({ content }) =>{
+const GridTemplate = ({ content, type }) =>{
     return (
-    <Wrapper>
+    <Wrapper
+      type={type}
+    >
       {content.map((fragment) => (
     <div>
         {fragment.title}

@@ -2,6 +2,7 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectPageInformation, selectSelectedPage, setSelectedPage } from "../../Movies/MoviesSlice"
 import { Wrapper, ButtonContainer, Button, TextContainer, Counter } from "./styled"
+import {ReactComponent as Arrow} from "../../../public/arrow.svg" 
 
 const Pager = () => {
 
@@ -49,7 +50,8 @@ const Pager = () => {
                     disabled={page === maxPage}
                     onClick={() => dispatch(setSelectedPage(maxPage))}
                 >
-                    Last
+                    Last 
+                    <Arrow />
                 </Button>
             </ButtonContainer>
         </Wrapper>
