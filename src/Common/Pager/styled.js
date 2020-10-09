@@ -23,10 +23,10 @@ export const TextContainer = styled.div`
     font-weight: 400;
     font-size: 16px;
     padding: 8px 18px;
-    color: ${({theme}) => theme.color.pageText};
+    color: ${({ theme }) => theme.color.pageText};
 `
-export const Counter  = styled.strong`
-    color: ${({theme}) => theme.color.black};
+export const Counter = styled.strong`
+    color: ${({ theme }) => theme.color.black};
 `
 
 export const Button = styled.button`
@@ -54,7 +54,7 @@ export const Button = styled.button`
 
     &:disabled {
         background-color: ${({ theme }) => theme.color.pagerButtonDisabled};
-        color: ${({theme}) => theme.color.black};
+        color: ${({ theme }) => theme.color.black};
         filter: none;
     }
 

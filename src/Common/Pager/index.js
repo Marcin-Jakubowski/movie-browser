@@ -49,7 +49,7 @@ const Pager = () => {
                     disabled={page === maxPage}
                     onClick={() => dispatch(setSelectedPage(maxPage))}
                 >
-                    Last 
+                    Last
                 </Button>
             </ButtonContainer>
         </Wrapper>
