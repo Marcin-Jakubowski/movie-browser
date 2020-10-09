@@ -15,8 +15,8 @@ const moviesSlice = createSlice({
         setPageInformation: (state, { payload }) => {
             state.pageInformations = payload
         },
-        setSelectedPage: (state, {payload})  => {
-            switch (payload){
+        setSelectedPage: (state, { payload }) => {
+            switch (payload) {
                 case "first":
                     state.selectedPage = 1;
                     break;
@@ -26,8 +26,8 @@ const moviesSlice = createSlice({
                 case "next":
                     state.selectedPage++
                     break;
-                default: 
-                state.selectedPage = payload
+                default:
+                    state.selectedPage = payload
             }
         }
     }
