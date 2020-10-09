@@ -5,14 +5,14 @@ import { apiKey } from "../apiKey"
 import { selectPageInformation, setPageInformation } from "./MoviesSlice"
 
 
-export const usePopularMovies = (page) => {
+export const useAPI = (page, apiLink) => {
 
     const dispatch = useDispatch();
-    const popularMovies = useSelector(selectPageInformation)
+    const data = useSelector(selectPageInformation)
 
-    const getPopularMovies = async () => {
+    const getData = async () => {
         try {
-            const response = await axios.get("https://api.themoviedb.org/3/movie/popular?", {
+            const response = await axios.get(apiLink, {
                 params: {
                     api_key: apiKey,
                     page: page
@@ -23,6 +23,6 @@ export const usePopularMovies = (page) => {
             console.log(error)
         }
     };
-    useEffect(() => { getPopularMovies(page) }, [page]);
-    return popularMovies.results;
+    useEffect(() => { getData(page) }, [page]);
+    return data.results;
 }
