@@ -7,31 +7,51 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     activeClassName,
 }))`
     text-decoration: none;
+    font-weight: 600;
     color: white;
+    padding: 13.5px 20px;
     
     &.${activeClassName} {
-        font-weight: bold;
+        border: 1px solid white;
+        border-radius: 24px;
     }
     &:link {
         color: white
     }
 `;
 
+export const StyledNavLinkLogo = styled(NavLink).attrs(() => ({
+    activeClassName,
+}))`
+    text-decoration: none;
+    color: white;
+    padding: 13.5px;
+
+    &:link {
+        color: white
+    }
+`;
+
 export const NavListItem = styled.li`
-    padding: 10px 30px;
+    padding: 10px 0px;
 `;
 
 export const NavList = styled.ul`
-    text-decoration: none;
     list-style: none;
     background-color: black;
-    padding: 10px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    align-items: center;
     margin: 0;
+    height: 94px;
+    font-size: 14px;
+    line-height: 21px;
+`;
 
-    @media (max-width: 767px) {
-        grid-template-columns: 1fr;
-    }
+export const NavContainer = styled.div`
+    width: 1368px;
+    display: grid;
+    grid-template-columns: repeat(3, auto) 1fr;
+    grid-gap: 10px;
+    align-items: center;
+    margin: 0 auto;
 `;
