@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
-import { selectQueryString, setQueryString } from '../MoviesSlice';
+import { selectQueryString, setQueryParameter, setQueryString } from '../MoviesSlice';
 import useQueryParameter from '../useQueryParameter';
 import useReplaceQueryParameter from '../useReplaceQueryParameter';
 import { BrowserInput } from "./styled"
@@ -12,12 +12,11 @@ function Browser() {
     const history = useHistory()
     const query = useQueryParameter()
     const queryString = useSelector(selectQueryString)
-
-    if(queryString === "" && query) {
-        dispatch(setQueryString(query))
-    }
-
     const replaceQueryParameter = useReplaceQueryParameter()
+
+    useEffect(() => {if (queryString !==  query) {
+        dispatch(setQueryString(query))
+      }}, [location.pathname])
 
     const onInputChange = ({ target }) => {
         if (location.pathname.includes("movies" && location.pathname !== "/movies" )) {
@@ -31,7 +30,7 @@ function Browser() {
             key: "search",
             value: queryValue
         });
-        dispatch(setQueryString(queryValue))
+        dispatch(setQueryParameter(queryValue))
     }
 
     return (

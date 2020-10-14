@@ -24,5 +24,5 @@ export const usePopular = (page, apiLink) => {
         }
     };
     useEffect(() => { getData(page) }, [page]);
-    return data.results;
+    return data;
 }

@@ -28,5 +28,5 @@ export const useSearch = (page, apiLink) => {
         }
     };
     useEffect(() => { getData(page) }, [page, queryString]);
-    return data.results;
+    return data;
 }

@@ -4,16 +4,15 @@ import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSelectedPage, setSelectedPage } from '../MoviesSlice';
+import { selectQueryString, selectSelectedPage, setSelectedPage } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import { useSearch } from '../useSearch';
-import useQueryParameter from '../useQueryParameter';
 
 
 function Movies() {
 
   const dispatch = useDispatch()
-  const query = useQueryParameter()
+  const queryString = useSelector(selectQueryString)
 
   const page = useSelector(selectSelectedPage)
   useEffect(() => { dispatch(setSelectedPage("first")) }, [])
@@ -23,12 +22,14 @@ function Movies() {
 
   return (
     <Container>
-      <Header text={query ? `Search results for "${query}"` : "Popular Movies"} />
+      <Header text={queryString ? `Search results for "${queryString}"` : "Popular Movies"} />
       <GridTemplate
-        content={query ? searchResults : popularMovies}
+        content={queryString ? searchResults.results : popularMovies.results}
         type={"movies"}
       />
-      <Pager />
+      <Pager 
+      content={queryString ? searchResults : popularMovies}
+      />
     </Container>
   );
 };

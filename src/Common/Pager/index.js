@@ -1,18 +1,18 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { selectPageInformation, selectSelectedPage, setSelectedPage } from "../../MoviesSlice"
+import { selectSelectedPage, setSelectedPage } from "../../MoviesSlice"
 import { Wrapper, ButtonContainer, Button, TextContainer, Counter, Img, TextToHide } from "./styled"
 import arrow from "./arrow.svg"
 import disabledArrow from "./disabledArrow.svg"
 
-const Pager = () => {
+const Pager = ({ content }) => {
 
     const dispatch = useDispatch()
 
     const page = useSelector(selectSelectedPage)
-    const currentPageInformation = useSelector(selectPageInformation)
+    console.log(content)
 
-    const maxPage = currentPageInformation.total_pages
+    const maxPage = content.total_pages
 
     return (
         <Wrapper>

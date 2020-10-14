@@ -16,7 +16,7 @@ const moviesSlice = createSlice({
             total_results: 0,
             total_pages: 0
         },
-        queryString: ""
+        queryString: undefined
     },
     reducers: {
         setPageInformation: (state, { payload }) => {
@@ -42,6 +42,11 @@ const moviesSlice = createSlice({
         },
         setQueryString: (state, { payload }) => {
             state.queryString = payload
+            if (payload === ""){
+                state.queryString = undefined 
+            }
+        },
+        setQueryParameter: ({payload}) => {
         }
     }
 }
@@ -52,6 +57,7 @@ export const {
     setSearchResults,
     setSelectedPage,
     setQueryString,
+    setQueryParameter
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies
