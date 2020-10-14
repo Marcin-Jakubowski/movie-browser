@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
-import { selectQueryString, setQueryString } from '../Movies/MoviesSlice';
+import { selectQueryString, setQueryString } from '../MoviesSlice';
 import useQueryParameter from '../useQueryParameter';
 import useReplaceQueryParameter from '../useReplaceQueryParameter';
 import { BrowserInput } from "./styled"

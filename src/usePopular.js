@@ -1,11 +1,11 @@
 import axios from "axios"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { apiKey } from "../apiKey"
+import { apiKey } from "./apiKey"
 import { selectPageInformation, setPageInformation } from "./MoviesSlice"
 
 
-export const useAPI = (page, apiLink) => {
+export const usePopular = (page, apiLink) => {
 
     const dispatch = useDispatch();
     const data = useSelector(selectPageInformation)

@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { selectPageInformation, selectSelectedPage, setSelectedPage } from "../../Movies/MoviesSlice"
+import { selectPageInformation, selectSelectedPage, setSelectedPage } from "../../MoviesSlice"
 import { Wrapper, ButtonContainer, Button, TextContainer, Counter, Img, TextToHide } from "./styled"
 import arrow from "./arrow.svg"
 import disabledArrow from "./disabledArrow.svg"
