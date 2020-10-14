@@ -8,10 +8,7 @@ import disabledArrow from "./disabledArrow.svg"
 const Pager = ({ content }) => {
 
     const dispatch = useDispatch()
-
     const page = useSelector(selectSelectedPage)
-    console.log(content)
-
     const maxPage = content.total_pages
 
     return (
