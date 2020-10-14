@@ -1,5 +1,7 @@
-import React from "react"
-import { Wrapper } from "./styled"
+import React from "react";
+import { Link } from "react-router-dom";
+import { Wrapper } from "./styled";
+
 
 const GridTemplate = ({ content, type }) => {
   return (
@@ -8,7 +10,7 @@ const GridTemplate = ({ content, type }) => {
     >
       {content.map((fragment) => (
         <div>
-          {type === "movies" ? fragment.title : fragment.name}
+          {type === "movies" ? <Link to={`/movies/${fragment.id}`}>{fragment.title}</Link> : fragment.name}
         </div>)
       )}
     </Wrapper>

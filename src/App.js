@@ -24,6 +24,9 @@ export default () => (
         </NavContainer>
       </NavList>
       <Switch>
+        <Route path="/movies/:id">
+          <Movies />
+        </Route>
         <Route path="/movies">
           <Movies />
         </Route>
