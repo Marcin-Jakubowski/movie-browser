@@ -2,13 +2,14 @@ import axios from "axios"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { apiKey } from "./apiKey"
-import { selectPageInformation, setPageInformation } from "./MoviesSlice"
+import { selectPageInformation, selectQueryString, setPageInformation, setSelectedPage } from "./MoviesSlice"
 
 
 export const usePopular = (page, apiLink) => {
 
     const dispatch = useDispatch();
     const data = useSelector(selectPageInformation)
+    const queryString = useSelector(selectQueryString)
 
     const getData = async () => {
         try {
@@ -24,5 +25,6 @@ export const usePopular = (page, apiLink) => {
         }
     };
     useEffect(() => { getData(page) }, [page]);
+    useEffect(() => { dispatch(setSelectedPage(1)) }, [queryString])
     return data;
 }

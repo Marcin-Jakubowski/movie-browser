@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { apiKey } from "./apiKey"
-import { selectQueryString, selectSearchResults, setSearchResults, } from "./MoviesSlice"
+import { selectQueryString, selectSearchResults, setSearchResults, setSelectedPage, } from "./MoviesSlice"
 
 
 export const useSearch = (page, apiLink) => {
@@ -28,5 +28,6 @@ export const useSearch = (page, apiLink) => {
         }
     };
     useEffect(() => { getData(page) }, [page, queryString]);
+    useEffect(() => { dispatch(setSelectedPage(1)) }, [queryString])
     return data;
 }
