@@ -9,7 +9,8 @@ const moviesSlice = createSlice({
             results: [],
             total_results: 0,
             total_pages: 0
-        }
+        },
+        movieDetails: []
     },
     reducers: {
         setPageInformation: (state, { payload }) => {
@@ -29,17 +30,21 @@ const moviesSlice = createSlice({
                 default:
                     state.selectedPage = payload
             }
-        }
+        },
+        setMovieDetails: (state, { payload }) => {
+            state.movieDetails = payload
+        },
     }
-}
-)
+});
 
 export const {
     setPageInformation,
-    setSelectedPage
+    setSelectedPage,
+    setMovieDetails
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies
 export const selectSelectedPage = state => selectMovies(state).selectedPage
 export const selectPageInformation = state => selectMovies(state).pageInformations
+export const selectMovieDetails = state => selectMovies(state).movieDetails
 export default moviesSlice.reducer
