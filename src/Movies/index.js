@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useAPI } from "./useAPItest";
+import { useAPI } from "./useAPI";
 import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
@@ -14,7 +14,7 @@ function Movies() {
 
   const page = useSelector(selectSelectedPage)
 
-  useEffect(() => { dispatch(setSelectedPage("first")) }, [])
+  useEffect(() => { dispatch(setSelectedPage("first")); }, [])
 
   const popularMovies = useAPI(page, "https://api.themoviedb.org/3/movie/popular?")
 
