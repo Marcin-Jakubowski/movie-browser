@@ -10,5 +10,5 @@ function* setQueryStringHandler(action) {
 
 
 export function* MoviesSaga() {
-    yield debounce(1000, setQueryParameter.type, setQueryStringHandler)
+    yield debounce(500, setQueryParameter.type, setQueryStringHandler)
 }
