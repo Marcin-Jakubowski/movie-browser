@@ -14,7 +14,7 @@ import {
     VotesBigContent,
 
 } from './styled';
-import imageBaseLink from "./imageBaseLink";
+import imageBaseLink from "../imageBaseLink";
 import voteIcon from "./voteIcon.svg";
 import Container from '../Common/Container';
 import Header from '../Common/Header';
@@ -55,14 +55,14 @@ function MoviePage() {
             <Container>
                 <Header text={"Cast"} />
                 <GridTemplate
-                    content={[]}
+                    content={movieCredits.cast}
                     type={"people"}
                 />
             </Container>
             <Container>
                 <Header text={"Crew"} />
                 <GridTemplate
-                    content={[]}
+                    content={movieCredits.crew}
                     type={"people"}
                 />
             </Container>
