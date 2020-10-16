@@ -13,7 +13,8 @@ const moviesSlice = createSlice({
         movieDetails: [],
         movieCredits: [],
         personDetails: [],
-        personCredits: []
+        personCredits: [],
+        queryString: undefined
     },
     reducers: {
         setPageInformation: (state, { payload }) => {
@@ -45,6 +46,14 @@ const moviesSlice = createSlice({
         },
         setPersonCredits: (state, { payload }) => {
             state.personCredits = payload
+        },
+        setQueryString: (state, { payload }) => {
+            state.queryString = payload
+            if (payload === "") {
+                state.queryString = undefined
+            }
+        },
+        setQueryParameter: ({ payload }) => {
         }
     }
 });
@@ -55,7 +64,9 @@ export const {
     setMovieDetails,
     setMovieCredits,
     setPersonDetails,
-    setPersonCredits
+    setPersonCredits,
+    setQueryString,
+    setQueryParameter
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies
@@ -65,4 +76,5 @@ export const selectMovieDetails = state => selectMovies(state).movieDetails
 export const selectMovieCredits = state => selectMovies(state).movieCredits
 export const selectPersonDetails = state => selectMovies(state).personDetails
 export const selectPersonCredits = state => selectMovies(state).personCredits
+export const selectQueryString = state => selectMovies(state).queryString
 export default moviesSlice.reducer

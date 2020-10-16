@@ -12,7 +12,7 @@ import {
     setPersonDetails,
     setPersonCredits
 
-} from "./MoviesSlice";
+} from "../MoviesSlice";
 
 
 export const useAPI = (type, apiLink) => {

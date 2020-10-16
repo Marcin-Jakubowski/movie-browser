@@ -1,31 +1,36 @@
 import React, { useEffect } from 'react';
-import { useAPI } from "../Movies/useAPI"
+import { useFetch } from "../useFetch"
 import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSelectedPage, setSelectedPage } from '../Movies/MoviesSlice';
+import { selectQueryString, selectSelectedPage, setSelectedPage } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 
 
 function People() {
 
   const dispatch = useDispatch()
-
+  const queryString = useSelector(selectQueryString)
   const page = useSelector(selectSelectedPage)
 
   useEffect(() => { dispatch(setSelectedPage("first")) }, [])
 
-  const popularPeople = useAPI(page, "https://api.themoviedb.org/3/person/popular?")
+  const fetchResults = useFetch(
+    page,
+    "https://api.themoviedb.org/3/search/person?",
+    "https://api.themoviedb.org/3/person/popular?")
 
   return (
     <Container>
-      <Header text={"Popular People"} />
+      <Header text={queryString ? `Search results for "${queryString}"` : "Popular People"} />
       <GridTemplate
-        content={popularPeople}
+        content={fetchResults.results}
         type={"people"}
       />
-      <Pager />
+      <Pager
+        content={fetchResults}
+      />
     </Container>
   );
 };
