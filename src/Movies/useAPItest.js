@@ -13,7 +13,6 @@ import {
     setPersonCredits
 
 } from "./MoviesSlice";
-import store from "../store";
 
 
 export const useAPI = (type, apiLink) => {
@@ -23,7 +22,6 @@ export const useAPI = (type, apiLink) => {
     const movieCreditsData = useSelector(selectMovieCredits);
     const personDetailsData = useSelector(selectPersonDetails);
     const personCreditsData = useSelector(selectPersonCredits);
-
     let data = "";
 
     switch (type) {
