@@ -9,7 +9,8 @@ const moviesSlice = createSlice({
             results: [],
             total_results: 0,
             total_pages: 0
-        }
+        },
+        queryString: undefined
     },
     reducers: {
         setPageInformation: (state, { payload }) => {
@@ -29,6 +30,14 @@ const moviesSlice = createSlice({
                 default:
                     state.selectedPage = payload
             }
+        },
+        setQueryString: (state, { payload }) => {
+            state.queryString = payload
+            if (payload === "") {
+                state.queryString = undefined
+            }
+        },
+        setQueryParameter: ({ payload }) => {
         }
     }
 }
@@ -36,10 +45,13 @@ const moviesSlice = createSlice({
 
 export const {
     setPageInformation,
-    setSelectedPage
+    setSelectedPage,
+    setQueryString,
+    setQueryParameter
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies
 export const selectSelectedPage = state => selectMovies(state).selectedPage
 export const selectPageInformation = state => selectMovies(state).pageInformations
+export const selectQueryString = state => selectMovies(state).queryString
 export default moviesSlice.reducer
