@@ -33,11 +33,11 @@ const moviesSlice = createSlice({
         },
         setQueryString: (state, { payload }) => {
             state.queryString = payload
-            if (payload === ""){
-                state.queryString = undefined 
+            if (payload === "") {
+                state.queryString = undefined
             }
         },
-        setQueryParameter: ({payload}) => {
+        setQueryParameter: ({ payload }) => {
         }
     }
 }

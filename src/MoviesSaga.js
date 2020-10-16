@@ -1,11 +1,11 @@
-import { put, debounce} from "redux-saga/effects"
-import {setQueryParameter, setQueryString } from "./MoviesSlice"
+import { put, debounce } from "redux-saga/effects"
+import { setQueryParameter, setQueryString } from "./MoviesSlice"
 
 
 
 function* setQueryStringHandler(action) {
     const query = yield action.payload
-   yield put(setQueryString(query))
+    yield put(setQueryString(query))
 }
 
 

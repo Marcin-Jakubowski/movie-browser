@@ -52,7 +52,7 @@ export const useFetch = (page, searchLink, popularLink) => {
         }
     }
 
-    useEffect(() => { getData()}, [queryString, page]);
+    useEffect(() => { getData() }, [queryString, page]);
     useEffect(() => { dispatch(setSelectedPage(1)) }, [queryString])
     return data;
 }
