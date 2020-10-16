@@ -8,7 +8,7 @@ const GridTemplate = ({ content, type }) => {
     <Wrapper
       type={type}
     >
-      {content.map((fragment) => (
+      {content && content.map((fragment) => (
         <div>
           {type === "movies" ? <Link to={`/movies/${fragment.id}`}>{fragment.title}</Link> : fragment.name}
         </div>)
