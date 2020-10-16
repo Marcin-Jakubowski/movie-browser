@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const PosterBackgroundContainer = styled.div`
+export const PosterBackgrundContainer = styled.div`
+    width: 100%;
+    background-color: ${({theme}) => theme.color.posterBackground};
+`;
+
+export const PosterShadowContainer = styled.div`
     margin: 0 auto;
     max-width: 1920px; 
     max-height: 770px;
@@ -24,17 +29,44 @@ export const PosterItemsContainer = styled.div`
     margin: 0 auto;
     max-width: 1368px;
     height: 769px;
-`;
-
-export const ItemsContainer = styled.div`
-    margin: auto auto 56px 0;
-    max-width: 1368px;
-    height: 176px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 56px 0;
 `;
 
 export const LongTitle = styled.p`
     font-size: 64px;
     line-height: 77px;
     font-weight: 600;
-    margin: 0;
+    margin: 15px 0;
+`;
+
+export const VotesAverageContainer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const VoteIcon = styled.img`
+    display: block;
+    width: 40px;
+`;
+
+export const VotesAverageBox = styled.div`
+    display: flex;
+    align-items: flex-end;
+`;
+
+export const VotesSmallContent = styled.div`
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+`;
+
+export const VotesBigContent = styled.div`
+    font-size: 30px;
+    font-weight: 500;
+    display: block;
+    margin: 0 8px;
+    line-height: 1;
 `;

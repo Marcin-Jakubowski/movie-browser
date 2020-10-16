@@ -2,13 +2,20 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useAPI } from "../Movies/useAPItest";
 import {
-    PosterBackgroundContainer,
+    PosterBackgrundContainer,
+    PosterShadowContainer,
     PosterBackgroundImageContainer,
     PosterItemsContainer,
-    ItemsContainer,
-    LongTitle
+    LongTitle,
+    VotesAverageContainer,
+    VotesAverageBox,
+    VoteIcon,
+    VotesSmallContent,
+    VotesBigContent,
+
 } from './styled';
-import imageBaseLink from "./imageBaseLink"
+import imageBaseLink from "./imageBaseLink";
+import voteIcon from "./voteIcon.svg";
 
 function MoviePage() {
     const { id } = useParams();
@@ -17,19 +24,30 @@ function MoviePage() {
     console.log("x");
 
     return (
-        <PosterBackgroundContainer link={'"' + PosterImageBaseLink + movieDetails.backdrop_path + '"'}>
-            <PosterBackgroundImageContainer>
-                <PosterItemsContainer>
-                    <ItemsContainer>
+        <PosterBackgrundContainer>
+            <PosterShadowContainer link={'"' + PosterImageBaseLink + movieDetails.backdrop_path + '"'}>
+                <PosterBackgroundImageContainer>
+                    <PosterItemsContainer>
                         <LongTitle>
                             {movieDetails.original_title}
                         </LongTitle>
+                        <VotesAverageContainer>
+                            <VoteIcon src={voteIcon} alt="Vote icon" />
+                            <VotesAverageBox>
+                                <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
+                                <VotesSmallContent> / 10</VotesSmallContent>
+                            </VotesAverageBox>
+                        </VotesAverageContainer>
+                        <p>
+                            <VotesSmallContent>
+                                {movieDetails.vote_count} votes
+                        </VotesSmallContent>
+                        </p>
 
-                    </ItemsContainer>
-                    test
-                </PosterItemsContainer>
-            </PosterBackgroundImageContainer>
-        </PosterBackgroundContainer>
+                    </PosterItemsContainer>
+                </PosterBackgroundImageContainer>
+            </PosterShadowContainer>
+        </PosterBackgrundContainer>
     );
 };
 
