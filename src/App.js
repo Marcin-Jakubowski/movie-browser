@@ -6,6 +6,7 @@ import NavLogoButton from "./NavLogoButton/index";
 import Browser from "./Browser/index";
 import { StyledNavLink, StyledNavLinkLogo, NavList, NavListItem, NavContainer } from "./styled";
 import MoviePage from './MoviePage';
+import PersonPage from './PersonPage';
 
 export default () => (
   <HashRouter>
@@ -27,6 +28,9 @@ export default () => (
       <Switch>
         <Route path="/movies/:id">
           <MoviePage />
+        </Route>
+        <Route path="/people/:id">
+          <PersonPage />
         </Route>
         <Route path="/movies">
           <Movies />
