@@ -16,38 +16,57 @@ import {
 } from './styled';
 import imageBaseLink from "./imageBaseLink";
 import voteIcon from "./voteIcon.svg";
+import Container from '../Common/Container';
+import Header from '../Common/Header';
+import GridTemplate from '../Common/GridTemplate';
 
 function MoviePage() {
     const { id } = useParams();
-    const movieDetails = useAPI(`https://api.themoviedb.org/3/movie/${id}?`);
+    const movieDetails = useAPI("movieDetails", `https://api.themoviedb.org/3/movie/${id}?`);
+    const movieCredits = useAPI("movieCredits", `https://api.themoviedb.org/3/movie/${id}/credits?`);
     const PosterImageBaseLink = imageBaseLink("w1280");
-    console.log("x");
 
     return (
-        <PosterBackgrundContainer>
-            <PosterShadowContainer link={'"' + PosterImageBaseLink + movieDetails.backdrop_path + '"'}>
-                <PosterBackgroundImageContainer>
-                    <PosterItemsContainer>
-                        <LongTitle>
-                            {movieDetails.original_title}
-                        </LongTitle>
-                        <VotesAverageContainer>
-                            <VoteIcon src={voteIcon} alt="Vote icon" />
-                            <VotesAverageBox>
-                                <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
-                                <VotesSmallContent> / 10</VotesSmallContent>
-                            </VotesAverageBox>
-                        </VotesAverageContainer>
-                        <p>
-                            <VotesSmallContent>
-                                {movieDetails.vote_count} votes
+        <div>
+            <PosterBackgrundContainer>
+                <PosterShadowContainer link={'"' + PosterImageBaseLink + movieDetails.backdrop_path + '"'}>
+                    <PosterBackgroundImageContainer>
+                        <PosterItemsContainer>
+                            <LongTitle>
+                                {movieDetails.original_title}
+                            </LongTitle>
+                            <VotesAverageContainer>
+                                <VoteIcon src={voteIcon} alt="Vote icon" />
+                                <VotesAverageBox>
+                                    <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
+                                    <VotesSmallContent> / 10</VotesSmallContent>
+                                </VotesAverageBox>
+                            </VotesAverageContainer>
+                            <p>
+                                <VotesSmallContent>
+                                    {movieDetails.vote_count} votes
                         </VotesSmallContent>
-                        </p>
+                            </p>
 
-                    </PosterItemsContainer>
-                </PosterBackgroundImageContainer>
-            </PosterShadowContainer>
-        </PosterBackgrundContainer>
+                        </PosterItemsContainer>
+                    </PosterBackgroundImageContainer>
+                </PosterShadowContainer>
+            </PosterBackgrundContainer>
+            <Container>
+                <Header text={"Cast"} />
+                <GridTemplate
+                    content={[]}
+                    type={"people"}
+                />
+            </Container>
+            <Container>
+                <Header text={"Crew"} />
+                <GridTemplate
+                    content={[]}
+                    type={"people"}
+                />
+            </Container>
+        </div>
     );
 };
 
