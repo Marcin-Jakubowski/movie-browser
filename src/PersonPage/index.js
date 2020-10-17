@@ -17,14 +17,14 @@ console.log(personCredits)
                 <Header text={`Movies - cast(${personCredits.cast && personCredits.cast.length})`} />
                 <GridTemplate
                     content={personCredits.cast}
-                    type={"people"}
+                    type={"movies"}
                 />
             </Container>
             <Container>
                 <Header text={`Movies - Crew(${personCredits.crew && personCredits.crew.length})`} />
                 <GridTemplate
                     content={personCredits.crew}
-                    type={"people"}
+                    type={"movies"}
                 />
             </Container>
         </div>
