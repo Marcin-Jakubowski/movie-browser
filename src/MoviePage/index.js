@@ -19,6 +19,7 @@ import voteIcon from "./voteIcon.svg";
 import Container from '../Common/Container';
 import Header from '../Common/Header';
 import GridTemplate from '../Common/GridTemplate';
+import { peopleKey } from '../apiKey';
 
 function MoviePage() {
     const { id } = useParams();
@@ -56,14 +57,14 @@ function MoviePage() {
                 <Header text={"Cast"} />
                 <GridTemplate
                     content={movieCredits.cast}
-                    type={"people"}
+                    type={peopleKey}
                 />
             </Container>
             <Container>
                 <Header text={"Crew"} />
                 <GridTemplate
                     content={movieCredits.crew}
-                    type={"people"}
+                    type={peopleKey}
                 />
             </Container>
         </div>

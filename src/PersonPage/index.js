@@ -4,6 +4,7 @@ import { useAPI } from "../Movies/useAPItest";
 import Container from '../Common/Container';
 import Header from '../Common/Header';
 import GridTemplate from '../Common/GridTemplate';
+import { moviesKey } from '../apiKey';
 
 function MoviePage() {
     const { id } = useParams();
@@ -16,14 +17,14 @@ function MoviePage() {
                 <Header text={`Movies - cast(${personCredits.cast && personCredits.cast.length})`} />
                 <GridTemplate
                     content={personCredits.cast}
-                    type={"movies"}
+                    type={moviesKey}
                 />
             </Container>
             <Container>
                 <Header text={`Movies - Crew(${personCredits.crew && personCredits.crew.length})`} />
                 <GridTemplate
                     content={personCredits.crew}
-                    type={"movies"}
+                    type={moviesKey}
                 />
             </Container>
         </div>

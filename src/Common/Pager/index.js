@@ -4,10 +4,11 @@ import arrow from "./arrow.svg"
 import disabledArrow from "./disabledArrow.svg"
 import useQueryParameter from "../../useQueryParameter"
 import useReplaceQueryParameter from "../../useReplaceQueryParameter"
+import { pageKey } from "../../apiKey"
 
 const Pager = ({ content, type }) => {
 
-    const page = useQueryParameter("page")
+    const page = useQueryParameter(pageKey)
     const replaceQueryParameter = useReplaceQueryParameter()
     const maxPage = content.total_pages
 
@@ -15,7 +16,7 @@ const Pager = ({ content, type }) => {
 
     const onClickButton = (value) => {
         replaceQueryParameter(type, {
-            key: "page",
+            key: pageKey,
             value: value,
         })
     }

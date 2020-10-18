@@ -1,4 +1,5 @@
 import { useLocation, useHistory } from "react-router-dom"
+import { pageKey, searchKey } from "./apiKey";
 
 const useReplaceQueryParameter = () => {
 
@@ -14,8 +15,8 @@ const useReplaceQueryParameter = () => {
             searchParams.set(key, value)
 
         }
-        if (key === "search") {
-            searchParams.set("page", 1)
+        if (key === searchKey) {
+            searchParams.set(pageKey, 1)
         }
         history.push(`/${type}?${searchParams.toString()}`)
     }
