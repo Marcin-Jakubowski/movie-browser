@@ -9,7 +9,6 @@ function MoviePage() {
     const { id } = useParams();
     const personDetails = useAPI("personDetails", `https://api.themoviedb.org/3/person/${id}?`);
     const personCredits = useAPI("personCredits", `https://api.themoviedb.org/3/person/${id}/tv_credits?`);
-console.log(personCredits)
     return (
         <div>
             <Container>{personDetails.name}</Container>
