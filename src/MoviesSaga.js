@@ -1,7 +1,7 @@
 import { put, debounce, call, takeLatest } from "redux-saga/effects"
 import { fetchFromApi } from "./fetchFromApi"
 import { initialFetch, inputChange, setPageInformation, setQueryString, } from "./MoviesSlice"
-import {moviesKey, pepoleKey} from "./apiKey"
+import {moviesKey, peopleKey} from "./apiKey"
 
 
 
@@ -14,7 +14,7 @@ function* fetchHandler(action) {
             const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/search/movie??", page, query)
             yield put(setPageInformation(data))
         }
-        if (type === pepoleKey) {
+        if (type === peopleKey) {
             const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/search/person?", page, query)
             yield put(setPageInformation(data))
         }
@@ -23,7 +23,7 @@ function* fetchHandler(action) {
             const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/movie/popular?", page)
             yield put(setPageInformation(data))
         }
-        if (type === pepoleKey) {
+        if (type === peopleKey) {
             const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/person/popular?", page)
             yield put(setPageInformation(data))
         }
