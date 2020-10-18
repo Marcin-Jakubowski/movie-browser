@@ -14,7 +14,7 @@ function Movies() {
   const queryString = useSelector(selectQueryString)
   const page = useSelector(selectSelectedPage)
 
-  useEffect(() => { dispatch(setSelectedPage("first")) }, [])
+  useEffect(() => { dispatch(setSelectedPage("first")); }, [])
 
   const fetchResults = useFetch(
     page,
