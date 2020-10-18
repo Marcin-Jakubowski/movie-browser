@@ -1,6 +1,4 @@
 import React from "react"
-import { useDispatch } from "react-redux"
-import { changePage } from "../../MoviesSlice"
 import { Wrapper, ButtonContainer, Button, TextContainer, Counter, Img, TextToHide } from "./styled"
 import arrow from "./arrow.svg"
 import disabledArrow from "./disabledArrow.svg"
@@ -9,7 +7,6 @@ import useReplaceQueryParameter from "../../useReplaceQueryParameter"
 
 const Pager = ({ content, type }) => {
 
-    const dispatch = useDispatch()
     const page = useQueryParameter("page")
     const replaceQueryParameter = useReplaceQueryParameter()
     const maxPage = content.total_pages
@@ -21,7 +18,6 @@ const Pager = ({ content, type }) => {
             key: "page",
             value: value,
         })
-        dispatch(changePage({page: value, type: type}))
     }
 
 

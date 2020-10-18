@@ -16,7 +16,7 @@ const moviesSlice = createSlice({
         queryString: undefined
     },
     reducers: {
-        checkIfFetchPopular: ({ payload }) => {
+        initialFetch: ({ payload }) => {
 
         },
         setPageInformation: (state, { payload }) => {
@@ -44,7 +44,7 @@ const moviesSlice = createSlice({
 });
 
 export const {
-    checkIfFetchPopular,
+    initialFetch,
     setPageInformation,
     setMovieDetails,
     setMovieCredits,

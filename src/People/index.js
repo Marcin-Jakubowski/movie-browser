@@ -3,29 +3,36 @@ import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkIfFetchPopular, selectPageInformation } from '../MoviesSlice';
+import { initialFetch, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
-import { useLocation } from 'react-router-dom';
 import useQueryParameter from '../useQueryParameter';
 
 function People() {
   const type = "people"
-  const location = useLocation()
   const query = useQueryParameter("search")
   const page = useQueryParameter("page")
   const dispatch = useDispatch()
   const people = useSelector(selectPageInformation)
 
   const fetchOnLoad = () => {
-    if (!query && !page) {
-      dispatch(checkIfFetchPopular({ page: 1, type: type }));
+    if (!page) {
+      dispatch(initialFetch({
+        page: 1,
+        type: type,
+        query: query
+      }));
     }
-    if (!query && page) {
-      dispatch(checkIfFetchPopular({ page: page, type: type }));
+    if (page) {
+      dispatch(initialFetch({
+        page: page,
+        type: type,
+        query: query
+      }));
     }
   }
 
-  useEffect(() => { fetchOnLoad() }, [location.pathname, query])
+  useEffect(() => { fetchOnLoad() }, [page, query, type])
+
 
   return (
     <Container>
