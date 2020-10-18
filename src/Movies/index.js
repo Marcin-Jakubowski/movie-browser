@@ -3,7 +3,7 @@ import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { initialFetch, selectPageInformation, selectQueryString } from '../MoviesSlice';
+import { initialFetch, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import useQueryParameter from '../useQueryParameter';
 
@@ -14,7 +14,6 @@ function Movies() {
   const page = useQueryParameter("page")
   const dispatch = useDispatch()
   const movies = useSelector(selectPageInformation)
-  const queryString = useSelector(selectQueryString)
 
   const fetchOnLoad = () => {
     if (!page) {
@@ -38,7 +37,7 @@ function Movies() {
 
   return (
     <Container>
-      <Header text={`Popular ${type}`} />
+      <Header text={!query ? `Popular ${type}` : `Search Results for "${query}"`} />
       <GridTemplate
         content={movies.results}
         type={type}

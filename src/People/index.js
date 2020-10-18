@@ -36,7 +36,7 @@ function People() {
 
   return (
     <Container>
-      <Header text={`Popular ${type}`} />
+      <Header text={!query ? `Popular ${type}` : `Search Results for "${query}"`} />
       <GridTemplate
         content={people.results}
         type={type}
