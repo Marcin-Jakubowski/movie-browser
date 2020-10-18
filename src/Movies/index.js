@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initialFetch, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import useQueryParameter from '../useQueryParameter';
-import { moviesKey, pageKey, searchKey } from '../apiKey';
+import { moviesKey, pageKey, searchKey } from '../keys';
 
 
 function Movies() {

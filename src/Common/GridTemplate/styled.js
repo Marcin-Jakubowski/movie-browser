@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { moviesKey, peopleKey } from "../../apiKey"
+import { moviesKey, peopleKey } from "../../keys"
 
 export const Wrapper = styled.section`
     width: 100%;

@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { apiKey } from "./apiKey"
+import { apiKey } from "./keys"
 
 export const fetchFromApi = async (link, page, query) => {
 

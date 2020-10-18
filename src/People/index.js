@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initialFetch, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import useQueryParameter from '../useQueryParameter';
-import { pageKey, peopleKey, searchKey } from '../apiKey';
+import { pageKey, peopleKey, searchKey } from '../keys';
 
 function People() {
   const type = peopleKey

@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 import useReplaceQueryParameter from "../useReplaceQueryParameter"
-import {moviesKey, peopleKey, searchKey, } from "../apiKey"
+import {moviesKey, peopleKey, searchKey, } from "../keys"
 
 const useSearchByQuery = () => {
     const location = useLocation()

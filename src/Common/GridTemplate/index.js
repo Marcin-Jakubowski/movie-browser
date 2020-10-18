@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { moviesKey } from "../../apiKey";
+import { moviesKey } from "../../keys";
 import { Wrapper } from "./styled";
 
 

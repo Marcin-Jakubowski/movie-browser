@@ -1,7 +1,7 @@
 import { put, debounce, call, takeLatest } from "redux-saga/effects"
 import { fetchFromApi } from "./fetchFromApi"
 import { initialFetch, inputChange, setPageInformation, setQueryString, } from "./MoviesSlice"
-import {moviesKey, peopleKey} from "./apiKey"
+import {moviesKey, peopleKey} from "./keys"
 
 
 

@@ -4,7 +4,7 @@ import arrow from "./arrow.svg"
 import disabledArrow from "./disabledArrow.svg"
 import useQueryParameter from "../../useQueryParameter"
 import useReplaceQueryParameter from "../../useReplaceQueryParameter"
-import { pageKey } from "../../apiKey"
+import { pageKey } from "../../keys"
 
 const Pager = ({ content, type }) => {
 

@@ -4,7 +4,7 @@ import { useAPI } from "../Movies/useAPItest";
 import Container from '../Common/Container';
 import Header from '../Common/Header';
 import GridTemplate from '../Common/GridTemplate';
-import { moviesKey } from '../apiKey';
+import { moviesKey } from '../keys';
 
 function MoviePage() {
     const { id } = useParams();
