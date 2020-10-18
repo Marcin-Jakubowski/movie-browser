@@ -1,33 +1,47 @@
 import React from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { selectSelectedPage, setSelectedPage } from "../../MoviesSlice"
+import { useDispatch } from "react-redux"
+import { changePage } from "../../MoviesSlice"
 import { Wrapper, ButtonContainer, Button, TextContainer, Counter, Img, TextToHide } from "./styled"
 import arrow from "./arrow.svg"
 import disabledArrow from "./disabledArrow.svg"
+import useQueryParameter from "../../useQueryParameter"
+import useReplaceQueryParameter from "../../useReplaceQueryParameter"
 
-const Pager = ({ content }) => {
+const Pager = ({ content, type }) => {
 
     const dispatch = useDispatch()
-    const page = useSelector(selectSelectedPage)
+    const page = useQueryParameter("page")
+    const replaceQueryParameter = useReplaceQueryParameter()
     const maxPage = content.total_pages
+
+    const pageNumber = Number(page)
+
+    const onClickButton = (value) => {
+        replaceQueryParameter({
+            key: "page",
+            value: value,
+        })
+        dispatch(changePage({page: value, type: type}))
+    }
+
 
     return (
         <Wrapper>
             <ButtonContainer>
                 <Button
-                    disabled={page === 1}
-                    onClick={() => dispatch(setSelectedPage("first"))}
+                    disabled={pageNumber === 1 || !pageNumber}
+                    onClick={() => onClickButton(1)}
                 >
                     <Img
-                        src={page === 1 ? disabledArrow : arrow}
+                        src={pageNumber === 1 || !pageNumber ? disabledArrow : arrow}
                         alt="first page"
                         left
                     ></Img>
                     <TextToHide>
-                        Last
+                        First
                     </TextToHide>
                     <Img
-                        src={page === 1 ? disabledArrow : arrow}
+                        src={pageNumber === 1 || !pageNumber ? disabledArrow : arrow}
                         alt="first page"
                         left
                         second
@@ -35,11 +49,11 @@ const Pager = ({ content }) => {
 
                 </Button>
                 <Button
-                    disabled={page === 1}
-                    onClick={() => dispatch(setSelectedPage("previous"))}
+                    disabled={pageNumber === 1 || !pageNumber}
+                    onClick={() => onClickButton(pageNumber - 1)}
                 >
                     <Img
-                        src={page === 1 ? disabledArrow : arrow}
+                        src={pageNumber === 1 || !pageNumber ? disabledArrow : arrow}
                         alt="Previous page"
                         left
                     ></Img>
@@ -51,7 +65,7 @@ const Pager = ({ content }) => {
             <TextContainer>
                 Page
                 <Counter>
-                    {page}
+                    {pageNumber ? pageNumber : 1}
                 </Counter>
                 of
                 <Counter>
@@ -60,24 +74,25 @@ const Pager = ({ content }) => {
             </TextContainer>
             <ButtonContainer>
                 <Button
-                    disabled={page === maxPage}
-                    onClick={() => dispatch(setSelectedPage("next"))}
+                    disabled={pageNumber === maxPage}
+                    onClick={() => onClickButton(pageNumber ? pageNumber + 1 : 1 + 1)}
 
                 >
                     <TextToHide>
                         Next
                     </TextToHide>
                     <Img
-                        src={page === maxPage ? disabledArrow : arrow}
+                        src={pageNumber === maxPage ? disabledArrow : arrow}
                         alt="Next page"
                     ></Img>
                 </Button>
                 <Button
-                    disabled={page === maxPage}
-                    onClick={() => dispatch(setSelectedPage(maxPage))}
+                    disabled={pageNumber === maxPage}
+                    onClick={() => onClickButton(maxPage)}
+
                 >
                     <Img
-                        src={page === maxPage ? disabledArrow : arrow}
+                        src={pageNumber === maxPage ? disabledArrow : arrow}
                         alt="last page"
                         second
                     ></Img>
@@ -85,7 +100,7 @@ const Pager = ({ content }) => {
                         Last
                     </TextToHide>
                     <Img
-                        src={page === maxPage ? disabledArrow : arrow}
+                        src={pageNumber === maxPage ? disabledArrow : arrow}
                         alt="last page"
                     ></Img>
                 </Button>

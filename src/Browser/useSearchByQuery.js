@@ -9,16 +9,10 @@ const useSearchByQuery = () => {
     const dispatch = useDispatch()
     const location = useLocation()
     const history = useHistory()
-    const query = useQueryParameter()
-    const queryString = useSelector(selectQueryString)
+    const query = useQueryParameter("search")
     const replaceQueryParameter = useReplaceQueryParameter()
 
-    useEffect(() => {
-        if (queryString !== query) {
-            dispatch(setQueryString(query))
-        }
-    }, [location.pathname])
-
+   
     const searchByQuery = (target) => {
         if (location.pathname.includes("movies" && location.pathname !== "/movies")) {
             history.push("/movies")
@@ -31,7 +25,6 @@ const useSearchByQuery = () => {
             key: "search",
             value: queryValue
         });
-        dispatch(setQueryParameter(queryValue))
     }
 
     return searchByQuery
