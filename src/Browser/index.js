@@ -5,7 +5,7 @@ import useSearchByQuery from './useSearchByQuery';
 
 function Browser() {
 
-    const query = useQueryParameter()
+    const query = useQueryParameter("search")
     const searchByQuery = useSearchByQuery()
 
     const onInputChange = ({ target }) => {

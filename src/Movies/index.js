@@ -1,36 +1,44 @@
 import React, { useEffect } from 'react';
-import { useFetch } from "../useFetch"
 import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectQueryString, selectSelectedPage, setSelectedPage } from '../MoviesSlice';
+import { checkIfFetchPopular, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
+import useQueryParameter from '../useQueryParameter';
+import { useLocation } from 'react-router-dom';
 
 
 function Movies() {
-
+  const type = "movies"
+  const location = useLocation()
+  const query = useQueryParameter("search")
+  const page = useQueryParameter("page")
   const dispatch = useDispatch()
-  const queryString = useSelector(selectQueryString)
-  const page = useSelector(selectSelectedPage)
+  const movies = useSelector(selectPageInformation)
 
-  useEffect(() => { dispatch(setSelectedPage("first")) }, [])
+  const fetchOnLoad = () => {
+    if (!query && !page) {
+      dispatch(checkIfFetchPopular({page: 1, type:type}));
+    }
+    if (!query && page) {
+      dispatch(checkIfFetchPopular({page: page, type:type}));
+    }
+  }
 
-  const fetchResults = useFetch(
-    page,
-    "https://api.themoviedb.org/3/search/movie?",
-    "https://api.themoviedb.org/3/movie/popular?"
-  )
+  useEffect(() => { fetchOnLoad() }, [location.pathname, query])
+
 
   return (
     <Container>
-      <Header text={queryString ? `Search results for "${queryString}"` : "Popular Movies"} />
+      <Header text={`Popular ${type}`} />
       <GridTemplate
-        content={fetchResults.results}
-        type={"movies"}
+        content={movies.results}
+        type={type}
       />
       <Pager
-        content={fetchResults}
+        content={movies}
+        type={type}
       />
     </Container>
   );

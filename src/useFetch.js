@@ -10,7 +10,7 @@ export const useFetch = (page, searchLink, popularLink) => {
 
     const dispatch = useDispatch();
     const data = useSelector(selectPageInformation)
-    const query = useQueryParameter()
+    const query = useQueryParameter("search")
     const queryString = useSelector(selectQueryString)
 
     const getSearchResults = async () => {

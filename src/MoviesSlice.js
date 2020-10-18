@@ -13,6 +13,9 @@ const moviesSlice = createSlice({
         queryString: undefined
     },
     reducers: {
+        checkIfFetchPopular: ({ payload }) => {
+
+        },
         setPageInformation: (state, { payload }) => {
             state.pageInformations = payload
         },
@@ -31,6 +34,9 @@ const moviesSlice = createSlice({
                     state.selectedPage = payload
             }
         },
+        changePage: ({ payload }) => {
+
+        },
         setQueryString: (state, { payload }) => {
             state.queryString = payload
             if (payload === "") {
@@ -44,13 +50,16 @@ const moviesSlice = createSlice({
 )
 
 export const {
+    checkIfFetchPopular,
     setPageInformation,
     setSelectedPage,
+    changePage,
     setQueryString,
     setQueryParameter
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies
+export const selectType = state => selectMovies(state).type
 export const selectSelectedPage = state => selectMovies(state).selectedPage
 export const selectPageInformation = state => selectMovies(state).pageInformations
 export const selectQueryString = state => selectMovies(state).queryString
