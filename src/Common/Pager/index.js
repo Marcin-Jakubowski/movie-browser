@@ -17,7 +17,7 @@ const Pager = ({ content, type }) => {
     const pageNumber = Number(page)
 
     const onClickButton = (value) => {
-        replaceQueryParameter({
+        replaceQueryParameter(`/${type}`, {
             key: "page",
             value: value,
         })

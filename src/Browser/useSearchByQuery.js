@@ -1,29 +1,24 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { useHistory, useLocation } from "react-router-dom"
-import { selectQueryString, selectSelectedPage, setQueryParameter, setQueryString } from "../MoviesSlice"
-import useQueryParameter from "../useQueryParameter"
+import { useLocation } from "react-router-dom"
 import useReplaceQueryParameter from "../useReplaceQueryParameter"
 
 const useSearchByQuery = () => {
-    const dispatch = useDispatch()
-    const location = useLocation()
-    const history = useHistory()
-    const query = useQueryParameter("search")
-    const replaceQueryParameter = useReplaceQueryParameter()
 
-   
+    const location = useLocation()
+    const replaceQueryParameter = useReplaceQueryParameter()
     const searchByQuery = (target) => {
-        if (location.pathname.includes("movies" && location.pathname !== "/movies")) {
-            history.push("/movies")
+        let type = ""
+        if (location.pathname.includes("movies")) {
+            type = "/movies";
+            
         }
-        if (location.pathname.includes("people" && location.pathname !== "/people")) {
-            history.push("/people")
+        if (location.pathname.includes("people")) {
+            type = "/people";
         }
         const queryValue = target.value.trim() !== "" ? target.value : undefined
-        replaceQueryParameter({
+        replaceQueryParameter(type, {
             key: "search",
             value: queryValue
+            
         });
     }
 

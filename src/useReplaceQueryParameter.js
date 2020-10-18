@@ -6,7 +6,7 @@ const useReplaceQueryParameter = () => {
     const location = useLocation()
     const history = useHistory()
 
-    const setQueryValue = ({ key, value }) => {
+    const setQueryValue = (type, { key, value }) => {
         const searchParams = new URLSearchParams(location.search)
         if (!value) {
             searchParams.delete(key)
@@ -14,7 +14,10 @@ const useReplaceQueryParameter = () => {
             searchParams.set(key, value)
 
         }
-        history.push(`${location.pathname}?${searchParams.toString()}`)
+        if (key === "search") {
+            searchParams.set("page", 1)
+        }
+        history.push(`${type}?${searchParams.toString()}`)
     }
     return setQueryValue
 };
