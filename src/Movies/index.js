@@ -3,7 +3,7 @@ import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { initialFetch, selectPageInformation } from '../MoviesSlice';
+import { initialFetch, selectPageInformation, selectQueryString } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import useQueryParameter from '../useQueryParameter';
 
@@ -14,6 +14,7 @@ function Movies() {
   const page = useQueryParameter("page")
   const dispatch = useDispatch()
   const movies = useSelector(selectPageInformation)
+  const queryString = useSelector(selectQueryString)
 
   const fetchOnLoad = () => {
     if (!page) {
@@ -32,7 +33,7 @@ function Movies() {
     }
   }
 
-  useEffect(() => { fetchOnLoad() }, [page, query, type])
+  useEffect(() => { fetchOnLoad() }, [page, type, query])
 
 
   return (
