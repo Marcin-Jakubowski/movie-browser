@@ -17,7 +17,7 @@ const useReplaceQueryParameter = () => {
         if (key === "search") {
             searchParams.set("page", 1)
         }
-        history.push(`${type}?${searchParams.toString()}`)
+        history.push(`/${type}?${searchParams.toString()}`)
     }
     return setQueryValue
 };

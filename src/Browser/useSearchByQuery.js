@@ -8,11 +8,11 @@ const useSearchByQuery = () => {
     const searchByQuery = (target) => {
         let type = ""
         if (location.pathname.includes("movies")) {
-            type = "/movies";
+            type = "movies";
             
         }
         if (location.pathname.includes("people")) {
-            type = "/people";
+            type = "people";
         }
         const queryValue = target.value.trim() !== "" ? target.value : undefined
         replaceQueryParameter(type, {
