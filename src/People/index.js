@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
-import { useFetch } from "../useFetch"
 import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkIfFetchPopular, selectPageInformation, selectQueryString, selectSelectedPage, setSelectedPage } from '../MoviesSlice';
+import { checkIfFetchPopular, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import { useLocation } from 'react-router-dom';
 import useQueryParameter from '../useQueryParameter';
-
 
 function People() {
   const type = "people"
@@ -20,10 +18,10 @@ function People() {
 
   const fetchOnLoad = () => {
     if (!query && !page) {
-      dispatch(checkIfFetchPopular({page: 1, type:type}));
+      dispatch(checkIfFetchPopular({ page: 1, type: type }));
     }
     if (!query && page) {
-      dispatch(checkIfFetchPopular({page: page, type:type}));
+      dispatch(checkIfFetchPopular({ page: page, type: type }));
     }
   }
 
