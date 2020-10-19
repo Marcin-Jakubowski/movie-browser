@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit"
 const moviesSlice = createSlice({
     name: "movies",
     initialState: {
-        selectedPage: 1,
         pageInformations: {
             page: 0,
             results: [],
@@ -14,26 +13,14 @@ const moviesSlice = createSlice({
         movieCredits: [],
         personDetails: [],
         personCredits: [],
-        queryString: undefined
+        queryString: "initial"
     },
     reducers: {
+        initialFetch: ({ payload }) => {
+
+        },
         setPageInformation: (state, { payload }) => {
             state.pageInformations = payload
-        },
-        setSelectedPage: (state, { payload }) => {
-            switch (payload) {
-                case "first":
-                    state.selectedPage = 1;
-                    break;
-                case "previous":
-                    state.selectedPage--
-                    break;
-                case "next":
-                    state.selectedPage++
-                    break;
-                default:
-                    state.selectedPage = payload
-            }
         },
         setMovieDetails: (state, { payload }) => {
             state.movieDetails = payload
@@ -47,30 +34,28 @@ const moviesSlice = createSlice({
         setPersonCredits: (state, { payload }) => {
             state.personCredits = payload
         },
-        setQueryString: (state, { payload }) => {
-            state.queryString = payload
-            if (payload === "") {
-                state.queryString = undefined
-            }
+        inputChange: ({payload}) => {
+
         },
-        setQueryParameter: ({ payload }) => {
-        }
+        setQueryString : (state, {payload}) => {
+            state.queryString = payload
+        }, 
     }
 });
 
 export const {
+    initialFetch,
     setPageInformation,
-    setSelectedPage,
     setMovieDetails,
     setMovieCredits,
     setPersonDetails,
     setPersonCredits,
+    inputChange,
     setQueryString,
-    setQueryParameter
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies
-export const selectSelectedPage = state => selectMovies(state).selectedPage
+export const selectType = state => selectMovies(state).type
 export const selectPageInformation = state => selectMovies(state).pageInformations
 export const selectMovieDetails = state => selectMovies(state).movieDetails
 export const selectMovieCredits = state => selectMovies(state).movieCredits

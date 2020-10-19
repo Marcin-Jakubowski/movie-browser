@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import { moviesKey, peopleKey } from "../../keys"
 
 export const Wrapper = styled.section`
     width: 100%;
@@ -6,7 +7,7 @@ export const Wrapper = styled.section`
     display: grid;
     grid-gap: 24px;
 
-    ${({ type }) => type === "movies" && css`
+    ${({ type }) => type === moviesKey && css`
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: 650px;
 
@@ -17,7 +18,7 @@ export const Wrapper = styled.section`
         }
 `}
 
-    ${({ type }) => type === "people" && css`
+    ${({ type }) => type === peopleKey && css`
         grid-template-columns: repeat(6, 1fr);
         grid-auto-rows: 339px;
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
