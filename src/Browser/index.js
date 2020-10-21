@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { inputChange, selectQueryString } from '../MoviesSlice';
 import { BrowserInput } from "./styled"
@@ -17,7 +17,7 @@ function Browser() {
         dispatch(inputChange(target.value))
     }
 
-    useEffect(() => {searchByQuery(queryString)}, [queryString])
+    useEffect(() => { searchByQuery(queryString) }, [queryString])
 
     return (
         <BrowserInput
