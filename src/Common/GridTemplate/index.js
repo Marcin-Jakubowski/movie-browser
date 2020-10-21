@@ -12,7 +12,7 @@ const GridTemplate = ({ content, type }) => {
       {content && content.map((fragment) => (
         <div>
           {type === moviesKey
-          ? <Link to={`/movies/${fragment.id}`}>{fragment.title || fragment.name}</Link>
+          ? <Link to={`/movies/${fragment.id}`}>{fragment.title}</Link>
           : <Link to={`/people/${fragment.id}`}>{fragment.name}</Link>}
         </div>)
       )}

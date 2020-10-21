@@ -9,7 +9,7 @@ import { moviesKey } from '../keys';
 function MoviePage() {
     const { id } = useParams();
     const personDetails = useAPI("personDetails", `https://api.themoviedb.org/3/person/${id}?`);
-    const personCredits = useAPI("personCredits", `https://api.themoviedb.org/3/person/${id}/tv_credits?`);
+    const personCredits = useAPI("personCredits", `https://api.themoviedb.org/3/person/${id}/movie_credits?`);
     return (
         <div>
             <Container>{personDetails.name}</Container>
