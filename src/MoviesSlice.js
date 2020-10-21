@@ -16,7 +16,7 @@ const moviesSlice = createSlice({
         queryString: "initial"
     },
     reducers: {
-        initialFetch: ({ payload }) => {
+        initiateFetch: ({ payload }) => {
 
         },
         setPageInformation: (state, { payload }) => {
@@ -44,7 +44,7 @@ const moviesSlice = createSlice({
 });
 
 export const {
-    initialFetch,
+    initiateFetch,
     setPageInformation,
     setMovieDetails,
     setMovieCredits,

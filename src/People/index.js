@@ -3,7 +3,7 @@ import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { initialFetch, selectPageInformation } from '../MoviesSlice';
+import { initiateFetch, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import useQueryParameter from '../useQueryParameter';
 import { pageKey, peopleKey, searchKey } from '../keys';
@@ -15,25 +15,11 @@ function People() {
   const dispatch = useDispatch()
   const people = useSelector(selectPageInformation)
 
-  const fetchOnLoad = () => {
-    if (!page) {
-      dispatch(initialFetch({
-        page: 1,
-        type: type,
-        query: query
-      }));
-    }
-    if (page) {
-      dispatch(initialFetch({
-        page: page,
-        type: type,
-        query: query
-      }));
-    }
-  }
-
-  useEffect(() => { fetchOnLoad() }, [page, query, type])
-
+  useEffect(() => { dispatch(initiateFetch({
+    page: page ? page : 1,
+    type: type,
+    query: query
+  })) }, [query, page, type, dispatch])
 
   return (
     <Container>

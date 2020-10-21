@@ -3,7 +3,7 @@ import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { initialFetch, selectPageInformation } from '../MoviesSlice';
+import { initiateFetch, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import useQueryParameter from '../useQueryParameter';
 import { moviesKey, pageKey, searchKey } from '../keys';
@@ -16,24 +16,12 @@ function Movies() {
   const dispatch = useDispatch()
   const movies = useSelector(selectPageInformation)
 
-  const fetchOnLoad = () => {
-    if (!page) {
-      dispatch(initialFetch({
-        page: 1,
-        type: type,
-        query: query
-      }));
-    }
-    if (page) {
-      dispatch(initialFetch({
-        page: page,
-        type: type,
-        query: query
-      }));
-    }
-  }
 
-  useEffect(() => { fetchOnLoad() }, [page, type, query])
+  useEffect(() => { dispatch(initiateFetch({
+    page: page ? page : 1,
+    type: type,
+    query: query
+  })) }, [query, page, type, dispatch])
 
 
   return (

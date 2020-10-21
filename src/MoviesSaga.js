@@ -1,6 +1,6 @@
 import { put, debounce, call, takeLatest } from "redux-saga/effects"
 import { fetchFromApi } from "./fetchFromApi"
-import { initialFetch, inputChange, setPageInformation, setQueryString, } from "./MoviesSlice"
+import { initiateFetch, inputChange, setPageInformation, setQueryString, } from "./MoviesSlice"
 import {moviesKey, peopleKey} from "./keys"
 
 
@@ -38,6 +38,6 @@ function* inputChangeHandler(action) {
 
 
 export function* MoviesSaga() {
-    yield takeLatest(initialFetch.type, fetchHandler)
+    yield takeLatest(initiateFetch.type, fetchHandler)
     yield debounce(500, inputChange.type, inputChangeHandler)
 }
