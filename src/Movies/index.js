@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
+import LoadingPage from "../Common/LoadingPage"
 import { useDispatch, useSelector } from 'react-redux';
 import { initiateFetch, selectPageInformation, selectStatus } from '../MoviesSlice';
 import Pager from '../Common/Pager';
@@ -17,7 +18,6 @@ function Movies() {
   const movies = useSelector(selectPageInformation)
   const status = useSelector(selectStatus)
 
-
   useEffect(() => {
     dispatch(initiateFetch({
       page: page ? page : 1,
@@ -26,14 +26,12 @@ function Movies() {
     }))
   }, [query, page, type, dispatch])
 
-
   return (
     <Container>
-      <Header text={!query ? `Popular ${type}` : `Search Results for "${query}"`} />
+      <Header text={!query ? `Popular ${type}` : 
+      `${movies.total_results === 0 ? "Sorry, there are no results for" : "Search results for"} "${query}"`} />
       {status === "loading" ?
-        <div>
-          loading
-      </div> :
+        <LoadingPage /> :
         ""
       }
       {status === "succes" && movies.total_results > 0 ?
@@ -52,7 +50,7 @@ function Movies() {
       {status === "failed" ?
         <div>
           failed
-      </div> :
+        </div> :
         ""
       }
       { status === "succes" && movies.total_results > 0 ?
