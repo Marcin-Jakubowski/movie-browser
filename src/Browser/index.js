@@ -19,9 +19,6 @@ function Browser() {
 
     useEffect(() => {searchByQuery(queryString)}, [queryString])
 
-
-    
-
     return (
         <BrowserInput
             value={value}
