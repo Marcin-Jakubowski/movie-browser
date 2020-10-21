@@ -6,8 +6,10 @@ export const theme = {
         pagerButtonDisabled: "#E4E6F0",
         pageText: "#7E839A",
         posterBackground: "#000000",
-        posterFont: "#ffffff"
-
+        posterFont: "#ffffff",
+        mainFont: "#000000",
+        secondaryFont: "#7E839A",
+        genresBoxBackground: "#E4E6F0"
     },
     breakpoint: {
         mobileMax: 767,
