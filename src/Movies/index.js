@@ -3,11 +3,13 @@ import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import LoadingPage from "../Common/LoadingPage"
+import NoResults from '../Common/NoResults';
+import Pager from '../Common/Pager';
 import { useDispatch, useSelector } from 'react-redux';
 import { initiateFetch, selectPageInformation, selectStatus } from '../MoviesSlice';
-import Pager from '../Common/Pager';
-import useQueryParameter from '../useQueryParameter';
 import { moviesKey, pageKey, searchKey } from '../keys';
+import useQueryParameter from '../useQueryParameter';
+
 
 
 function Movies() {
@@ -42,9 +44,7 @@ function Movies() {
         ""
       }
       {status === "succes" && movies.total_results === 0 ?
-        <div>
-          ni mo :(
-       </div> :
+        <NoResults />:
         ""
       }
       {status === "failed" ?
