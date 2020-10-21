@@ -6,7 +6,7 @@ import {moviesKey, peopleKey, searchKey, } from "../keys"
 const useSearchByQuery = () => {
 
     const location = useLocation()
-    const replaceQueryParameter = useReplaceQueryParameter
+    const replaceQueryParameter = useReplaceQueryParameter()
     
     const searchByQuery = (queryString) => {
         if (queryString !== "initial") {
