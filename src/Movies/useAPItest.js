@@ -11,9 +11,7 @@ import {
     setMovieCredits,
     setPersonDetails,
     setPersonCredits
-
 } from "../MoviesSlice";
-
 
 export const useAPI = (type, apiLink) => {
     const dispatch = useDispatch();
@@ -64,11 +62,11 @@ export const useAPI = (type, apiLink) => {
                 default:
                     break;
             }
-                   
-            } catch (error) {
-                console.log(error)
-            }
-        };
-        useEffect(() => { getData() }, [apiLink]);
-        return data;
-    }
+
+        } catch (error) {
+            console.log(error)
+        }
+    };
+    useEffect(() => { getData() }, [apiLink]);
+    return data;
+}
