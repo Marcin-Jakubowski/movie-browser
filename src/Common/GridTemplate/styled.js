@@ -22,7 +22,7 @@ export const Wrapper = styled.section`
         grid-template-columns: repeat(auto-fill, 208px);
         grid-auto-rows: 339px;
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-            grid-template-columns: repeat(auto-fill, 208px);
+            grid-template-columns: repeat(auto-fill, 136px);
             grid-auto-rows: 245px;
             grid-gap: 16px;}
     `}
