@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { moviesKey } from "../../keys";
-import { Wrapper } from "./styled";
+import MovieSmallTile from "../../MovieSmallTile";
+import { Wrapper, GridTemplateLink } from "./styled";
 
 
 const GridTemplate = ({ content, type }) => {
@@ -12,8 +12,8 @@ const GridTemplate = ({ content, type }) => {
       {content && content.map((fragment) => (
         <div>
           {type === moviesKey
-          ? <Link to={`/movies/${fragment.id}`}>{fragment.title}</Link>
-          : <Link to={`/people/${fragment.id}`}>{fragment.name}</Link>}
+          ? <GridTemplateLink to={`/movies/${fragment.id}`}>{<MovieSmallTile fragment={fragment} />}</GridTemplateLink>
+          : <GridTemplateLink to={`/people/${fragment.id}`}>{fragment.name}</GridTemplateLink>}
         </div>)
       )}
     </Wrapper>

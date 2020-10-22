@@ -1,5 +1,6 @@
-import styled, { css } from "styled-components"
-import { moviesKey, peopleKey } from "../../keys"
+import styled, { css } from "styled-components";
+import { moviesKey, peopleKey } from "../../keys";
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.section`
     width: 100%;
@@ -28,3 +29,7 @@ export const Wrapper = styled.section`
     `}
 
 `
+
+export const GridTemplateLink = styled(Link)`
+    text-decoration: none;
+`;
