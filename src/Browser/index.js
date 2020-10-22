@@ -17,7 +17,10 @@ function Browser() {
         dispatch(inputChange(target.value))
     }
 
-    useEffect(() => { searchByQuery(queryString) }, [queryString])
+    useEffect(() => { 
+        searchByQuery(queryString);
+        setValue("")
+     }, [queryString])
 
     return (
         <BrowserInput
