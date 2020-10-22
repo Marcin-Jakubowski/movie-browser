@@ -8,8 +8,9 @@ export const theme = {
         posterBackground: "#000000",
         posterFont: "#ffffff",
         refreshButtonFont: "#ffffff",
-        refreshButtonBackground: "#0044CC"
-
+        refreshButtonBackground: "#0044CC",
+        tileBackground: "#ffffff",
+        noImageBackground: "#C4C4C4"
     },
     breakpoint: {
         mobileMax: 767,
