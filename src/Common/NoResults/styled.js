@@ -4,7 +4,7 @@ export const ImageContainer = styled.div`
     margin: 40px auto;
     width: 668px;
 
-    @media (max-width: ${({theme}) => theme.breakpoint.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 80vw
     }
 `
