@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initiateFetch, selectPageInformation, selectStatus } from '../MoviesSlice';
 import { moviesKey, pageKey, searchKey } from '../keys';
 import useQueryParameter from '../useQueryParameter';
-
+import Failed from '../Common/Failed';
 
 
 function Movies() {
@@ -30,8 +30,12 @@ function Movies() {
 
   return (
     <Container>
-      <Header text={!query ? `Popular ${type}` : 
-      `${movies.total_results === 0 ? "Sorry, there are no results for" : "Search results for"} "${query}"`} />
+      {status !== "failed" ?
+        <Header text={!query ? `Popular ${type}` :
+          `${movies.total_results === 0 ? "Sorry, there are no results for" : "Search results for"} "${query}"`} />
+        :
+        ""
+      }
       {status === "loading" ?
         <LoadingPage /> :
         ""
@@ -44,13 +48,12 @@ function Movies() {
         ""
       }
       {status === "succes" && movies.total_results === 0 ?
-        <NoResults />:
+        <NoResults /> :
         ""
       }
       {status === "failed" ?
-        <div>
-          failed
-        </div> :
+        <Failed />
+        :
         ""
       }
       { status === "succes" && movies.total_results > 0 ?

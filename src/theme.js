@@ -6,7 +6,9 @@ export const theme = {
         pagerButtonDisabled: "#E4E6F0",
         pageText: "#7E839A",
         posterBackground: "#000000",
-        posterFont: "#ffffff"
+        posterFont: "#ffffff",
+        refreshButtonFont: "#ffffff",
+        refreshButtonBackground: "#0044CC"
 
     },
     breakpoint: {
