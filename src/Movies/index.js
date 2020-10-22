@@ -4,12 +4,13 @@ import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import LoadingPage from "../Common/LoadingPage"
 import NoResults from '../Common/NoResults';
+import Failed from '../Common/Failed';
 import Pager from '../Common/Pager';
 import { useDispatch, useSelector } from 'react-redux';
 import { initiateFetch, selectPageInformation, selectStatus } from '../MoviesSlice';
 import { moviesKey, pageKey, searchKey } from '../keys';
 import useQueryParameter from '../useQueryParameter';
-import Failed from '../Common/Failed';
+
 
 
 function Movies() {

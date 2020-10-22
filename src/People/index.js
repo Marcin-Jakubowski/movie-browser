@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
-import { useDispatch, useSelector } from 'react-redux';
-import { initiateFetch, selectPageInformation } from '../MoviesSlice';
+import LoadingPage from "../Common/LoadingPage"
+import NoResults from '../Common/NoResults';
+import Failed from '../Common/Failed';
 import Pager from '../Common/Pager';
+import { useDispatch, useSelector } from 'react-redux';
+import { initiateFetch, selectPageInformation, selectStatus } from '../MoviesSlice';
 import useQueryParameter from '../useQueryParameter';
 import { pageKey, peopleKey, searchKey } from '../keys';
 
@@ -14,24 +17,51 @@ function People() {
   const page = useQueryParameter(pageKey)
   const dispatch = useDispatch()
   const people = useSelector(selectPageInformation)
+  const status = useSelector(selectStatus)
 
-  useEffect(() => { dispatch(initiateFetch({
-    page: page ? page : 1,
-    type: type,
-    query: query
-  })) }, [query, page, type, dispatch])
+  useEffect(() => {
+    dispatch(initiateFetch({
+      page: page ? page : 1,
+      type: type,
+      query: query
+    }))
+  }, [query, page, type, dispatch])
 
   return (
     <Container>
-      <Header text={!query ? `Popular ${type}` : `Search Results for "${query}"`} />
-      <GridTemplate
-        content={people.results}
-        type={type}
-      />
-      <Pager
-        content={people}
-        type={type}
-      />
+      {status !== "failed" ?
+        <Header text={!query ? `Popular ${type}` :
+          `${people.total_results === 0 ? "Sorry, there are no results for" : "Search results for"} "${query}"`} />
+        :
+        ""
+      }
+      {status === "loading" ?
+        <LoadingPage /> :
+        ""
+      }
+      {status === "succes" && people.total_results > 0 ?
+        <GridTemplate
+          content={people.results}
+          type={type}
+        /> :
+        ""
+      }
+      {status === "succes" && people.total_results === 0 ?
+        <NoResults /> :
+        ""
+      }
+      {status === "failed" ?
+        <Failed />
+        :
+        ""
+      }
+      { status === "succes" && people.total_results > 0 ?
+        <Pager
+          content={people}
+          type={type}
+        /> :
+        ""
+      }
     </Container>
   );
 };
