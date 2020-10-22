@@ -25,12 +25,12 @@ function MoviePage() {
     const { id } = useParams();
     const movieDetails = useAPI("movieDetails", `https://api.themoviedb.org/3/movie/${id}?`);
     const movieCredits = useAPI("movieCredits", `https://api.themoviedb.org/3/movie/${id}/credits?`);
-    const PosterImageBaseLink = imageBaseLink("w1280");
-
+    const posterImageBaseLink = imageBaseLink("w1280");
+    
     return (
         <div>
             <PosterBackgrundContainer>
-                <PosterShadowContainer link={'"' + PosterImageBaseLink + movieDetails.backdrop_path + '"'}>
+                <PosterShadowContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
                     <PosterBackgroundImageContainer>
                         <PosterItemsContainer>
                             <LongTitle>

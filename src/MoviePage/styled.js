@@ -60,13 +60,11 @@ export const VotesAverageBox = styled.div`
 export const VotesSmallContent = styled.div`
     font-size: 16px;
     font-weight: 400;
-    display: block;
 `;
 
 export const VotesBigContent = styled.div`
     font-size: 30px;
     font-weight: 500;
-    display: block;
     margin: 0 8px;
     line-height: 1;
 `;
