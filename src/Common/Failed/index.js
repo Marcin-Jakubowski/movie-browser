@@ -15,7 +15,7 @@ const Failed = () => (
             Please check your network connection and try again
         </SmallHeader>
         <StyledLink
-        to={"/movies"}
+            to={"/movies"}
         >
             Back to home page
         </StyledLink>
