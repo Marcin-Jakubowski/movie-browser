@@ -20,13 +20,14 @@ import Container from '../Common/Container';
 import Header from '../Common/Header';
 import GridTemplate from '../Common/GridTemplate';
 import { peopleKey } from '../keys';
+import UniversalBigTile from '../UniversalBigTile';
 
 function MoviePage() {
     const { id } = useParams();
     const movieDetails = useAPI("movieDetails", `https://api.themoviedb.org/3/movie/${id}?`);
     const movieCredits = useAPI("movieCredits", `https://api.themoviedb.org/3/movie/${id}/credits?`);
     const posterImageBaseLink = imageBaseLink("w1280");
-    
+
     return (
         <div>
             <PosterBackgrundContainer>
@@ -53,6 +54,10 @@ function MoviePage() {
                     </PosterBackgroundImageContainer>
                 </PosterShadowContainer>
             </PosterBackgrundContainer>
+            <UniversalBigTile
+                content={movieDetails}
+                type="movie"
+            />
             <Container>
                 <Header text={"Cast"} />
                 <GridTemplate
