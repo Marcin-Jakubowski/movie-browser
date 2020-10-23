@@ -34,7 +34,7 @@ function MoviePage() {
                     <PosterBackgroundImageContainer>
                         <PosterItemsContainer>
                             <LongTitle>
-                                {movieDetails.original_title}
+                                {movieDetails.title}
                             </LongTitle>
                             <VotesAverageContainer>
                                 <VoteIcon src={voteIcon} alt="Vote icon" />

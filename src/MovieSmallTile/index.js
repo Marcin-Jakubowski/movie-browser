@@ -13,7 +13,7 @@ const MovieSmallTile = ({ content }) => {
     return (
         <TileContainer>
             <PosterImage src={tileImageBaseLink + content.poster_path} />
-            <MovieTitle>{content.original_title}</MovieTitle>
+            <MovieTitle>{content.title}</MovieTitle>
             <ReselaseYear>{date.getFullYear()}</ReselaseYear>
             <GenresBox>
                 {content.genre_ids && genres && content.genre_ids.map((genre_id) => (
