@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useAPI } from "../Movies/useAPItest";
+import { useAPI } from "../useFetchAPI";
 import {
     PosterBackgrundContainer,
     PosterShadowContainer,
