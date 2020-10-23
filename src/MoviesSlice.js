@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const moviesSlice = createSlice({
     name: "movies",
@@ -13,6 +13,7 @@ const moviesSlice = createSlice({
         movieCredits: [],
         personDetails: [],
         personCredits: [],
+        genres: [],
         queryString: "initial"
     },
     reducers: {
@@ -34,6 +35,11 @@ const moviesSlice = createSlice({
         setPersonCredits: (state, { payload }) => {
             state.personCredits = payload
         },
+        setGenres: (state, { payload }) => {
+            console.log(payload, "xxx")
+            state.genres = payload
+        },
+        fetchGenresList: () => { },
         inputChange: ({payload}) => {
 
         },
@@ -50,6 +56,8 @@ export const {
     setMovieCredits,
     setPersonDetails,
     setPersonCredits,
+    setGenres,
+    fetchGenresList,
     inputChange,
     setQueryString,
 } = moviesSlice.actions
@@ -61,5 +69,6 @@ export const selectMovieDetails = state => selectMovies(state).movieDetails
 export const selectMovieCredits = state => selectMovies(state).movieCredits
 export const selectPersonDetails = state => selectMovies(state).personDetails
 export const selectPersonCredits = state => selectMovies(state).personCredits
+export const selectGenres = state => selectMovies(state).genres
 export const selectQueryString = state => selectMovies(state).queryString
 export default moviesSlice.reducer

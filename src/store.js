@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
 import moviesSlice from "./MoviesSlice"
 import createSagaMiddleware from "redux-saga"
-import { MoviesSaga } from "./MoviesSaga"
+import { MoviesSaga, setGenresList } from "./MoviesSaga"
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -14,5 +14,6 @@ const store = configureStore({
 )
 
 sagaMiddleware.run(MoviesSaga)
+sagaMiddleware.run(setGenresList)
 
 export default store

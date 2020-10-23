@@ -3,17 +3,19 @@ import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { initialFetch, selectPageInformation } from '../MoviesSlice';
+import { fetchGenresList, initialFetch, selectPageInformation } from '../MoviesSlice';
 import Pager from '../Common/Pager';
 import useQueryParameter from '../useQueryParameter';
 import { moviesKey, pageKey, searchKey } from '../keys';
 
 
 function Movies() {
+  const dispatch = useDispatch();
+  dispatch(fetchGenresList());
+  
   const type = moviesKey
   const query = useQueryParameter(searchKey)
   const page = useQueryParameter(pageKey)
-  const dispatch = useDispatch()
   const movies = useSelector(selectPageInformation)
 
   const fetchOnLoad = () => {
