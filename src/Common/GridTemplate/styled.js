@@ -10,7 +10,6 @@ export const Wrapper = styled.section`
 
     ${({ type }) => type === moviesKey && css`
         grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 650px;
 
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             grid-template-columns: 1fr;

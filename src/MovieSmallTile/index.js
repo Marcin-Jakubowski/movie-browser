@@ -1,24 +1,37 @@
 import React from "react";
-import { TileContainer, PosterImage, MovieTitle, Genres, VotesBox, VoteIcon, VotesCount } from "./styled";
-import smallVoteIcon from "./smallVoteIcon.svg";
+import { TileContainer, PosterImage, MovieTitle, ReselaseYear,GenresBox, Genres, VotesBox, VotesAverage, VoteIcon, VotesCount } from "./styled";
+import voteIcon from "../voteIcon.svg";
 import imageBaseLink from "../imageBaseLink";
+import { useSelector } from "react-redux";
+import { selectGenres } from "../MoviesSlice";
 
-const MovieSmallTile = ({fragment}) => {
+const MovieSmallTile = ({ content }) => {
     const tileImageBaseLink = imageBaseLink("w342");
-    console.log('"' + tileImageBaseLink + fragment.poster_path + '"');
+    const date = new Date(content.release_date);
+    const genres = useSelector(selectGenres);
 
     return (
         <TileContainer>
-            <PosterImage src={tileImageBaseLink + fragment.poster_path} />
-            <MovieTitle>{fragment.original_title}</MovieTitle>
-            <Genres></Genres>
+            <PosterImage src={tileImageBaseLink + content.poster_path} />
+            <MovieTitle>{content.original_title}</MovieTitle>
+            <ReselaseYear>{date.getFullYear()}</ReselaseYear>
+            <GenresBox>
+                {content.genre_ids && genres && content.genre_ids.map((genre_id) => (
+                    <span>
+                        {genres.genres.map(genre => genre.id === genre_id
+                            ? <Genres>{genre.name}</Genres>
+                            : "")
+                        }
+                    </span>
+                ))}
+            </GenresBox>
             <VotesBox>
-                <VoteIcon src={smallVoteIcon} />
-                <div>
-                    {fragment.vote_average}
-                </div>
+                <VoteIcon src={voteIcon} />
+                <VotesAverage>
+                    {content.vote_average}
+                </VotesAverage>
                 <VotesCount>
-                    {fragment.vote_count} votes
+                    {content.vote_count} votes
                 </VotesCount>
             </VotesBox>
         </TileContainer>
