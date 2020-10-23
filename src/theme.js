@@ -9,7 +9,8 @@ export const theme = {
         posterFont: "#ffffff",
         mainFont: "#000000",
         secondaryFont: "#7E839A",
-        genresBoxBackground: "#E4E6F0"
+        genresBoxBackground: "#E4E6F0",
+        tileBackground: "#ffffff"
     },
     breakpoint: {
         mobileMax: 767,
