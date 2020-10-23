@@ -7,6 +7,7 @@ export const TileContainer = styled.div`
     margin: 0 auto;
     padding: 16px;
     color: ${({theme}) => theme.color.mainFont};
+    font-weight: 400;
     background-color: ${({theme}) => theme.color.tileBackground};
     display: grid;
     grid-template-rows: repeat(4, auto) 1fr;
@@ -22,6 +23,7 @@ export const PosterImage = styled.img`
 export const MovieTitle = styled.p`
     font-size: 22px;
     line-height: 29px;
+    font-weight: 500;
     margin: 0;
 `
 
@@ -51,7 +53,6 @@ export const VotesBox = styled.div`
     max-height: 24px;
     font-size: 16px;
     line-height: 24px;
-    font-weight: 600;
     display: flex;
     align-self: end;
 `
@@ -63,8 +64,8 @@ export const VoteIcon = styled.img`
 
 export const VotesAverage = styled.div`
     padding: 0 12px;
+    font-weight: 600;
 `
 export const VotesCount = styled.div`
     color: ${({theme}) => theme.color.secondaryFont};
-    font-weight: 600;
 `
