@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { movieKey } from '../keys';
 
 export const TileContainer = styled.div`
     width: 100%;
     min-height: 464px;
     height: 100%;
     margin: 64px auto;
-    padding: 16px;
+    padding: 40px;
     color: ${({ theme }) => theme.color.mainFont};
     background-color: ${({ theme }) => theme.color.tileBackground};
     display: flex;
@@ -13,9 +14,8 @@ export const TileContainer = styled.div`
 `;
 
 export const PosterImage = styled.img`
-    width: 312px;
-    height: 464px;
-    margin: 0 0 8px;
+    width: ${({ type }) => type === movieKey ? 312 : 399}px;
+    height: ${({ type }) => type === movieKey ? 464 : 564}px;
     border-radius: 5px;
 `;
 
@@ -24,7 +24,9 @@ export const ContentContainer = styled.div`
     margin-left: 40px;
     padding: 8px 0;
     display: grid;
-    grid-template-rows: repeat(6, auto) 1fr;
+    grid-template-rows: ${({ type }) => type === movieKey
+        ? "repeat(6, auto)"
+        : "repeat(3, auto)"} 1fr;
     grid-gap: 24px;
 
 `;
@@ -40,6 +42,7 @@ export const ReselaseYear = styled.p`
     font-size: 22px;
     line-height: 26px;
     margin: 0;
+    display: flex;
 `;
 
 export const AdditionalContentContainer = styled.div`
@@ -62,18 +65,18 @@ export const AdditionalContent = styled.div`
     padding: 0 10px;
 `;
 
+export const GenresBox = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+`;
+
 export const Genres = styled.div`
     font-size: 14px;
     line-height: 20px;
     padding: 8px 16px;
     margin: 0 8px 8px 0;
     background-color: ${({ theme }) => theme.color.genresBoxBackground};
-`;
-
-export const GenresBox = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 `;
 
 export const VotesContainer = styled.div`

@@ -20,66 +20,97 @@ import {
 } from "./styled";
 import voteIcon from "../voteIcon.svg";
 import imageBaseLink from "../imageBaseLink";
-import { useSelector } from "react-redux";
-import { selectGenres } from "../MoviesSlice";
 import WidthContainer from "../Common/WidthContainer";
+import { movieKey } from '../keys';
 
 const UniversalBigTile = ({ type, content }) => {
-    const tileImageBaseLink = imageBaseLink("w342");
-    const date = new Date(content.release_date);
-    const genres = useSelector(selectGenres);
+    let posterSize = "";
+    if (type === movieKey) {
+        posterSize = "w342";
+    } else {
+        posterSize = "h632";
+    }
+    const tileImageBaseLink = imageBaseLink(posterSize);
+
+    let defaultDate = "";
+    let imagePath = "";
+    if (type === movieKey) {
+        defaultDate = content.release_date;
+        imagePath = content.poster_path;
+    } else {
+        defaultDate = content.birthday;
+        imagePath = content.profile_path;
+    }
+    const date = new Date(defaultDate);
 
 
     return (
         <WidthContainer>
             <TileContainer>
-                <PosterImage src={tileImageBaseLink + content.poster_path} />
-                <ContentContainer>
-                    <MovieTitle>{content.title}</MovieTitle>
-                    <ReselaseYear>{date.getFullYear()}</ReselaseYear>
+                <PosterImage
+                    src={tileImageBaseLink + imagePath}
+                    type={type}
+                />
+                <ContentContainer type={type}>
+                    <MovieTitle>{content && type === movieKey ? content.title : content.name}</MovieTitle>
+                    {content && type && type === movieKey
+                        ? <ReselaseYear>{date.getFullYear()}</ReselaseYear>
+                        : ""}
                     <AdditionalContentContainer>
                         <AdditionalContentBox>
                             <AdditionalContentTitle>
-                                Production:
+                                {content && type && type === movieKey ? "Production:" : "Date of birth:"}
                             </AdditionalContentTitle>
                             <AdditionalContent>
-                                {content.production_countries
-                                && content.production_countries.map(production_country =>
-                                    production_country.name
-                                ).join(", ")
+                                {
+                                    content.production_countries && type && type === movieKey
+                                        ? content.production_countries.map(production_country =>
+                                            production_country.name).join(", ")
+                                        : date.toLocaleDateString()
                                 }
                             </AdditionalContent>
                         </AdditionalContentBox>
                         <AdditionalContentBox>
                             <AdditionalContentTitle>
-                                Release date:
+                                {content && type === movieKey
+                                    ? "Release date:"
+                                    : "Place of birth:"}
                             </AdditionalContentTitle>
                             <AdditionalContent>
-                                {date.toLocaleDateString()}
+                                {date && type && type === movieKey
+                                    ? date.toLocaleDateString()
+                                    : content.place_of_birth}
                             </AdditionalContent>
                         </AdditionalContentBox>
                     </AdditionalContentContainer>
-                    <GenresBox>
-                        {content.genres && content.genres.map(genre =>
-                            <Genres key={genre.id}>{genre.name}</Genres>
-                        )
-                        }
-                    </GenresBox>
-                    <VotesContainer>
-                        <VoteIcon src={voteIcon} />
-                        <VotesBox>
-                            <VotesAverage>
-                                {content.vote_average}
-                            </VotesAverage>
-                            <div>
-                                / 10
+                    {content && type && type === movieKey
+                        ? <GenresBox>
+                            {content.genres && content.genres.map(genre =>
+                                <Genres key={genre.id}>{genre.name}</Genres>
+                            )}
+                        </GenresBox>
+                        : ""}
+                    {content && type && type === movieKey
+                        ? <VotesContainer>
+                            <VoteIcon src={voteIcon} />
+                            <VotesBox>
+                                <VotesAverage>
+                                    {content.vote_average}
+                                </VotesAverage>
+                                <div>
+                                    / 10
                             </div>
-                            <VotesCount>
-                                {content.vote_count} votes
+                                <VotesCount>
+                                    {content.vote_count} votes
                         </VotesCount>
-                        </VotesBox>
-                    </VotesContainer>
-                    <Overview>{content.overview}</Overview>
+                            </VotesBox>
+                        </VotesContainer>
+                        : ""}
+                    <Overview>
+                        {content && type && type === movieKey
+                            ? content.overview
+                            : content.biography}
+                    </Overview>
                 </ContentContainer>
             </TileContainer>
         </WidthContainer>
