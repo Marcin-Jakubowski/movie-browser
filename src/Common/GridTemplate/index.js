@@ -2,29 +2,36 @@ import React from "react";
 import PersonTile from "../PersonTile"
 import { Link } from "react-router-dom";
 import { moviesKey } from "../../keys";
-import { Wrapper } from "./styled";
-import { nanoid } from "@reduxjs/toolkit";
+import { Wrapper, StyledLink } from "./styled";
 
 
 const GridTemplate = ({ content, type, castAndCrew }) => {
+
   return (
     <Wrapper
       type={type}
     >
       {content && content.map((fragment) => (
         <div
-          key={nanoid()}
+          key={castAndCrew ? fragment.credit_id : fragment.id}
         >
           {type === moviesKey
             ? <Link to={`/movies/${fragment.id}`}>{fragment.title || fragment.name}</Link>
-            : <PersonTile
-              person={fragment}
-              castAndCrew={castAndCrew}
-            />
+            :
+            <StyledLink
+              to={`/people/${fragment.id}`}
+            >
+              <PersonTile
+                person={fragment}
+                castAndCrew={castAndCrew}
+              />
+            </StyledLink>
           }
         </div>
-      ))}
-    </Wrapper>
+
+      ))
+      }
+    </Wrapper >
   )
 }
 export default GridTemplate

@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Name, StyledLink, StyledImage, JobOrCharacterName } from "./styled"
+import { Container, Name, StyledImage, JobOrCharacterName } from "./styled"
 import imageBaseLink from "../../imageBaseLink"
 import noImage from "./noImage.svg"
 
@@ -11,9 +11,7 @@ const PersonTile = ({ person, castAndCrew }) => {
 
 
     return (
-        <StyledLink
-            to={`/people/${person.id}`}
-        >
+       
             <Container>
                 <StyledImage
                     alt={person.name}
@@ -31,7 +29,6 @@ const PersonTile = ({ person, castAndCrew }) => {
                     ""
                 }
             </Container>
-        </StyledLink>
     )
 }
 

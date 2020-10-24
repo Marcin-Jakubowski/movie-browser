@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
 import { moviesKey, peopleKey } from "../../keys"
+import { Link } from "react-router-dom"
 
 export const Wrapper = styled.section`
     width: 100%;
@@ -27,4 +28,8 @@ export const Wrapper = styled.section`
             grid-gap: 16px;}
     `}
 
+`
+
+export const StyledLink = styled(Link)`
+    text-decoration: none;
 `
