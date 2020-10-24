@@ -9,6 +9,7 @@ export const TileContainer = styled.div`
     color: ${({theme}) => theme.color.mainFont};
     font-weight: 400;
     background-color: ${({theme}) => theme.color.tileBackground};
+    border-radius: 5px;
     display: grid;
     grid-template-rows: repeat(4, auto) 1fr;
     grid-gap: 8px;
@@ -18,6 +19,7 @@ export const PosterImage = styled.img`
     width: 292px;
     height: 434px;
     margin: 0 0 8px;
+    border-radius: 5px;
 `
 
 export const MovieTitle = styled.p`
