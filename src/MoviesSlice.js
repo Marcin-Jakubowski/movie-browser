@@ -15,10 +15,15 @@ const moviesSlice = createSlice({
         personCredits: [],
         genres: [],
         queryString: "initial"
+        status: "loading"
+
     },
     reducers: {
-        initialFetch: ({ payload }) => {
+        initiateFetch: ({ payload }) => {
 
+        },
+        setStatus: (state, { payload }) => {
+            state.status = payload
         },
         setPageInformation: (state, { payload }) => {
             state.pageInformations = payload
@@ -42,14 +47,14 @@ const moviesSlice = createSlice({
         inputChange: ({payload}) => {
 
         },
-        setQueryString : (state, {payload}) => {
+        setQueryString: (state, { payload }) => {
             state.queryString = payload
-        }, 
+        },
     }
 });
 
 export const {
-    initialFetch,
+    initiateFetch,
     setPageInformation,
     setMovieDetails,
     setMovieCredits,
@@ -59,10 +64,12 @@ export const {
     fetchGenresList,
     inputChange,
     setQueryString,
+    setStatus,
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies;
 export const selectType = state => selectMovies(state).type;
+export const selectStatus = state => selectMovies(state).status
 export const selectPageInformation = state => selectMovies(state).pageInformations;
 export const selectMovieDetails = state => selectMovies(state).movieDetails;
 export const selectMovieCredits = state => selectMovies(state).movieCredits;
@@ -71,3 +78,4 @@ export const selectPersonCredits = state => selectMovies(state).personCredits;
 export const selectGenres = state => selectMovies(state).genres;
 export const selectQueryString = state => selectMovies(state).queryString;
 export default moviesSlice.reducer;
+

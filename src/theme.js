@@ -10,7 +10,12 @@ export const theme = {
         mainFont: "#000000",
         secondaryFont: "#7E839A",
         genresBoxBackground: "#E4E6F0",
-        tileBackground: "#ffffff"
+        tileBackground: "#ffffff",
+        refreshButtonFont: "#ffffff",
+       refreshButtonBackground: "#0044CC",
+        tileBackground: "#ffffff",
+        noImageBackground: "#C4C4C4",
+        jobOrCharacterName: "#7E839A"
     },
     breakpoint: {
         mobileMax: 767,

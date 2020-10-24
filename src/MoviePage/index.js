@@ -60,6 +60,7 @@ function MoviePage() {
                 <GridTemplate
                     content={movieCredits.cast}
                     type={peopleKey}
+                    castAndCrew="cast"
                 />
             </Container>
             <Container>
@@ -67,6 +68,7 @@ function MoviePage() {
                 <GridTemplate
                     content={movieCredits.crew}
                     type={peopleKey}
+                    castAndCrew="crew"
                 />
             </Container>
         </div>

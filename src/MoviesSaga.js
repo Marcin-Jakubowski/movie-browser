@@ -1,31 +1,54 @@
-import { put, debounce, call, takeLatest, takeEvery } from "redux-saga/effects"
+import { put, debounce, call, takeLatest, delay } from "redux-saga/effects"
 import { fetchFromApi } from "./fetchFromApi"
-import { fetchGenresList, initialFetch, inputChange, setGenres, setPageInformation, setQueryString, } from "./MoviesSlice"
+import { fetchGenresList, initialFetch, inputChange, setGenres, setPageInformation, setQueryString, setStatus } from "./MoviesSlice"
 import { apiKey, moviesKey, peopleKey } from "./keys"
 import Axios from "axios"
 
 function* fetchHandler(action) {
+    yield put(setStatus("loading"))
     const page = yield action.payload.page
     const type = yield action.payload.type
     const query = yield action.payload.query
-
+    yield delay(1000)
     if (query) {
         if (type === moviesKey) {
-            const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/search/movie??", page, query)
-            yield put(setPageInformation(data))
+            try {
+                const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/search/movie??", page, query)
+                yield put(setPageInformation(data))
+                yield put(setStatus("success"))
+            } catch (error) {
+                yield put(setStatus("failed"))
+            };
         }
         if (type === peopleKey) {
-            const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/search/person?", page, query)
-            yield put(setPageInformation(data))
+            try {
+                const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/search/person?", page, query)
+                yield put(setPageInformation(data))
+                yield put(setStatus("success"))
+            } catch (error) {
+                yield put(setStatus("failed"))
+            };
         }
     } else {
         if (type === moviesKey) {
-            const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/movie/popular?", page)
-            yield put(setPageInformation(data))
+            try {
+                const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/movie/popular?", page)
+                yield put(setPageInformation(data))
+                yield put(setStatus("success"))
+            }
+            catch (error) {
+                yield put(setStatus("failed"))
+            }
         }
         if (type === peopleKey) {
-            const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/person/popular?", page)
-            yield put(setPageInformation(data))
+            try {
+                const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/person/popular?", page)
+                yield put(setPageInformation(data))
+                yield put(setStatus("success"))
+            }
+            catch (error) {
+                yield put(setStatus("failed"))
+            }
         }
     }
 
@@ -37,7 +60,7 @@ function* inputChangeHandler(action) {
 }
 
 export function* MoviesSaga() {
-    yield takeLatest(initialFetch.type, fetchHandler)
+    yield takeLatest(initiateFetch.type, fetchHandler)
     yield debounce(500, inputChange.type, inputChangeHandler)
 }
 
