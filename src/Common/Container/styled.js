@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Main = styled.main`
-    max-width: 1324px;
+    max-width: 1368px;
     margin: 56px auto;
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {

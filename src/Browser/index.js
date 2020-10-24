@@ -8,16 +8,19 @@ function Browser() {
 
     const [value, setValue] = useState("")
     const dispatch = useDispatch()
-    const queryString = useSelector(selectQueryString)
     const searchByQuery = useSearchByQuery()
+
+    const queryString = useSelector(selectQueryString)
 
     const onInputChange = ({ target }) => {
         setValue(target.value)
         dispatch(inputChange(target.value))
     }
 
-    useEffect(() => { searchByQuery(queryString) }, [queryString])
-
+    useEffect(() => { 
+        searchByQuery(queryString);
+        setValue("")
+     }, [queryString])
 
     return (
         <BrowserInput
