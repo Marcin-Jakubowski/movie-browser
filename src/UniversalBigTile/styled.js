@@ -104,9 +104,6 @@ export const VotesAverage = styled.div`
     line-height: 1;
 `;
 
-export const VotesContent = styled.div`
-`;
-
 export const VotesCount = styled.div`
     padding: 0 12px;
 `;
