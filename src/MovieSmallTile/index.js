@@ -17,12 +17,9 @@ const MovieSmallTile = ({ content }) => {
             <ReselaseYear>{date.getFullYear()}</ReselaseYear>
             <GenresBox>
                 {content.genre_ids && genres && content.genre_ids.map((genre_id) => (
-                    <span>
-                        {genres.genres.map(genre => genre.id === genre_id
-                            ? <Genres>{genre.name}</Genres>
+                    genres.genres.map(genre => genre.id === genre_id
+                            ? <Genres key={genre.id}>{genre.name}</Genres>
                             : "")
-                        }
-                    </span>
                 ))}
             </GenresBox>
             <VotesBox>

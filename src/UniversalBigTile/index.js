@@ -61,7 +61,7 @@ const UniversalBigTile = ({ type, content }) => {
                     </AdditionalContentContainer>
                     <GenresBox>
                         {content.genres && content.genres.map(genre =>
-                            <Genres>{genre.name}</Genres>
+                            <Genres key={genre.id}>{genre.name}</Genres>
                         )
                         }
                     </GenresBox>
