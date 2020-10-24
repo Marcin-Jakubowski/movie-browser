@@ -52,10 +52,14 @@ export const Name = styled.h2`
 `
 
 export const JobOrCharacterName = styled.h3`
-font-weight: 400;
-font-size: 18px;
-text-align: center;
-margin: 8px auto;
-color: ${({ theme }) => theme.color.jobOrCharacterName};
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    margin: 8px auto;
+    color: ${({ theme }) => theme.color.jobOrCharacterName};
+
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        font-size: 13px;
+    }
 
 `
