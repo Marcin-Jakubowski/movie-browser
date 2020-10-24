@@ -41,14 +41,14 @@ function Movies() {
         <LoadingPage /> :
         ""
       }
-      {status === "succes" && movies.total_results > 0 ?
+      {status === "success" && movies.total_results > 0 ?
         <GridTemplate
           content={movies.results}
           type={type}
         /> :
         ""
       }
-      {status === "succes" && movies.total_results === 0 ?
+      {status === "success" && movies.total_results === 0 ?
         <NoResults /> :
         ""
       }
@@ -57,7 +57,7 @@ function Movies() {
         :
         ""
       }
-      { status === "succes" && movies.total_results > 0 ?
+      { status === "success" && movies.total_results > 0 ?
         <Pager
           content={movies}
           type={type}

@@ -39,14 +39,14 @@ function People() {
         <LoadingPage /> :
         ""
       }
-      {status === "succes" && people.total_results > 0 ?
+      {status === "success" && people.total_results > 0 ?
         <GridTemplate
           content={people.results}
           type={type}
         /> :
         ""
       }
-      {status === "succes" && people.total_results === 0 ?
+      {status === "success" && people.total_results === 0 ?
         <NoResults /> :
         ""
       }
@@ -55,7 +55,7 @@ function People() {
         :
         ""
       }
-      { status === "succes" && people.total_results > 0 ?
+      { status === "success" && people.total_results > 0 ?
         <Pager
           content={people}
           type={type}

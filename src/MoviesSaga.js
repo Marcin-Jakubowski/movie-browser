@@ -16,7 +16,7 @@ function* fetchHandler(action) {
             try {
                 const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/search/movie??", page, query)
                 yield put(setPageInformation(data))
-                yield put(setStatus("succes"))
+                yield put(setStatus("success"))
             } catch (error) {
                 yield put(setStatus("failed"))
             };
@@ -25,7 +25,7 @@ function* fetchHandler(action) {
             try {
                 const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/search/person?", page, query)
                 yield put(setPageInformation(data))
-                yield put(setStatus("succes"))
+                yield put(setStatus("success"))
             } catch (error) {
                 yield put(setStatus("failed"))
             };
@@ -35,7 +35,7 @@ function* fetchHandler(action) {
             try {
                 const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/movie/popular?", page)
                 yield put(setPageInformation(data))
-                yield put(setStatus("succes"))
+                yield put(setStatus("success"))
             }
             catch (error) {
                 yield put(setStatus("failed"))
@@ -45,7 +45,7 @@ function* fetchHandler(action) {
             try {
                 const data = yield call(fetchFromApi, "https://api.themoviedb.org/3/person/popular?", page)
                 yield put(setPageInformation(data))
-                yield put(setStatus("succes"))
+                yield put(setStatus("success"))
             }
             catch (error) {
                 yield put(setStatus("failed"))
