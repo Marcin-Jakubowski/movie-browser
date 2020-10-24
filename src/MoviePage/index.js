@@ -6,8 +6,8 @@ import {
     PosterShadowContainer,
     PosterBackgroundImageContainer,
     PosterItemsContainer,
-    LongTitle,
-    VotesAverageContainer,
+    Title,
+    VotesContainer,
     VotesAverageBox,
     VoteIcon,
     VotesSmallContent,
@@ -34,22 +34,19 @@ function MoviePage() {
                 <PosterShadowContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
                     <PosterBackgroundImageContainer>
                         <PosterItemsContainer>
-                            <LongTitle>
+                            <Title>
                                 {movieDetails.title}
-                            </LongTitle>
-                            <VotesAverageContainer>
+                            </Title>
+                            <VotesContainer>
                                 <VoteIcon src={voteIcon} alt="Vote icon" />
                                 <VotesAverageBox>
                                     <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
                                     <VotesSmallContent> / 10</VotesSmallContent>
                                 </VotesAverageBox>
-                            </VotesAverageContainer>
-                            <p>
-                                <VotesSmallContent>
-                                    {movieDetails.vote_count} votes
-                        </VotesSmallContent>
-                            </p>
-
+                            </VotesContainer>
+                            <VotesSmallContent>
+                                {movieDetails.vote_count} votes
+                            </VotesSmallContent>
                         </PosterItemsContainer>
                     </PosterBackgroundImageContainer>
                 </PosterShadowContainer>
