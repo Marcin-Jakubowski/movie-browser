@@ -10,7 +10,8 @@ export const theme = {
         refreshButtonFont: "#ffffff",
         refreshButtonBackground: "#0044CC",
         tileBackground: "#ffffff",
-        noImageBackground: "#C4C4C4"
+        noImageBackground: "#C4C4C4",
+        jobOrCharacterName: "#7E839A"
     },
     breakpoint: {
         mobileMax: 767,

@@ -13,14 +13,14 @@ const moviesSlice = createSlice({
         movieCredits: [],
         personDetails: [],
         personCredits: [],
-        queryString: "initial", 
+        queryString: "initial",
         status: "loading"
     },
     reducers: {
         initiateFetch: ({ payload }) => {
 
         },
-        setStatus: (state, { payload}) => {
+        setStatus: (state, { payload }) => {
             state.status = payload
         },
         setPageInformation: (state, { payload }) => {
@@ -38,12 +38,12 @@ const moviesSlice = createSlice({
         setPersonCredits: (state, { payload }) => {
             state.personCredits = payload
         },
-        inputChange: ({payload}) => {
+        inputChange: ({ payload }) => {
 
         },
-        setQueryString : (state, {payload}) => {
+        setQueryString: (state, { payload }) => {
             state.queryString = payload
-        }, 
+        },
     }
 });
 

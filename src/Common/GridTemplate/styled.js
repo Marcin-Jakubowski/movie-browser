@@ -3,7 +3,7 @@ import { moviesKey, peopleKey } from "../../keys"
 
 export const Wrapper = styled.section`
     width: 100%;
-    min-height: 1391px;
+    min-height: 100vh;
     display: grid;
     grid-gap: 24px;
 
@@ -20,10 +20,10 @@ export const Wrapper = styled.section`
 
     ${({ type }) => type === peopleKey && css`
         grid-template-columns: repeat(auto-fill, 208px);
-        grid-auto-rows: 339px;
+        grid-auto-rows: minmax(339px, min-content);
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             grid-template-columns: repeat(auto-fill, 136px);
-            grid-auto-rows: 245px;
+            grid-auto-rows: minmax(245px, min-content);
             grid-gap: 16px;}
     `}
 
