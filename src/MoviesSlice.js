@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const moviesSlice = createSlice({
     name: "movies",
@@ -13,8 +13,10 @@ const moviesSlice = createSlice({
         movieCredits: [],
         personDetails: [],
         personCredits: [],
-        queryString: "initial",
+        genres: [],
+        queryString: "initial"
         status: "loading"
+
     },
     reducers: {
         initiateFetch: ({ payload }) => {
@@ -38,7 +40,11 @@ const moviesSlice = createSlice({
         setPersonCredits: (state, { payload }) => {
             state.personCredits = payload
         },
-        inputChange: ({ payload }) => {
+        setGenres: (state, { payload }) => {
+            state.genres = payload
+        },
+        fetchGenresList: () => { },
+        inputChange: ({payload}) => {
 
         },
         setQueryString: (state, { payload }) => {
@@ -54,17 +60,22 @@ export const {
     setMovieCredits,
     setPersonDetails,
     setPersonCredits,
+    setGenres,
+    fetchGenresList,
     inputChange,
     setQueryString,
     setStatus,
 } = moviesSlice.actions
 
-export const selectMovies = state => state.movies
+export const selectMovies = state => state.movies;
+export const selectType = state => selectMovies(state).type;
 export const selectStatus = state => selectMovies(state).status
-export const selectPageInformation = state => selectMovies(state).pageInformations
-export const selectMovieDetails = state => selectMovies(state).movieDetails
-export const selectMovieCredits = state => selectMovies(state).movieCredits
-export const selectPersonDetails = state => selectMovies(state).personDetails
-export const selectPersonCredits = state => selectMovies(state).personCredits
-export const selectQueryString = state => selectMovies(state).queryString
-export default moviesSlice.reducer
+export const selectPageInformation = state => selectMovies(state).pageInformations;
+export const selectMovieDetails = state => selectMovies(state).movieDetails;
+export const selectMovieCredits = state => selectMovies(state).movieCredits;
+export const selectPersonDetails = state => selectMovies(state).personDetails;
+export const selectPersonCredits = state => selectMovies(state).personCredits;
+export const selectGenres = state => selectMovies(state).genres;
+export const selectQueryString = state => selectMovies(state).queryString;
+export default moviesSlice.reducer;
+

@@ -7,8 +7,12 @@ export const theme = {
         pageText: "#7E839A",
         posterBackground: "#000000",
         posterFont: "#ffffff",
+        mainFont: "#000000",
+        secondaryFont: "#7E839A",
+        genresBoxBackground: "#E4E6F0",
+        tileBackground: "#ffffff",
         refreshButtonFont: "#ffffff",
-        refreshButtonBackground: "#0044CC",
+       refreshButtonBackground: "#0044CC",
         tileBackground: "#ffffff",
         noImageBackground: "#C4C4C4",
         jobOrCharacterName: "#7E839A"

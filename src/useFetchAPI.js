@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { apiKey } from "../keys";
+import { apiKey } from "./keys";
 import {
     selectMovieDetails,
     selectMovieCredits,
@@ -10,10 +10,8 @@ import {
     setMovieDetails,
     setMovieCredits,
     setPersonDetails,
-    setPersonCredits
-
-} from "../MoviesSlice";
-
+    setPersonCredits,
+} from "./MoviesSlice";
 
 export const useAPI = (type, apiLink) => {
     const dispatch = useDispatch();
@@ -64,11 +62,11 @@ export const useAPI = (type, apiLink) => {
                 default:
                     break;
             }
-                   
-            } catch (error) {
-                console.log(error)
-            }
-        };
-        useEffect(() => { getData() }, [apiLink]);
-        return data;
-    }
+
+        } catch (error) {
+            console.log(error)
+        }
+    };
+    useEffect(() => { getData() }, [apiLink]);
+    return data;
+}

@@ -1,6 +1,7 @@
-import styled, { css } from "styled-components"
-import { moviesKey, peopleKey } from "../../keys"
-import { Link } from "react-router-dom"
+import styled, { css } from "styled-components";
+import { moviesKey, peopleKey } from "../../keys";
+import { Link } from "react-router-dom";
+
 
 export const Wrapper = styled.section`
     width: 100%;
@@ -10,7 +11,6 @@ export const Wrapper = styled.section`
 
     ${({ type }) => type === moviesKey && css`
         grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 650px;
 
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             grid-template-columns: 1fr;
@@ -30,6 +30,7 @@ export const Wrapper = styled.section`
 
 `
 
-export const StyledLink = styled(Link)`
+export const GridTemplateLink = styled(Link)`
     text-decoration: none;
-`
+`;
+

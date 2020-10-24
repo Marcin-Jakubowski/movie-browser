@@ -1,13 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useAPI } from "../Movies/useAPItest";
+import { useAPI } from "../useFetchAPI";
 import {
     PosterBackgrundContainer,
     PosterShadowContainer,
     PosterBackgroundImageContainer,
     PosterItemsContainer,
-    LongTitle,
-    VotesAverageContainer,
+    Title,
+    VotesContainer,
     VotesAverageBox,
     VoteIcon,
     VotesSmallContent,
@@ -20,39 +20,41 @@ import Container from '../Common/Container';
 import Header from '../Common/Header';
 import GridTemplate from '../Common/GridTemplate';
 import { peopleKey } from '../keys';
+import UniversalBigTile from '../UniversalBigTile';
 
 function MoviePage() {
     const { id } = useParams();
     const movieDetails = useAPI("movieDetails", `https://api.themoviedb.org/3/movie/${id}?`);
     const movieCredits = useAPI("movieCredits", `https://api.themoviedb.org/3/movie/${id}/credits?`);
-    const PosterImageBaseLink = imageBaseLink("w1280");
+    const posterImageBaseLink = imageBaseLink("w1280");
 
     return (
         <div>
             <PosterBackgrundContainer>
-                <PosterShadowContainer link={'"' + PosterImageBaseLink + movieDetails.backdrop_path + '"'}>
+                <PosterShadowContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
                     <PosterBackgroundImageContainer>
                         <PosterItemsContainer>
-                            <LongTitle>
-                                {movieDetails.original_title}
-                            </LongTitle>
-                            <VotesAverageContainer>
+                            <Title>
+                                {movieDetails.title}
+                            </Title>
+                            <VotesContainer>
                                 <VoteIcon src={voteIcon} alt="Vote icon" />
                                 <VotesAverageBox>
                                     <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
                                     <VotesSmallContent> / 10</VotesSmallContent>
                                 </VotesAverageBox>
-                            </VotesAverageContainer>
-                            <p>
-                                <VotesSmallContent>
-                                    {movieDetails.vote_count} votes
-                        </VotesSmallContent>
-                            </p>
-
+                            </VotesContainer>
+                            <VotesSmallContent>
+                                {movieDetails.vote_count} votes
+                            </VotesSmallContent>
                         </PosterItemsContainer>
                     </PosterBackgroundImageContainer>
                 </PosterShadowContainer>
             </PosterBackgrundContainer>
+            <UniversalBigTile
+                content={movieDetails}
+                type="movie"
+            />
             <Container>
                 <Header text={"Cast"} />
                 <GridTemplate

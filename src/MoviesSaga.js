@@ -1,9 +1,8 @@
 import { put, debounce, call, takeLatest, delay } from "redux-saga/effects"
 import { fetchFromApi } from "./fetchFromApi"
-import { initiateFetch, inputChange, setPageInformation, setQueryString, setStatus } from "./MoviesSlice"
-import { moviesKey, peopleKey } from "./keys"
-
-
+import { fetchGenresList, initialFetch, inputChange, setGenres, setPageInformation, setQueryString, setStatus } from "./MoviesSlice"
+import { apiKey, moviesKey, peopleKey } from "./keys"
+import Axios from "axios"
 
 function* fetchHandler(action) {
     yield put(setStatus("loading"))
@@ -60,8 +59,24 @@ function* inputChangeHandler(action) {
     yield put(setQueryString(payload))
 }
 
-
 export function* MoviesSaga() {
     yield takeLatest(initiateFetch.type, fetchHandler)
     yield debounce(500, inputChange.type, inputChangeHandler)
+}
+
+function* fetchGenresFromAPI () {
+    try {
+        const response = yield Axios.get("https://api.themoviedb.org/3/genre/movie/list?", {
+            params: {
+                api_key: apiKey
+            }
+        })
+        yield put(setGenres(response.data));
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export function* setGenresList () {
+    yield takeLatest(fetchGenresList.type, fetchGenresFromAPI)
 }

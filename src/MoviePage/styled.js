@@ -35,16 +35,17 @@ export const PosterItemsContainer = styled.div`
     padding: 56px 0;
 `;
 
-export const LongTitle = styled.p`
+export const Title = styled.h1`
     font-size: 64px;
     line-height: 77px;
     font-weight: 600;
-    margin: 15px 0;
+    margin: 0;
 `;
 
-export const VotesAverageContainer = styled.div`
+export const VotesContainer = styled.div`
     display: flex;
     align-items: center;
+    margin: 24px 0 16px;
 `;
 
 export const VoteIcon = styled.img`
@@ -60,13 +61,11 @@ export const VotesAverageBox = styled.div`
 export const VotesSmallContent = styled.div`
     font-size: 16px;
     font-weight: 400;
-    display: block;
 `;
 
 export const VotesBigContent = styled.div`
     font-size: 30px;
     font-weight: 500;
-    display: block;
     margin: 0 8px;
     line-height: 1;
 `;
