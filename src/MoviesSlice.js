@@ -14,7 +14,7 @@ const moviesSlice = createSlice({
         personDetails: [],
         personCredits: [],
         genres: [],
-        queryString: "initial"
+        queryString: "initial",
         status: "loading"
 
     },
@@ -44,7 +44,7 @@ const moviesSlice = createSlice({
             state.genres = payload
         },
         fetchGenresList: () => { },
-        inputChange: ({payload}) => {
+        inputChange: ({ payload }) => {
 
         },
         setQueryString: (state, { payload }) => {
