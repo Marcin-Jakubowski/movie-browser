@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import Movies from "./Movies/index";
 import People from "./People/index";
 import NavLogoButton from "./NavLogoButton/index";
@@ -37,6 +37,9 @@ export default () => (
         </Route>
         <Route path="/people">
           <People />
+        </Route>
+        <Route path="/">
+          <Redirect to="/movies" />
         </Route>
       </Switch>
     </nav>
