@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAPI } from "../useFetchAPI";
 import Container from '../Common/Container';
 import Header from '../Common/Header';
 import GridTemplate from '../Common/GridTemplate';
 import { moviesKey, personKey } from '../keys';
 import UniversalBigTile from '../UniversalBigTile';
+import { useDispatch, useSelector } from 'react-redux';
+import { initiateMovieOrPersonFetch, selectPersonCredits, selectPersonDetails } from '../MoviesSlice';
 
 function MoviePage() {
+    const dispatch = useDispatch();
     const { id } = useParams();
-    const personDetails = useAPI("personDetails", `https://api.themoviedb.org/3/person/${id}?`);
-    const personCredits = useAPI("personCredits", `https://api.themoviedb.org/3/person/${id}/movie_credits?`);
+
+    useEffect(() => {
+        dispatch(initiateMovieOrPersonFetch({
+          id: id,
+          type: personKey,
+        }))
+      }, [])
+
+    const personDetails = useSelector(selectPersonDetails);
+    const personCredits = useSelector(selectPersonCredits);
     return (
         <div>
             <UniversalBigTile
