@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAPI } from "../useFetchAPI";
 import {
     PosterBackgrundContainer,
     PosterShadowContainer,
@@ -19,15 +18,27 @@ import voteIcon from "./voteIcon.svg";
 import Container from '../Common/Container';
 import Header from '../Common/Header';
 import GridTemplate from '../Common/GridTemplate';
-import { peopleKey } from '../keys';
+import { movieKey, peopleKey } from '../keys';
 import UniversalBigTile from '../UniversalBigTile';
+import { useDispatch, useSelector } from 'react-redux';
+import { initiateMovieOrPersonFetch, selectMovieCredits, selectMovieDetails } from '../MoviesSlice';
 
 function MoviePage() {
+    const dispatch = useDispatch();
     const { id } = useParams();
-    const movieDetails = useAPI("movieDetails", `https://api.themoviedb.org/3/movie/${id}?`);
-    const movieCredits = useAPI("movieCredits", `https://api.themoviedb.org/3/movie/${id}/credits?`);
     const posterImageBaseLink = imageBaseLink("w1280");
 
+    useEffect(() => {
+        dispatch(initiateMovieOrPersonFetch({
+          id: id,
+          type: movieKey,
+        }))
+      }, [])
+
+    const movieDetails = useSelector(selectMovieDetails);
+    const movieCredits = useSelector(selectMovieCredits);
+
+    
     return (
         <div>
             <PosterBackgrundContainer>
