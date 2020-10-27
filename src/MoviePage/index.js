@@ -21,12 +21,16 @@ import GridTemplate from '../Common/GridTemplate';
 import { movieKey, peopleKey } from '../keys';
 import UniversalBigTile from '../UniversalBigTile';
 import { useDispatch, useSelector } from 'react-redux';
-import { initiateMovieOrPersonFetch, selectMovieCredits, selectMovieDetails } from '../MoviesSlice';
+import { initiateMovieOrPersonFetch, selectMovieCredits, selectMovieDetails, selectStatus } from '../MoviesSlice';
+import LoadingPage from '../Common/LoadingPage';
+import Failed from '../Common/Failed';
 
 function MoviePage() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const posterImageBaseLink = imageBaseLink("w1280");
+
+    const status = useSelector(selectStatus)
 
     useEffect(() => {
         dispatch(initiateMovieOrPersonFetch({
@@ -41,49 +45,63 @@ function MoviePage() {
 
     return (
         <div>
-            {movieDetails.backdrop_path !== null
-                ? <PosterBackgrundContainer>
-                    <PosterShadowContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
-                        <PosterBackgroundImageContainer>
-                            <PosterItemsContainer>
-                                <Title>
-                                    {movieDetails.title}
-                                </Title>
-                                <VotesContainer>
-                                    <VoteIcon src={voteIcon} alt="Vote icon" />
-                                    <VotesAverageBox>
-                                        <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
-                                        <VotesSmallContent> / 10</VotesSmallContent>
-                                    </VotesAverageBox>
-                                </VotesContainer>
-                                <VotesSmallContent>
-                                    {movieDetails.vote_count} votes
+            {status === "failed" ?
+                <Failed />
+                :
+                ""
+            }
+            {status === "loading" ?
+                <LoadingPage /> :
+                ""
+            }
+            {status === "success" ?
+                <div>
+                    {movieDetails.backdrop_path !== null
+                        ? <PosterBackgrundContainer>
+                            <PosterShadowContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
+                                <PosterBackgroundImageContainer>
+                                    <PosterItemsContainer>
+                                        <Title>
+                                            {movieDetails.title}
+                                        </Title>
+                                        <VotesContainer>
+                                            <VoteIcon src={voteIcon} alt="Vote icon" />
+                                            <VotesAverageBox>
+                                                <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
+                                                <VotesSmallContent> / 10</VotesSmallContent>
+                                            </VotesAverageBox>
+                                        </VotesContainer>
+                                        <VotesSmallContent>
+                                            {movieDetails.vote_count} votes
                             </VotesSmallContent>
-                            </PosterItemsContainer>
-                        </PosterBackgroundImageContainer>
-                    </PosterShadowContainer>
-                </PosterBackgrundContainer>
-                : ""}
-            <UniversalBigTile
-                content={movieDetails}
-                type="movie"
-            />
-            <Container>
-                <Header text={"Cast"} />
-                <GridTemplate
-                    content={movieCredits.cast}
-                    type={peopleKey}
-                    castAndCrew="cast"
-                />
-            </Container>
-            <Container>
-                <Header text={"Crew"} />
-                <GridTemplate
-                    content={movieCredits.crew}
-                    type={peopleKey}
-                    castAndCrew="crew"
-                />
-            </Container>
+                                    </PosterItemsContainer>
+                                </PosterBackgroundImageContainer>
+                            </PosterShadowContainer>
+                        </PosterBackgrundContainer>
+                        : ""}
+                    <UniversalBigTile
+                        content={movieDetails}
+                        type="movie"
+                    />
+                    <Container>
+                        <Header text={"Cast"} />
+                        <GridTemplate
+                            content={movieCredits.cast}
+                            type={peopleKey}
+                            castAndCrew="cast"
+                        />
+                    </Container>
+                    <Container>
+                        <Header text={"Crew"} />
+                        <GridTemplate
+                            content={movieCredits.crew}
+                            type={peopleKey}
+                            castAndCrew="crew"
+                        />
+                    </Container>
+                </div> :
+                ""
+            }
         </div>
     );
 };
