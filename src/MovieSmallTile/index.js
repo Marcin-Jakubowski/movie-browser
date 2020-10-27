@@ -1,5 +1,16 @@
 import React from "react";
-import { TileContainer, PosterImage, MovieTitle, ReselaseYear, GenresBox, Genres, VotesBox, VotesAverage, VoteIcon, VotesCount } from "./styled";
+import {
+    TileContainer,
+    ContentContainer,
+    PosterImage,
+    MovieTitle,
+    ReselaseYear,
+    GenresBox,
+    Genres,
+    VotesBox,
+    VotesAverage,
+    VoteIcon,
+    VotesCount } from "./styled";
 import voteIcon from "../voteIcon.svg";
 import imageBaseLink from "../imageBaseLink";
 import { useSelector } from "react-redux";
@@ -18,6 +29,7 @@ const MovieSmallTile = ({ content }) => {
                 alt={content.title}
                 noImage={!content.poster_path}
             />
+            <ContentContainer>
             <MovieTitle>{content.title}</MovieTitle>
             <ReselaseYear>{date.getFullYear()}</ReselaseYear>
             <GenresBox>
@@ -36,6 +48,7 @@ const MovieSmallTile = ({ content }) => {
                     {content.vote_count} votes
                 </VotesCount>
             </VotesBox>
+            </ContentContainer>
         </TileContainer>
     )
 }
