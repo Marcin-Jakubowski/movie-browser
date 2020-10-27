@@ -209,10 +209,6 @@ export const VoteIcon = styled.img`
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 16px;
     }
-    
-    @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        width: 16px;
-    }
 `;
 
 export const VotesBox = styled.div`
@@ -276,7 +272,6 @@ export const MobileOverview = styled.div`
     }
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        display: block;
         font-size: 14px;
         line-height: 22px;
         padding: 12px 0;
