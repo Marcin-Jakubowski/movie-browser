@@ -96,6 +96,8 @@ export function* setGenresList() {
 
 
 function* fetchMovieOrPersonData(action) {
+    yield put(setStatus("loading"))
+    yield delay(300)
     const id = yield action.payload.id
     const type = yield action.payload.type
     try {
@@ -114,6 +116,7 @@ function* fetchMovieOrPersonData(action) {
                     }
                 })
                 yield put(setMovieCredits(movieCreditsData.data));
+                yield put(setStatus("success"))
                 break;
             case personKey:
                 const personDetailsData = yield Axios.get(`https://api.themoviedb.org/3/person/${id}?`, {
@@ -128,13 +131,14 @@ function* fetchMovieOrPersonData(action) {
                     }
                 })
                 yield put(setPersonCredits(personCreditsData.data));
+                yield put(setStatus("success"))
                 break;
             default:
                 break;
         }
 
     } catch (error) {
-        console.log(error)
+        yield put(setStatus("failed"))
     }
 }
 
