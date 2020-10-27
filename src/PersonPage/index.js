@@ -25,7 +25,7 @@ function MoviePage() {
     const personCredits = useSelector(selectPersonCredits);
 
     const status = useSelector(selectStatus);
-    
+
     return (
         <div>
             {status === "failed" ?
@@ -39,10 +39,12 @@ function MoviePage() {
             }
             {status === "success" ?
                 <div>
-                    <UniversalBigTile
-                        content={personDetails}
-                        type={personKey}
-                    />
+                    <Container>
+                        <UniversalBigTile
+                            content={personDetails}
+                            type={personKey}
+                        />
+                    </Container>
                     <Container>
                         <Header text={`Movies - cast(${personCredits.cast && personCredits.cast.length})`} />
                         <GridTemplate

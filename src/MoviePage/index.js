@@ -79,10 +79,12 @@ function MoviePage() {
                             </PosterShadowContainer>
                         </PosterBackgrundContainer>
                         : ""}
-                    <UniversalBigTile
-                        content={movieDetails}
-                        type="movie"
-                    />
+                    <Container>
+                        <UniversalBigTile
+                            content={movieDetails}
+                            type="movie"
+                        />
+                    </Container>
                     <Container>
                         <Header text={"Cast"} />
                         <GridTemplate
