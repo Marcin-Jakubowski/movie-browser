@@ -53,7 +53,7 @@ const UniversalBigTile = ({ type, content }) => {
                 />
                 <ContentContainer type={type}>
                     <MovieTitle>{content && type === movieKey ? content.title : content.name}</MovieTitle>
-                    {content && type && type === movieKey
+                    {defaultDate && content && type && type === movieKey
                         ? <ReselaseYear>{date.getFullYear()}</ReselaseYear>
                         : ""}
                     <AdditionalContentContainer>
@@ -64,9 +64,9 @@ const UniversalBigTile = ({ type, content }) => {
                             <AdditionalContent>
                                 {
                                     content.production_countries && type && type === movieKey
-                                        ? content.production_countries.map(production_country =>
-                                            production_country.name).join(", ")
-                                        : date.toLocaleDateString()
+                                        ? content.production_countries !== null ? content.production_countries.map(production_country =>
+                                            production_country.name).join(", ") : "-"
+                                        : defaultDate !== null ? date.toLocaleDateString() : "-"
                                 }
                             </AdditionalContent>
                         </AdditionalContentBox>
@@ -78,8 +78,8 @@ const UniversalBigTile = ({ type, content }) => {
                             </AdditionalContentTitle>
                             <AdditionalContent>
                                 {date && type && type === movieKey
-                                    ? date.toLocaleDateString()
-                                    : content.place_of_birth}
+                                    ? defaultDate !== null ? date.toLocaleDateString() : "-"
+                                    : content.place_of_birth !== null ? content.place_of_birth : "-"}
                             </AdditionalContent>
                         </AdditionalContentBox>
                     </AdditionalContentContainer>
