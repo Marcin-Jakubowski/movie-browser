@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const TileContainer = styled.div`
     width: 324px;
@@ -6,9 +6,9 @@ export const TileContainer = styled.div`
     height: 100%;
     margin: 0 auto;
     padding: 16px;
-    color: ${({theme}) => theme.color.mainFont};
+    color: ${({ theme }) => theme.color.mainFont};
     font-weight: 400;
-    background-color: ${({theme}) => theme.color.tileBackground};
+    background-color: ${({ theme }) => theme.color.tileBackground};
     border-radius: 5px;
     display: grid;
     grid-template-rows: repeat(4, auto) 1fr;
@@ -20,6 +20,12 @@ export const PosterImage = styled.img`
     height: 434px;
     margin: 0 0 8px;
     border-radius: 5px;
+
+    ${({ noImage }) => noImage && css`
+        background-color: ${({ theme }) => theme.color.noImageBackground};
+        background-size: initial;
+        background-repeat: no-repeat;
+    `}
 `
 
 export const MovieTitle = styled.p`
@@ -32,17 +38,17 @@ export const MovieTitle = styled.p`
 export const ReselaseYear = styled.p`
     font-size: 16px;
     line-height: 24px;
-    color: ${({theme}) => theme.color.secondaryFont};
+    color: ${({ theme }) => theme.color.secondaryFont};
     margin: 0;
 `
 
 export const Genres = styled.div`
     font-size: 14px;
     line-height: 20px;
-    color: ${({theme}) => theme.color.mainFont};
+    color: ${({ theme }) => theme.color.mainFont};
     padding: 8px 16px;
     margin: 0 8px 8px 0;
-    background-color: ${({theme}) => theme.color.genresBoxBackground};
+    background-color: ${({ theme }) => theme.color.genresBoxBackground};
 `
 
 export const GenresBox = styled.div`
@@ -69,5 +75,5 @@ export const VotesAverage = styled.div`
     font-weight: 600;
 `
 export const VotesCount = styled.div`
-    color: ${({theme}) => theme.color.secondaryFont};
+    color: ${({ theme }) => theme.color.secondaryFont};
 `

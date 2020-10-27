@@ -22,6 +22,8 @@ import voteIcon from "../voteIcon.svg";
 import imageBaseLink from "../imageBaseLink";
 import WidthContainer from "../Common/WidthContainer";
 import { movieKey } from '../keys';
+import noMovieImage from "../noMovieImage.svg"
+import noPersonImage from "../noPersonImage.svg"
 
 const UniversalBigTile = ({ type, content }) => {
     let posterSize = "";
@@ -48,7 +50,12 @@ const UniversalBigTile = ({ type, content }) => {
         <WidthContainer>
             <TileContainer>
                 <PosterImage
-                    src={tileImageBaseLink + imagePath}
+                    src={imagePath !== null ? tileImageBaseLink + imagePath : type === movieKey
+                    ? noMovieImage
+                    : noPersonImage
+                    }
+                    alt={type === movieKey ? content.title : content.name}
+                    noImage={!content.poster_path}
                     type={type}
                 />
                 <ContentContainer type={type}>

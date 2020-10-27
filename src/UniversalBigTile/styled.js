@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { movieKey } from '../keys';
 
 export const TileContainer = styled.div`
@@ -17,6 +17,13 @@ export const PosterImage = styled.img`
     width: ${({ type }) => type === movieKey ? 312 : 399}px;
     height: ${({ type }) => type === movieKey ? 464 : 564}px;
     border-radius: 5px;
+    flex-shrink: 0;
+
+    ${({ noImage }) => noImage && css`
+        background-color: ${({ theme }) => theme.color.noImageBackground};
+        background-size: initial;
+        background-repeat: no-repeat;
+    `}
 `;
 
 export const ContentContainer = styled.div`
