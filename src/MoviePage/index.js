@@ -30,38 +30,40 @@ function MoviePage() {
 
     useEffect(() => {
         dispatch(initiateMovieOrPersonFetch({
-          id: id,
-          type: movieKey,
+            id: id,
+            type: movieKey,
         }))
-      }, [])
+    }, [])
 
     const movieDetails = useSelector(selectMovieDetails);
     const movieCredits = useSelector(selectMovieCredits);
 
-    
+
     return (
         <div>
-            <PosterBackgrundContainer>
-                <PosterShadowContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
-                    <PosterBackgroundImageContainer>
-                        <PosterItemsContainer>
-                            <Title>
-                                {movieDetails.title}
-                            </Title>
-                            <VotesContainer>
-                                <VoteIcon src={voteIcon} alt="Vote icon" />
-                                <VotesAverageBox>
-                                    <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
-                                    <VotesSmallContent> / 10</VotesSmallContent>
-                                </VotesAverageBox>
-                            </VotesContainer>
-                            <VotesSmallContent>
-                                {movieDetails.vote_count} votes
+            {movieDetails.backdrop_path !== null
+                ? <PosterBackgrundContainer>
+                    <PosterShadowContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
+                        <PosterBackgroundImageContainer>
+                            <PosterItemsContainer>
+                                <Title>
+                                    {movieDetails.title}
+                                </Title>
+                                <VotesContainer>
+                                    <VoteIcon src={voteIcon} alt="Vote icon" />
+                                    <VotesAverageBox>
+                                        <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
+                                        <VotesSmallContent> / 10</VotesSmallContent>
+                                    </VotesAverageBox>
+                                </VotesContainer>
+                                <VotesSmallContent>
+                                    {movieDetails.vote_count} votes
                             </VotesSmallContent>
-                        </PosterItemsContainer>
-                    </PosterBackgroundImageContainer>
-                </PosterShadowContainer>
-            </PosterBackgrundContainer>
+                            </PosterItemsContainer>
+                        </PosterBackgroundImageContainer>
+                    </PosterShadowContainer>
+                </PosterBackgrundContainer>
+                : ""}
             <UniversalBigTile
                 content={movieDetails}
                 type="movie"
