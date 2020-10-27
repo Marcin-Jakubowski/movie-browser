@@ -5,5 +5,10 @@ export const BrowserInput = styled.input`
     padding: 12px;
     border-radius: 24px;
     width: 432px;
+    max-height: 44px;
     justify-self: end;
+
+@media( max-width: 767px) {
+    width: 100%;
+}
 `;
