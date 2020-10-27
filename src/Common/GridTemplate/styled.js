@@ -13,7 +13,6 @@ export const Wrapper = styled.section`
 
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             grid-template-columns: 1fr;
-            grid-auto-rows: 201px;
             grid-gap: 16px 0;
         }
 `}
