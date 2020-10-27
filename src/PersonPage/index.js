@@ -27,7 +27,6 @@ function MoviePage() {
                 content={personDetails}
                 type={personKey}
             />
-            <Container>{personDetails.name}</Container>
             <Container>
                 <Header text={`Movies - cast(${personCredits.cast && personCredits.cast.length})`} />
                 <GridTemplate
