@@ -7,6 +7,10 @@ export const NavButton = styled.button`
     display: flex;
     align-items: center;
     margin: 0 50px 0 0;
+
+    @media (max-width: 1368px) {
+        margin: 0;
+    }
 `;
 
 export const NavLogo = styled.img`

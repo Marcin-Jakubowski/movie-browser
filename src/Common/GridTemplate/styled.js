@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export const Wrapper = styled.section`
     width: 100%;
-    min-height: 100vh;
     display: grid;
     grid-gap: 24px;
 
@@ -14,7 +13,6 @@ export const Wrapper = styled.section`
 
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             grid-template-columns: 1fr;
-            grid-auto-rows: 201px;
             grid-gap: 16px 0;
         }
 `}

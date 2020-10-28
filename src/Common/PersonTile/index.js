@@ -1,7 +1,7 @@
 import React from "react"
 import { Container, Name, StyledImage, JobOrCharacterName } from "./styled"
 import imageBaseLink from "../../imageBaseLink"
-import noImage from "./noImage.svg"
+import noImage from "../../noPersonImage.svg"
 
 
 

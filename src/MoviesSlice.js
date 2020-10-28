@@ -44,6 +44,9 @@ const moviesSlice = createSlice({
             state.genres = payload
         },
         fetchGenresList: () => { },
+        initiateMovieOrPersonFetch: () => {
+
+        },
         inputChange: ({ payload }) => {
 
         },
@@ -62,6 +65,7 @@ export const {
     setPersonCredits,
     setGenres,
     fetchGenresList,
+    initiateMovieOrPersonFetch,
     inputChange,
     setQueryString,
     setStatus,

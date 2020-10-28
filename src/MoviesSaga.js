@@ -1,7 +1,20 @@
 import { put, debounce, call, takeLatest, delay } from "redux-saga/effects"
 import { fetchFromApi } from "./fetchFromApi"
-import { fetchGenresList, initiateFetch, inputChange, setGenres, setPageInformation, setQueryString, setStatus } from "./MoviesSlice"
-import { apiKey, moviesKey, peopleKey } from "./keys"
+import {
+    fetchGenresList,
+    initiateFetch,
+    initiateMovieOrPersonFetch,
+    inputChange,
+    setGenres,
+    setMovieCredits,
+    setMovieDetails,
+    setPageInformation,
+    setPersonCredits,
+    setPersonDetails,
+    setQueryString,
+    setStatus
+} from "./MoviesSlice"
+import { apiKey, movieKey, moviesKey, peopleKey, personKey } from "./keys"
 import Axios from "axios"
 
 function* fetchHandler(action) {
@@ -9,7 +22,7 @@ function* fetchHandler(action) {
     const page = yield action.payload.page
     const type = yield action.payload.type
     const query = yield action.payload.query
-    yield delay(1000)
+    yield delay(300)
     if (query) {
         if (type === moviesKey) {
             try {
@@ -79,4 +92,56 @@ function* fetchGenresFromAPI() {
 
 export function* setGenresList() {
     yield takeLatest(fetchGenresList.type, fetchGenresFromAPI)
+}
+
+
+function* fetchMovieOrPersonData(action) {
+    yield put(setStatus("loading"))
+    yield delay(300)
+    const id = yield action.payload.id
+    const type = yield action.payload.type
+    try {
+        switch (type) {
+            case movieKey:
+                const movieDetailsData = yield Axios.get(`https://api.themoviedb.org/3/movie/${id}?`, {
+                    params: {
+                        api_key: apiKey
+                    }
+                })
+                yield put(setMovieDetails(movieDetailsData.data));
+
+                const movieCreditsData = yield Axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?`, {
+                    params: {
+                        api_key: apiKey
+                    }
+                })
+                yield put(setMovieCredits(movieCreditsData.data));
+                yield put(setStatus("success"))
+                break;
+            case personKey:
+                const personDetailsData = yield Axios.get(`https://api.themoviedb.org/3/person/${id}?`, {
+                    params: {
+                        api_key: apiKey
+                    }
+                })
+                yield put(setPersonDetails(personDetailsData.data));
+                const personCreditsData = yield Axios.get(`https://api.themoviedb.org/3/person/${id}/movie_credits?`, {
+                    params: {
+                        api_key: apiKey
+                    }
+                })
+                yield put(setPersonCredits(personCreditsData.data));
+                yield put(setStatus("success"))
+                break;
+            default:
+                break;
+        }
+
+    } catch (error) {
+        yield put(setStatus("failed"))
+    }
+}
+
+export function* fetchMoviesAndPeopleFromAPI() {
+    yield takeLatest(initiateMovieOrPersonFetch.type, fetchMovieOrPersonData)
 }

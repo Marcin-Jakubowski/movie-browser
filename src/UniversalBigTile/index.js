@@ -1,6 +1,7 @@
 import React from "react";
 import {
     TileContainer,
+    MobileTileContainer,
     PosterImage,
     ContentContainer,
     MovieTitle,
@@ -15,13 +16,17 @@ import {
     VoteIcon,
     VotesBox,
     VotesAverage,
+    VotesScale,
     VotesCount,
-    Overview
+    Overview,
+    MobileOverview,
 } from "./styled";
 import voteIcon from "../voteIcon.svg";
 import imageBaseLink from "../imageBaseLink";
 import WidthContainer from "../Common/WidthContainer";
 import { movieKey } from '../keys';
+import noMovieImage from "../noMovieImage.svg"
+import noPersonImage from "../noPersonImage.svg"
 
 const UniversalBigTile = ({ type, content }) => {
     let posterSize = "";
@@ -46,73 +51,85 @@ const UniversalBigTile = ({ type, content }) => {
 
     return (
         <WidthContainer>
-            <TileContainer>
-                <PosterImage
-                    src={tileImageBaseLink + imagePath}
-                    type={type}
-                />
-                <ContentContainer type={type}>
-                    <MovieTitle>{content && type === movieKey ? content.title : content.name}</MovieTitle>
-                    {content && type && type === movieKey
-                        ? <ReselaseYear>{date.getFullYear()}</ReselaseYear>
-                        : ""}
-                    <AdditionalContentContainer>
-                        <AdditionalContentBox>
-                            <AdditionalContentTitle>
-                                {content && type && type === movieKey ? "Production:" : "Date of birth:"}
-                            </AdditionalContentTitle>
-                            <AdditionalContent>
-                                {
-                                    content.production_countries && type && type === movieKey
-                                        ? content.production_countries.map(production_country =>
-                                            production_country.name).join(", ")
-                                        : date.toLocaleDateString()
-                                }
-                            </AdditionalContent>
-                        </AdditionalContentBox>
-                        <AdditionalContentBox>
-                            <AdditionalContentTitle>
-                                {content && type === movieKey
-                                    ? "Release date:"
-                                    : "Place of birth:"}
-                            </AdditionalContentTitle>
-                            <AdditionalContent>
-                                {date && type && type === movieKey
-                                    ? date.toLocaleDateString()
-                                    : content.place_of_birth}
-                            </AdditionalContent>
-                        </AdditionalContentBox>
-                    </AdditionalContentContainer>
-                    {content && type && type === movieKey
-                        ? <GenresBox>
-                            {content.genres && content.genres.map(genre =>
-                                <Genres key={genre.id}>{genre.name}</Genres>
-                            )}
-                        </GenresBox>
-                        : ""}
-                    {content && type && type === movieKey
-                        ? <VotesContainer>
-                            <VoteIcon src={voteIcon} />
-                            <VotesBox>
-                                <VotesAverage>
-                                    {content.vote_average}
-                                </VotesAverage>
-                                <div>
-                                    / 10
-                            </div>
-                                <VotesCount>
-                                    {content.vote_count} votes
-                        </VotesCount>
-                            </VotesBox>
-                        </VotesContainer>
-                        : ""}
-                    <Overview>
+            <MobileTileContainer>
+                <TileContainer>
+                    <PosterImage
+                        src={imagePath !== null ? tileImageBaseLink + imagePath : type === movieKey
+                            ? noMovieImage
+                            : noPersonImage
+                        }
+                        alt={type === movieKey ? content.title : content.name}
+                        noImage={!content.poster_path}
+                        type={type}
+                    />
+                    <ContentContainer type={type}>
+                        <MovieTitle>{content && type === movieKey ? content.title : content.name}</MovieTitle>
+                        {defaultDate && content && type && type === movieKey
+                            ? <ReselaseYear>{date.getFullYear()}</ReselaseYear>
+                            : ""}
+                        <AdditionalContentContainer>
+                            <AdditionalContentBox>
+                                <AdditionalContentTitle>
+                                    {content && type && type === movieKey ? "Production:" : "Date of birth:"}
+                                </AdditionalContentTitle>
+                                <AdditionalContent>
+                                    {
+                                        content.production_countries && type && type === movieKey
+                                            ? content.production_countries !== null ? content.production_countries.map(production_country =>
+                                                production_country.name).join(", ") : "-"
+                                            : defaultDate !== null ? date.toLocaleDateString() : "-"
+                                    }
+                                </AdditionalContent>
+                            </AdditionalContentBox>
+                            <AdditionalContentBox>
+                                <AdditionalContentTitle>
+                                    {content && type === movieKey
+                                        ? "Release date:"
+                                        : "Place of birth:"}
+                                </AdditionalContentTitle>
+                                <AdditionalContent>
+                                    {date && type && type === movieKey
+                                        ? defaultDate !== null ? date.toLocaleDateString() : "-"
+                                        : content.place_of_birth !== null ? content.place_of_birth : "-"}
+                                </AdditionalContent>
+                            </AdditionalContentBox>
+                        </AdditionalContentContainer>
                         {content && type && type === movieKey
-                            ? content.overview
-                            : content.biography}
-                    </Overview>
-                </ContentContainer>
-            </TileContainer>
+                            ? <GenresBox>
+                                {content.genres && content.genres.map(genre =>
+                                    <Genres key={genre.id}>{genre.name}</Genres>
+                                )}
+                            </GenresBox>
+                            : ""}
+                        {content && type && type === movieKey
+                            ? <VotesContainer>
+                                <VoteIcon src={voteIcon} />
+                                <VotesBox>
+                                    <VotesAverage>
+                                        {content.vote_average}
+                                    </VotesAverage>
+                                    <VotesScale>
+                                        / 10
+                                </VotesScale>
+                                    <VotesCount>
+                                        {content.vote_count} votes
+                        </VotesCount>
+                                </VotesBox>
+                            </VotesContainer>
+                            : ""}
+                        <Overview>
+                            {content && type && type === movieKey
+                                ? content.overview
+                                : content.biography}
+                        </Overview>
+                    </ContentContainer>
+                </TileContainer>
+                <MobileOverview>
+                    {content && type && type === movieKey
+                        ? content.overview
+                        : content.biography}
+                </MobileOverview>
+            </MobileTileContainer>
         </WidthContainer>
     )
 }
