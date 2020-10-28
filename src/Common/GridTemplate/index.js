@@ -4,11 +4,12 @@ import { moviesKey } from "../../keys";
 import MovieSmallTile from "../../MovieSmallTile";
 import PersonTile from "../PersonTile"
 import { Wrapper, GridTemplateLink } from "./styled";
-import { selectGenres, setGenres } from "../../MoviesSlice";
+import { selectGenres, setGenres, setStatus } from "../../MoviesSlice";
 
 const GridTemplate = ({ content, type, castAndCrew }) => {
   const dispatch = useDispatch();
   const genresData = useSelector(selectGenres);
+
 
   if (genresData === []) {
     dispatch(setGenres([]))
@@ -21,6 +22,7 @@ const GridTemplate = ({ content, type, castAndCrew }) => {
       {content && content.map((fragment) => (
         <li
           key={fragment.credit_id ? fragment.credit_id : fragment.id}
+          onClick={() => dispatch(setStatus("loading"))}
         >
           {
             type === moviesKey
