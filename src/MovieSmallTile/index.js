@@ -31,7 +31,7 @@ const MovieSmallTile = ({ content }) => {
             />
             <ContentContainer>
             <MovieTitle>{content.title}</MovieTitle>
-            <ReselaseYear>{date.getFullYear()}</ReselaseYear>
+            <ReselaseYear>{content.release_date ? date.getFullYear() : "N/N"}</ReselaseYear>
             <GenresBox>
                 {content.genre_ids && genres.genres && content.genre_ids.map((genre_id) => (
                     genres.genres.map(genre => genre.id === genre_id
