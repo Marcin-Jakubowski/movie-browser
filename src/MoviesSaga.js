@@ -74,7 +74,7 @@ function* inputChangeHandler(action) {
 
 export function* MoviesSaga() {
     yield takeLatest(initiateFetch.type, fetchHandler)
-    yield debounce(500, inputChange.type, inputChangeHandler)
+    yield debounce(1000, inputChange.type, inputChangeHandler)
 }
 
 function* fetchGenresFromAPI() {
