@@ -3,13 +3,18 @@ import { moviesKey, peopleKey } from "../../keys";
 import { Link } from "react-router-dom";
 
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.ul`
     width: 100%;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-gap: 24px;
+    justify-content: center;
+    list-style: none;
+  
 
     ${({ type }) => type === moviesKey && css`
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fill, 324px);
 
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             grid-template-columns: 1fr;
@@ -31,4 +36,5 @@ export const Wrapper = styled.section`
 export const GridTemplateLink = styled(Link)`
     text-decoration: none;
 `;
+
 

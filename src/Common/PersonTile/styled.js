@@ -34,7 +34,7 @@ export const StyledImage = styled.div`
     }
 `
 
-export const Name = styled.h2`
+export const Name = styled.h3`
     margin: 0;
     margin-top: 8px;
     color: ${({ theme }) => theme.color.black};
@@ -47,7 +47,7 @@ export const Name = styled.h2`
     }
 `
 
-export const JobOrCharacterName = styled.h3`
+export const JobOrCharacterName = styled.h4`
     font-weight: 400;
     font-size: 18px;
     text-align: center;

@@ -19,12 +19,29 @@ const GridTemplate = ({ content, type, castAndCrew }) => {
       type={type}
     >
       {content && content.map((fragment) => (
-        type === moviesKey
-          ? <GridTemplateLink key={fragment.credit_id ? fragment.credit_id : fragment.id} to={`/movies/${fragment.id}`}>{<MovieSmallTile key={fragment.id} content={fragment} />}</GridTemplateLink>
-          : <GridTemplateLink key={fragment.credit_id ? fragment.credit_id : fragment.id} to={`/people/${fragment.id}`}><PersonTile
-            person={fragment}
-            castAndCrew={castAndCrew}
-          /></GridTemplateLink>
+        <li
+          key={fragment.credit_id ? fragment.credit_id : fragment.id}
+        >
+          {
+            type === moviesKey
+              ? <GridTemplateLink
+                to={`/movies/${fragment.id}`}
+              >
+                {<MovieSmallTile
+                  key={fragment.id}
+                  content={fragment}
+                />}
+              </GridTemplateLink>
+              : <GridTemplateLink
+
+                to={`/people/${fragment.id}`}>
+                <PersonTile
+                  person={fragment}
+                  castAndCrew={castAndCrew}
+                />
+              </GridTemplateLink>
+          }
+        </li>
       )
       )}
     </Wrapper>
