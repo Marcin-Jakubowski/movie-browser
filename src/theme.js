@@ -17,6 +17,7 @@ export const theme = {
         jobOrCharacterName: "#7E839A"
     },
     breakpoint: {
+        noContainer: 1400,
         mobileMax: 767,
         mobile: 500,
     },
