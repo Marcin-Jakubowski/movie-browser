@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initiateMovieOrPersonFetch, selectMovieCredits, selectMovieDetails, selectStatus } from '../MoviesSlice';
 import LoadingPage from '../Common/LoadingPage';
 import Failed from '../Common/Failed';
+import AdultContent from '../Common/AdultContent';
 
 function MoviePage() {
     const dispatch = useDispatch();
@@ -37,7 +38,7 @@ function MoviePage() {
             id: id,
             type: movieKey,
         }))
-    }, [])
+    }, [id, dispatch])
 
     const movieDetails = useSelector(selectMovieDetails);
     const movieCredits = useSelector(selectMovieCredits);
@@ -54,7 +55,11 @@ function MoviePage() {
                 <LoadingPage /> :
                 ""
             }
-            {status === "success" ?
+            {status === "success" && movieDetails.adult ?
+                <AdultContent /> :
+                ""
+            }
+            {status === "success" && !movieDetails.adult ?
                 <div>
                     {movieDetails.backdrop_path !== null
                         ? <PosterBackgrundContainer>

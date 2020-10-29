@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initiateMovieOrPersonFetch, selectPersonCredits, selectPersonDetails, selectStatus } from '../MoviesSlice';
 import LoadingPage from '../Common/LoadingPage';
 import Failed from '../Common/Failed';
+import AdultContent from '../Common/AdultContent';
 
 function MoviePage() {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function MoviePage() {
             id: id,
             type: personKey,
         }))
-    }, [id, personKey, dispatch])
+    }, [id, dispatch])
 
     const personDetails = useSelector(selectPersonDetails);
     const personCredits = useSelector(selectPersonCredits);
@@ -37,7 +38,11 @@ function MoviePage() {
                 <LoadingPage /> :
                 ""
             }
-            {status === "success" ?
+            {status === "success" && personDetails.adult ?
+                <AdultContent /> :
+                ""
+            }
+            {status === "success" && !personDetails.adult ?
                 <div>
                     <Container>
                         <UniversalBigTile
