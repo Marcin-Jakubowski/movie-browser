@@ -36,6 +36,7 @@ export const PosterImage = styled.img`
     height: 434px;
     margin: 0 0 8px;
     border-radius: 5px;
+    flex-shrink: 0;
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 114px;
