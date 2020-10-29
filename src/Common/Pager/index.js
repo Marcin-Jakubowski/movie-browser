@@ -25,7 +25,6 @@ const Pager = ({ content, type }) => {
         })
     }
 
-
     return (
         <Wrapper>
             <ButtonContainer>

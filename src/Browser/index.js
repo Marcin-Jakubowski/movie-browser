@@ -27,7 +27,7 @@ function Browser() {
     useEffect(() => { 
         dispatch(setStatus("loading"))
         searchByQuery(queryString);
-     }, [queryString])
+     }, [queryString, dispatch])
 
     return (
         <BrowserInput
