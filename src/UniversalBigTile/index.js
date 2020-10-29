@@ -23,7 +23,6 @@ import {
 } from "./styled";
 import voteIcon from "../voteIcon.svg";
 import imageBaseLink from "../imageBaseLink";
-import WidthContainer from "../Common/WidthContainer";
 import { movieKey } from '../keys';
 import noMovieImage from "../noMovieImage.svg"
 import noPersonImage from "../noPersonImage.svg"
@@ -50,7 +49,6 @@ const UniversalBigTile = ({ type, content }) => {
 
 
     return (
-        <WidthContainer>
             <MobileTileContainer>
                 <TileContainer>
                     <PosterImage
@@ -130,7 +128,6 @@ const UniversalBigTile = ({ type, content }) => {
                         : content.biography}
                 </MobileOverview>
             </MobileTileContainer>
-        </WidthContainer>
     )
 }
 
