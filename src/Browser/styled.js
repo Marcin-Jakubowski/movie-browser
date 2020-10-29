@@ -9,6 +9,10 @@ export const BrowserInput = styled.input`
     max-height: 48px;
     justify-self: end;
 
+    &:focus{
+       outline: none;
+    }
+
     @media( max-width: 767px) {
         width: 100%;
         line-height: 17px;
