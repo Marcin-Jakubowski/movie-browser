@@ -41,7 +41,7 @@ export const Button = styled.button`
     margin: 24px 0;
     font-weight: bold;
     text-transform: uppercase;
-    color: ${({theme}) => theme.color.ShowMoreButton};
+    color: ${({ theme }) => theme.color.ShowMoreButton};
     transition: 0.3s;
 
     &:hover {
