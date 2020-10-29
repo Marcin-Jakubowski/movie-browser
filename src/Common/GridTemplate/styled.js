@@ -1,9 +1,8 @@
 import styled, { css } from "styled-components";
 import { moviesKey, peopleKey } from "../../keys";
-import { Link } from "react-router-dom";
 
 
-export const Wrapper = styled.ul`
+export const Grid = styled.ul`
     width: 100%;
     margin: 0;
     padding: 0;
@@ -33,8 +32,20 @@ export const Wrapper = styled.ul`
 
 `
 
-export const GridTemplateLink = styled(Link)`
-    text-decoration: none;
-`;
+export const Button = styled.button`
+    background: none;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    margin: 24px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: ${({theme}) => theme.color.ShowMoreButton};
+    transition: 0.3s;
 
+    &:hover {
+       filter: brightness(110%)
+    }
 
+`
