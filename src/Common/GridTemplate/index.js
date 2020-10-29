@@ -32,11 +32,11 @@ const GridTemplate = ({ content, type, castAndCrew }) => {
         )
         )}
       </Grid>
-      {content.length > 12 && castAndCrew && !showMore ?
+      {content.length > 12 && castAndCrew  ?
         <Button
-          onClick={() => setShowMore(true)}
+          onClick={() => setShowMore(!showMore)}
         >
-          show more
+          {showMore? "Hide" : "Show More"}
       </Button> :
         ""
       }
