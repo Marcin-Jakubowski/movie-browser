@@ -51,7 +51,7 @@ export const PosterImage = styled.img`
     `}
 `
 
-export const MovieTitle = styled.p`
+export const MovieTitle = styled.h3`
     font-size: 22px;
     line-height: 29px;
     font-weight: 500;
@@ -63,7 +63,7 @@ export const MovieTitle = styled.p`
     }
 `
 
-export const ReselaseYear = styled.p`
+export const ReselaseYear = styled.h4`
     font-size: 16px;
     line-height: 24px;
     color: ${({ theme }) => theme.color.secondaryFont};

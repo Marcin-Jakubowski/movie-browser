@@ -78,7 +78,7 @@ export const ContentContainer = styled.div`
 
 `;
 
-export const MovieTitle = styled.p`
+export const MovieTitle = styled.h3`
     font-size: 36px;
     line-height: 43px;
     font-weight: 600;
@@ -96,8 +96,9 @@ export const MovieTitle = styled.p`
     }
 `;
 
-export const ReselaseYear = styled.p`
+export const ReselaseYear = styled.h4`
     font-size: 22px;
+    font-weight: 400;
     line-height: 26px;
     margin: 0;
     display: flex;

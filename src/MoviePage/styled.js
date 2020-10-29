@@ -35,7 +35,7 @@ export const PosterItemsContainer = styled.div`
     padding: 56px 0;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h3`
     font-size: 64px;
     line-height: 77px;
     font-weight: 600;

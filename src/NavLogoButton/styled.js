@@ -18,10 +18,11 @@ export const NavLogo = styled.img`
     padding: 0 5px;
 `;
 
-export const NavContent = styled.span`
+export const NavContent = styled.h1`
     display: block;
     padding: 0 8px;
     font-size: 21px;
+    font-weight: 500;
 
     &:link {
         text-decoration: none;
