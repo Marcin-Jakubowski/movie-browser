@@ -21,8 +21,15 @@ export const NavLogo = styled.img`
 export const NavContent = styled.h1`
     display: block;
     padding: 0 8px;
-    font-size: 21px;
+    font-size: 24px;
+    line-height: 40px;
     font-weight: 500;
+    margin: 0;
+
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 13px;
+        line-height: 17px;
+    }
 
     &:link {
         text-decoration: none;

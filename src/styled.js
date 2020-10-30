@@ -56,6 +56,9 @@ export const NavList = styled.ul`
     @media( max-width: 767px) {
         flex-wrap: wrap;
         justify-content: center;
+        padding: 0 0 16px;
+        font-size: 12px;
+        line-height: 18px;
     }
 `;
 
