@@ -20,5 +20,6 @@ export const theme = {
         noContainer: 1400,
         mobileMax: 767,
         mobile: 500,
+        mobileMin: 350,
     },
 };
