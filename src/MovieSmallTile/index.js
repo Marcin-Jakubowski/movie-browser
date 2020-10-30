@@ -10,7 +10,8 @@ import {
     VotesBox,
     VotesAverage,
     VoteIcon,
-    VotesCount } from "./styled";
+    VotesCount
+} from "./styled";
 import voteIcon from "../voteIcon.svg";
 import imageBaseLink from "../imageBaseLink";
 import { useSelector } from "react-redux";
@@ -30,24 +31,24 @@ const MovieSmallTile = ({ content }) => {
                 noImage={!content.poster_path}
             />
             <ContentContainer>
-            <MovieTitle>{content.title}</MovieTitle>
-            <ReselaseYear>{content.release_date ? date.getFullYear() : "N/N"}</ReselaseYear>
-            <GenresBox>
-                {content.genre_ids && genres.genres && content.genre_ids.map((genre_id) => (
-                    genres.genres.map(genre => genre.id === genre_id
-                        ? <Genres key={genre.id}>{genre.name}</Genres>
-                        : "")
-                ))}
-            </GenresBox>
-            <VotesBox>
-                <VoteIcon src={voteIcon} />
-                <VotesAverage>
-                    {content.vote_average}
-                </VotesAverage>
-                <VotesCount>
-                    {content.vote_count} votes
-                </VotesCount>
-            </VotesBox>
+                <MovieTitle>{content.title}</MovieTitle>
+                <ReselaseYear>{content.release_date ? date.getFullYear() : "N/N"}</ReselaseYear>
+                <GenresBox>
+                    {content.genre_ids && genres.genres && content.genre_ids.map((genre_id) => (
+                        genres.genres.map(genre => genre.id === genre_id
+                            ? <Genres key={genre.id}>{genre.name}</Genres>
+                            : "")
+                    ))}
+                </GenresBox>
+                <VotesBox>
+                    <VoteIcon src={voteIcon} />
+                    <VotesAverage>
+                        {content.vote_average}
+                    </VotesAverage>
+                    <VotesCount>
+                        {content.vote_count} votes
+                    </VotesCount>
+                </VotesBox>
             </ContentContainer>
         </TileContainer>
     )

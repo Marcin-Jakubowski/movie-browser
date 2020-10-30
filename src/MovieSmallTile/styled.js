@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 export const TileContainer = styled.div`
     width: 324px;
-    height: 100%;
     margin: 0 auto;
     padding: 16px;
     color: ${({ theme }) => theme.color.mainFont};
@@ -20,7 +19,6 @@ export const TileContainer = styled.div`
 
 export const ContentContainer = styled.div`
     width: 100%;
-    height: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-rows: repeat(3, auto) 1fr;
@@ -129,6 +127,10 @@ export const VotesAverage = styled.div`
         line-height: 24px;
         font-weight: 600;
         padding: 0 8px;
+    }
+    
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobileMin}px) {
+        padding: 0 4px;
     }
 `
 
