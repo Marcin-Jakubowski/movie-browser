@@ -8,7 +8,7 @@ export const NavButton = styled.button`
     align-items: center;
     margin: 0 50px 0 0;
 
-    @media (max-width: 1368px) {
+    @media( max-width: ${({ theme }) => theme.breakpoint.noContainer}px) {
         margin: 0;
     }
 `;
@@ -16,6 +16,10 @@ export const NavButton = styled.button`
 export const NavLogo = styled.img`
     display: block;
     padding: 0 5px;
+
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        padding: 0 2px;
+    }
 `;
 
 export const NavContent = styled.h1`
@@ -29,6 +33,7 @@ export const NavContent = styled.h1`
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
         line-height: 17px;
+        padding: 0 3px;
     }
 
     &:link {
