@@ -1,8 +1,14 @@
 import React from "react"
+import { useDispatch } from "react-redux"
+import { setStatus } from "../../MoviesSlice"
 import icon from "./failedIcon.svg"
 import { Container, StyledImage, MainHeader, SmallHeader, StyledLink } from "./styled"
 
-const Failed = () => (
+const Failed = () => {
+
+const dispatch = useDispatch()
+
+    return(
     <Container>
         <StyledImage
             src={icon}
@@ -16,10 +22,11 @@ const Failed = () => (
         </SmallHeader>
         <StyledLink
             to={"/movies"}
+            onClick={() => dispatch(setStatus("loading"))}
         >
             Back to home page
         </StyledLink>
     </Container>
-)
+)}
 
 export default Failed
