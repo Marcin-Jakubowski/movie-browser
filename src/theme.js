@@ -23,3 +23,29 @@ export const theme = {
         mobileMin: 350,
     },
 };
+
+export const darkTheme = {
+    color: {
+        black: "#18181B",
+        background: "red",
+        pagerButton: "#D6E4FF",
+        pagerButtonDisabled: "#E4E6F0",
+        pageText: "#7E839A",
+        posterBackground: "#000000",
+        posterFont: "#ffffff",
+        mainFont: "#000000",
+        secondaryFont: "#7E839A",
+        genresBoxBackground: "#E4E6F0",
+        tileBackground: "#ffffff",
+        refreshButtonFont: "#ffffff",
+        refreshButtonBackground: "#0044CC",
+        noImageBackground: "#C4C4C4",
+        jobOrCharacterName: "#7E839A"
+    },
+    breakpoint: {
+        noContainer: 1400,
+        mobileMax: 767,
+        mobile: 500,
+        mobileMin: 350,
+    },
+};
