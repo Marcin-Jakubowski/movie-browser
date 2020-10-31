@@ -53,7 +53,7 @@ const moviesSlice = createSlice({
         setQueryString: (state, { payload }) => {
             state.queryString = payload
         },
-        toggleTheme: state => {
+        toggleThemeStatus: state => {
             state.theme = !state.theme;
         },
     }
@@ -72,7 +72,7 @@ export const {
     inputChange,
     setQueryString,
     setStatus,
-    toggleTheme,
+    toggleThemeStatus,
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies;
