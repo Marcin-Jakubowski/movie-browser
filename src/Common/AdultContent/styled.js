@@ -38,9 +38,20 @@ export const SmallHeader = styled.h3`
     }
 `
 
+export const ButtonContainer = styled.div`
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0 auto;
+
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        width: 150px;
+    }
+`
+
 export const StyledLink = styled(Link)`
-    display: inline-block;
-    margin: 24px auto;
+    margin: 24px 0;
     padding: 16px 24px;
     font-weight: 700;
     font-size: 14px;
@@ -59,7 +70,32 @@ export const StyledLink = styled(Link)`
 
      @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 9px;
-        margin: 12px auto;
+        margin: 12px 0;
+        padding: 8 12px;
+    }
+
+`
+
+export const Button = styled.button`
+    padding: 16px 24px;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    color: ${({ theme }) => theme.color.refreshButtonFont};
+    background-color: ${({ theme }) => theme.color.refreshButtonBackground};
+    border-radius: 5px;
+     
+     &:hover {
+        filter: brightness(105%)
+     }
+       
+     &:active {
+        filter: brightness(110%)
+     }
+
+     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        font-size: 9px;
         padding: 8 12px;
     }
 

@@ -6,7 +6,7 @@ import GridTemplate from '../Common/GridTemplate';
 import { moviesKey, personKey } from '../keys';
 import UniversalBigTile from '../UniversalBigTile';
 import { useDispatch, useSelector } from 'react-redux';
-import { initiateMovieOrPersonFetch, selectPersonCredits, selectPersonDetails, selectStatus } from '../MoviesSlice';
+import { initiateMovieOrPersonFetch, selectAdult, selectPersonCredits, selectPersonDetails, selectStatus } from '../MoviesSlice';
 import LoadingPage from '../Common/LoadingPage';
 import Failed from '../Common/Failed';
 import AdultContent from '../Common/AdultContent';
@@ -26,6 +26,7 @@ function MoviePage() {
     const personCredits = useSelector(selectPersonCredits);
 
     const status = useSelector(selectStatus);
+    const adult = useSelector(selectAdult)
 
     return (
         <div>
@@ -38,11 +39,11 @@ function MoviePage() {
                 <LoadingPage /> :
                 ""
             }
-            {status === "success" && personDetails.adult ?
+            {status === "success" && personDetails.adult && !adult ?
                 <AdultContent /> :
                 ""
             }
-            {status === "success" && !personDetails.adult ?
+            {status === "success" && (!personDetails.adult || (personDetails.adult && adult)) ?
                 <div>
                     <Container>
                         <UniversalBigTile

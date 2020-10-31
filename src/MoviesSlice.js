@@ -15,7 +15,8 @@ const moviesSlice = createSlice({
         personCredits: [],
         genres: [],
         queryString: "initial",
-        status: "loading"
+        status: "loading",
+        adult: false
 
     },
     reducers: {
@@ -23,25 +24,25 @@ const moviesSlice = createSlice({
 
         },
         setStatus: (state, { payload }) => {
-            state.status = payload
+            state.status = payload;
         },
         setPageInformation: (state, { payload }) => {
-            state.pageInformations = payload
+            state.pageInformations = payload;
         },
         setMovieDetails: (state, { payload }) => {
-            state.movieDetails = payload
+            state.movieDetails = payload;
         },
         setMovieCredits: (state, { payload }) => {
-            state.movieCredits = payload
+            state.movieCredits = payload;
         },
         setPersonDetails: (state, { payload }) => {
-            state.personDetails = payload
+            state.personDetails = payload;
         },
         setPersonCredits: (state, { payload }) => {
-            state.personCredits = payload
+            state.personCredits = payload;
         },
         setGenres: (state, { payload }) => {
-            state.genres = payload
+            state.genres = payload;
         },
         fetchGenresList: () => { },
         initiateMovieOrPersonFetch: () => {
@@ -51,8 +52,11 @@ const moviesSlice = createSlice({
 
         },
         setQueryString: (state, { payload }) => {
-            state.queryString = payload
+            state.queryString = payload;
         },
+        setAdult: (state) => {
+            state.adult = true;
+        }
     }
 });
 
@@ -68,6 +72,7 @@ export const {
     initiateMovieOrPersonFetch,
     inputChange,
     setQueryString,
+    setAdult,
     setStatus,
 } = moviesSlice.actions
 
@@ -81,5 +86,6 @@ export const selectPersonDetails = state => selectMovies(state).personDetails;
 export const selectPersonCredits = state => selectMovies(state).personCredits;
 export const selectGenres = state => selectMovies(state).genres;
 export const selectQueryString = state => selectMovies(state).queryString;
+export const selectAdult = state => selectMovies(state).adult
 export default moviesSlice.reducer;
 
