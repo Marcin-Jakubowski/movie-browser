@@ -15,8 +15,8 @@ const moviesSlice = createSlice({
         personCredits: [],
         genres: [],
         queryString: "initial",
-        status: "loading"
-
+        status: "loading",
+        themeStatus: false
     },
     reducers: {
         initiateFetch: ({ payload }) => {
@@ -53,6 +53,9 @@ const moviesSlice = createSlice({
         setQueryString: (state, { payload }) => {
             state.queryString = payload
         },
+        toggleTheme: state => {
+            state.theme = !state.theme;
+        },
     }
 });
 
@@ -69,6 +72,7 @@ export const {
     inputChange,
     setQueryString,
     setStatus,
+    toggleTheme,
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies;
@@ -81,5 +85,6 @@ export const selectPersonDetails = state => selectMovies(state).personDetails;
 export const selectPersonCredits = state => selectMovies(state).personCredits;
 export const selectGenres = state => selectMovies(state).genres;
 export const selectQueryString = state => selectMovies(state).queryString;
+export const selectThemeStatus = state => selectMovies(state).themeStatus;
 export default moviesSlice.reducer;
 
