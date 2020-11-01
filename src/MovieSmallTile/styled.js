@@ -20,7 +20,6 @@ export const TileContainer = styled.div`
 
 export const ContentContainer = styled.div`
     width: 100%;
-    height: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-rows: repeat(3, auto) 1fr;
@@ -36,6 +35,7 @@ export const PosterImage = styled.img`
     height: 434px;
     margin: 0 0 8px;
     border-radius: 5px;
+    flex-shrink: 0;
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 114px;
@@ -50,7 +50,7 @@ export const PosterImage = styled.img`
     `}
 `
 
-export const MovieTitle = styled.p`
+export const MovieTitle = styled.h3`
     font-size: 22px;
     line-height: 29px;
     font-weight: 500;
@@ -62,7 +62,7 @@ export const MovieTitle = styled.p`
     }
 `
 
-export const ReselaseYear = styled.p`
+export const ReselaseYear = styled.h4`
     font-size: 16px;
     line-height: 24px;
     color: ${({ theme }) => theme.color.secondaryFont};
@@ -128,6 +128,10 @@ export const VotesAverage = styled.div`
         line-height: 24px;
         font-weight: 600;
         padding: 0 8px;
+    }
+    
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobileMin}px) {
+        padding: 0 4px;
     }
 `
 

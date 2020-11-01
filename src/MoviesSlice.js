@@ -16,6 +16,7 @@ const moviesSlice = createSlice({
         genres: [],
         queryString: "initial",
         status: "loading",
+        themeStatus: false,
         adult: false
 
     },
@@ -54,6 +55,9 @@ const moviesSlice = createSlice({
         setQueryString: (state, { payload }) => {
             state.queryString = payload;
         },
+        toggleThemeStatus: state => {
+            state.themeStatus = !state.themeStatus;
+        },
         setAdult: (state) => {
             state.adult = true;
         }
@@ -74,6 +78,7 @@ export const {
     setQueryString,
     setAdult,
     setStatus,
+    toggleThemeStatus,
 } = moviesSlice.actions
 
 export const selectMovies = state => state.movies;
@@ -86,6 +91,7 @@ export const selectPersonDetails = state => selectMovies(state).personDetails;
 export const selectPersonCredits = state => selectMovies(state).personCredits;
 export const selectGenres = state => selectMovies(state).genres;
 export const selectQueryString = state => selectMovies(state).queryString;
+export const selectThemeStatus = state => selectMovies(state).themeStatus;
 export const selectAdult = state => selectMovies(state).adult
 export default moviesSlice.reducer;
 

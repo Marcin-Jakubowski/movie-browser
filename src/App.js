@@ -8,16 +8,25 @@ import { BackgroundContainer, StyledNavLink, StyledNavLinkLogo, NavList, NavList
 import MoviePage from './MoviePage';
 import PersonPage from './PersonPage';
 import WidthContainer from './Common/WidthContainer';
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./GlobalStyle";
+import { darkTheme, theme } from "./theme";
+import { useSelector } from 'react-redux';
+import { selectThemeStatus } from './MoviesSlice';
 import { useDispatch } from 'react-redux';
 import { setStatus } from './MoviesSlice';
 
-export default () => {
+function App() {
   const dispatch = useDispatch()
+  const themeStatus = useSelector(selectThemeStatus);
+
   return (
-    <HashRouter>
-      <nav>
-        <BackgroundContainer>
-          <WidthContainer>
+    <ThemeProvider theme={themeStatus === true ? theme : darkTheme}>
+      <GlobalStyle />
+      <HashRouter>
+        <nav>
+          <BackgroundContainer>
+            <WidthContainer>
             <NavList>
               <NavContainer>
                 <NavListItem>
@@ -47,26 +56,30 @@ export default () => {
               </NavContainer>
               <Browser />
             </NavList>
-          </WidthContainer>
-        </BackgroundContainer>
-        <Switch>
-          <Route path="/movies/:id">
-            <MoviePage />
-          </Route>
-          <Route path="/people/:id">
-            <PersonPage />
-          </Route>
-          <Route path="/movies">
-            <Movies />
-          </Route>
-          <Route path="/people">
-            <People />
-          </Route>
-          <Route path="/">
-            <Redirect to="/movies" />
-          </Route>
-        </Switch>
-      </nav>
-    </HashRouter>
+            </WidthContainer>
+          </BackgroundContainer>
+          <Switch>
+            <Route path="/movies/:id">
+              <MoviePage />
+            </Route>
+            <Route path="/people/:id">
+              <PersonPage />
+            </Route>
+            <Route path="/movies">
+              <Movies />
+            </Route>
+            <Route path="/people">
+              <People />
+            </Route>
+            <Route path="/">
+              <Redirect to="/movies" />
+            </Route>
+          </Switch>
+        </nav>
+      </HashRouter>
+    </ThemeProvider>
+
   );
 }
+
+export default App;

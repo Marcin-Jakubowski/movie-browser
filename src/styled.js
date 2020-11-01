@@ -15,11 +15,19 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     text-decoration: none;
     font-weight: 600;
     color: white;
-    padding: 13.5px 20px;
+    padding: 13px 20px;
+
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        padding: 8px 12px;
+    }
     
     &.${activeClassName} {
         border: 1px solid white;
         border-radius: 24px;
+
+        @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+            border-radius: 18px;
+        }
     }
     &:link {
         color: white
@@ -31,7 +39,7 @@ export const StyledNavLinkLogo = styled(NavLink).attrs(() => ({
 }))`
     text-decoration: none;
     color: white;
-    padding: 13.5px;
+    padding: 13px;
 
     &:link {
         color: white
@@ -53,9 +61,12 @@ export const NavList = styled.ul`
     font-size: 14px;
     line-height: 21px;
 
-    @media( max-width: 767px) {
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         flex-wrap: wrap;
         justify-content: center;
+        padding: 0 0 16px;
+        font-size: 12px;
+        line-height: 18px;
     }
 `;
 

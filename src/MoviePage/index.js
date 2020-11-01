@@ -6,6 +6,7 @@ import {
     PosterBackgroundImageContainer,
     PosterItemsContainer,
     Title,
+    ContentContainer,
     VotesContainer,
     VotesAverageBox,
     VoteIcon,
@@ -64,25 +65,27 @@ function MoviePage() {
                 <div>
                     {movieDetails.backdrop_path !== null
                         ? <PosterBackgrundContainer>
-                            <PosterShadowContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
-                                <PosterBackgroundImageContainer>
+                            <PosterBackgroundImageContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
+                                <PosterShadowContainer>
                                     <PosterItemsContainer>
                                         <Title>
                                             {movieDetails.title}
                                         </Title>
-                                        <VotesContainer>
-                                            <VoteIcon src={voteIcon} alt="Vote icon" />
-                                            <VotesAverageBox>
-                                                <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
-                                                <VotesSmallContent> / 10</VotesSmallContent>
-                                            </VotesAverageBox>
-                                        </VotesContainer>
-                                        <VotesSmallContent>
-                                            {movieDetails.vote_count} votes
-                            </VotesSmallContent>
+                                        <ContentContainer>
+                                            <VotesContainer>
+                                                <VoteIcon src={voteIcon} alt="Vote icon" />
+                                                <VotesAverageBox>
+                                                    <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
+                                                    <VotesSmallContent> / 10</VotesSmallContent>
+                                                </VotesAverageBox>
+                                            </VotesContainer>
+                                            <VotesSmallContent>
+                                                {movieDetails.vote_count} votes
+                                            </VotesSmallContent>
+                                        </ContentContainer>
                                     </PosterItemsContainer>
-                                </PosterBackgroundImageContainer>
-                            </PosterShadowContainer>
+                                </PosterShadowContainer>
+                            </PosterBackgroundImageContainer>
                         </PosterBackgrundContainer>
                         : ""}
                     <Container>

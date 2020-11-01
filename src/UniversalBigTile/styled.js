@@ -18,7 +18,7 @@ export const MobileTileContainer = styled.div`
     padding: 40px;
     color: ${({ theme }) => theme.color.mainFont};
     background-color: ${({ theme }) => theme.color.tileBackground};
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0px 4px 12px ${({ theme }) => theme.color.boxShadow};
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin: 24px auto;
@@ -78,7 +78,7 @@ export const ContentContainer = styled.div`
 
 `;
 
-export const MovieTitle = styled.p`
+export const MovieTitle = styled.h3`
     font-size: 36px;
     line-height: 43px;
     font-weight: 600;
@@ -96,8 +96,9 @@ export const MovieTitle = styled.p`
     }
 `;
 
-export const ReselaseYear = styled.p`
+export const ReselaseYear = styled.h4`
     font-size: 22px;
+    font-weight: 400;
     line-height: 26px;
     margin: 0;
     display: flex;
@@ -255,6 +256,16 @@ export const VotesCount = styled.div`
 export const Overview = styled.div`
     font-size: 20px;
     line-height: 32px;
+
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        display: none;
+    }
+`;
+
+export const LongOverview = styled.div`
+    font-size: 20px;
+    line-height: 32px;
+    padding: 24px 0;
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         display: none;
