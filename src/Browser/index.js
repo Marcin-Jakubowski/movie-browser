@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { moviesKey, peopleKey } from '../keys';
 import { inputChange, selectQueryString } from '../MoviesSlice';
-import { BrowserInput } from "./styled"
+import { BrowserContainer, BrowserInput, BrowserLogo } from "./styled"
 import useSearchByQuery from './useSearchByQuery';
+import browserLogo from "./browserLogo.svg"
 
 function Browser() {
 
@@ -22,17 +23,20 @@ function Browser() {
         dispatch(inputChange(target.value))
     };
 
-    useEffect(() => { 
+    useEffect(() => {
         searchByQuery(queryString);
         setValue("")
-     }, [queryString])
+    }, [queryString])
 
     return (
-        <BrowserInput
-            value={value}
-            placeholder={`Search for ${type}...`}
-            onChange={onInputChange}
-        />
+        <BrowserContainer>
+            <BrowserLogo src={browserLogo} alt="Browser Logo" />
+            <BrowserInput
+                value={value}
+                placeholder={`Search for ${type}...`}
+                onChange={onInputChange}
+            />
+        </BrowserContainer>
     );
 };
 
