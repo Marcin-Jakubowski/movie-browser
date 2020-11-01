@@ -11,6 +11,10 @@ export const TileContainer = styled.div`
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+        
+    &:hover {
+       filter: brightness(93%);
+    }
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         flex-direction: row;

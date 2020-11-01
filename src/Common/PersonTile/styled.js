@@ -8,6 +8,10 @@ export const Container = styled.section`
     background-color: ${({ theme }) => theme.color.tileBackground};
     box-shadow: 0px 4px 12px ${({ theme }) => theme.color.boxShadow};
     border-radius: 5px;
+            
+    &:hover {
+       filter: brightness(93%);
+    }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
        padding: 8px
