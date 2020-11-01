@@ -16,6 +16,15 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     font-weight: 600;
     color: white;
     padding: 13px 20px;
+        border-radius: 24px;
+        
+    &:hover {
+        background-image: radial-gradient(rgb(40, 40, 40), rgb(0, 0, 0));
+    }
+    
+    &:active {
+        background-image: radial-gradient(rgb(55, 55, 55), rgb(0, 0, 0));
+    }
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         padding: 8px 12px;
@@ -23,7 +32,6 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     
     &.${activeClassName} {
         border: 1px solid white;
-        border-radius: 24px;
 
         @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
             border-radius: 18px;

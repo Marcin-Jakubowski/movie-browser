@@ -7,6 +7,14 @@ export const NavButton = styled.button`
     display: flex;
     align-items: center;
     margin: 0 50px 0 0;
+    
+    &:hover {
+        background-image: radial-gradient(rgb(40, 40, 40), rgb(0, 0, 0));
+    }
+    
+    &:active {
+        background-image: radial-gradient(rgb(55, 55, 55), rgb(0, 0, 0));
+    }
 
     @media( max-width: ${({ theme }) => theme.breakpoint.noContainer}px) {
         margin: 0;
