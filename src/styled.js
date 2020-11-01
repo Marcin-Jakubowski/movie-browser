@@ -16,7 +16,7 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     font-weight: 600;
     color: white;
     padding: 13px 20px;
-        border-radius: 24px;
+    border-radius: 24px;
         
     &:hover {
         background-image: radial-gradient(rgb(40, 40, 40), rgb(0, 0, 0));
@@ -86,7 +86,7 @@ export const NavContainer = styled.div`
     align-items: center;
     margin: 0 auto;
 
-@media( max-width: 767px) {
-    grid-template-columns: repeat(3, auto);
-}
+    @media( max-width: 767px) {
+        grid-template-columns: repeat(3, auto);
+    }
 `;

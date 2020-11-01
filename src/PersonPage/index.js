@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import {
+    initiateMovieOrPersonFetch,
+    selectAdult,
+    selectPersonCredits,
+    selectPersonDetails,
+    selectStatus,
+} from '../MoviesSlice';
+import { moviesKey, personKey } from '../keys';
 import Container from '../Common/Container';
 import Header from '../Common/Header';
 import GridTemplate from '../Common/GridTemplate';
-import { moviesKey, personKey } from '../keys';
 import UniversalBigTile from '../UniversalBigTile';
-import { useDispatch, useSelector } from 'react-redux';
-import { initiateMovieOrPersonFetch, selectAdult, selectPersonCredits, selectPersonDetails, selectStatus } from '../MoviesSlice';
 import LoadingPage from '../Common/LoadingPage';
 import Failed from '../Common/Failed';
 import AdultContent from '../Common/AdultContent';
@@ -21,31 +27,30 @@ function MoviePage() {
             id: id,
             type: personKey,
         }))
-    }, [id, dispatch])
+    }, [id, dispatch]);
 
     const personDetails = useSelector(selectPersonDetails);
     const personCredits = useSelector(selectPersonCredits);
 
     const status = useSelector(selectStatus);
-    const adult = useSelector(selectAdult)
+    const adult = useSelector(selectAdult);
 
     return (
         <>
-            {status === "failed" ?
-                <Failed />
-                :
-                ""
+            {status === "failed"
+                ? <Failed />
+                : ""
             }
-            {status === "loading" ?
-                <LoadingPage /> :
-                ""
+            {status === "loading"
+                ? <LoadingPage />
+                : ""
             }
-            {status === "success" && personDetails.adult && !adult ?
-                <AdultContent /> :
-                ""
+            {status === "success" && personDetails.adult && !adult
+                ? <AdultContent />
+                : ""
             }
-            {status === "success" && (!personDetails.adult || (personDetails.adult && adult)) ?
-                <div>
+            {status === "success" && (!personDetails.adult || (personDetails.adult && adult))
+                ? <div>
                     <Container>
                         <UniversalBigTile
                             content={personDetails}
@@ -53,7 +58,9 @@ function MoviePage() {
                         />
                     </Container>
                     <Container>
-                        <Header text={`Movies - cast(${personCredits.cast && personCredits.cast.length})`} />
+                        <Header
+                            text={`Movies - cast(${personCredits.cast && personCredits.cast.length})`}
+                        />
                         <GridTemplate
                             content={personCredits.cast}
                             type={moviesKey}
@@ -61,19 +68,22 @@ function MoviePage() {
                         />
                     </Container>
                     <Container>
-                        <Header text={`Movies - Crew(${personCredits.crew && personCredits.crew.length})`} />
+                        <Header
+                            text={`Movies - Crew(${personCredits.crew && personCredits.crew.length})`}
+                        />
                         <GridTemplate
                             content={personCredits.crew}
                             type={moviesKey}
                             castAndCrew="movies"
                         />
                     </Container>
-                </div> :
-                ""
+                </div>
+                : ""
             }
-            {status === "loading" ?
-                "" :
-                <ToggleThemeButton />}
+            {status === "loading"
+            ? ""
+            : <ToggleThemeButton />
+            }
         </>
     );
 };
