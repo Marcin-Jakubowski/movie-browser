@@ -10,6 +10,7 @@ import Pager from '../Common/Pager';
 import { initiateFetch, selectPageInformation, selectStatus, fetchGenresList } from '../MoviesSlice';
 import { moviesKey, pageKey, searchKey } from '../keys';
 import useQueryParameter from '../useQueryParameter';
+import ToggleThemeButton from '../ToggleThemeButton';
 
 
 
@@ -65,6 +66,7 @@ function Movies() {
         /> :
         ""
       }
+      <ToggleThemeButton />
     </Container>
   );
 };
