@@ -26,6 +26,7 @@ import { initiateMovieOrPersonFetch, selectAdult, selectMovieCredits, selectMovi
 import LoadingPage from '../Common/LoadingPage';
 import Failed from '../Common/Failed';
 import AdultContent from '../Common/AdultContent';
+import ToggleThemeButton from '../ToggleThemeButton';
 
 function MoviePage() {
     const dispatch = useDispatch();
@@ -47,7 +48,7 @@ function MoviePage() {
 
 
     return (
-        <div>
+        <>
             {status === "failed" ?
                 <Failed />
                 :
@@ -113,7 +114,11 @@ function MoviePage() {
                 </div> :
                 ""
             }
-        </div>
+
+            {status === "loading" ?
+                "" :
+                <ToggleThemeButton />}
+        </>
     );
 };
 

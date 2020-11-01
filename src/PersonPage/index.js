@@ -10,6 +10,7 @@ import { initiateMovieOrPersonFetch, selectAdult, selectPersonCredits, selectPer
 import LoadingPage from '../Common/LoadingPage';
 import Failed from '../Common/Failed';
 import AdultContent from '../Common/AdultContent';
+import ToggleThemeButton from '../ToggleThemeButton';
 
 function MoviePage() {
     const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function MoviePage() {
     const adult = useSelector(selectAdult)
 
     return (
-        <div>
+        <>
             {status === "failed" ?
                 <Failed />
                 :
@@ -70,7 +71,10 @@ function MoviePage() {
                 </div> :
                 ""
             }
-        </div>
+            {status === "loading" ?
+                "" :
+                <ToggleThemeButton />}
+        </>
     );
 };
 

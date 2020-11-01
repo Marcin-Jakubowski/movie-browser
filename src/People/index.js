@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initiateFetch, selectPageInformation, selectStatus } from '../MoviesSlice';
 import useQueryParameter from '../useQueryParameter';
 import { pageKey, peopleKey, searchKey } from '../keys';
+import ToggleThemeButton from '../ToggleThemeButton';
 
 function People() {
   const type = peopleKey
@@ -28,6 +29,7 @@ function People() {
   }, [query, page, type, dispatch])
 
   return (
+    <>
     <Container>
       {status !== "failed" ?
         <Header text={!query ? `Popular ${type}` :
@@ -63,6 +65,10 @@ function People() {
         ""
       }
     </Container>
+    {status === "loading" ?
+        "" :
+        <ToggleThemeButton />}
+    </>
   );
 };
 

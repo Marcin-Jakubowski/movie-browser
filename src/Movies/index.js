@@ -32,6 +32,7 @@ function Movies() {
   }, [query, page, type, dispatch])
 
   return (
+    <>
     <Container>
       {status !== "failed" ?
         <Header text={!query ? `Popular ${type}` :
@@ -66,8 +67,11 @@ function Movies() {
         /> :
         ""
       }
-      <ToggleThemeButton />
     </Container>
+    {status === "loading" ?
+        "" :
+        <ToggleThemeButton />}
+    </>
   );
 };
 
