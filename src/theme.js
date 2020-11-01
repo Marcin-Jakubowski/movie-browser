@@ -25,6 +25,9 @@ export const theme = {
         mobile: 500,
         mobileMin: 350,
     },
+    transform: {
+        toggleTheme: "translateX(0px)",
+    }
 };
 
 export const darkTheme = {
@@ -54,4 +57,7 @@ export const darkTheme = {
         mobile: 500,
         mobileMin: 350,
     },
+    transform: {
+        toggleTheme: "translateX(40px)",
+    }
 };
