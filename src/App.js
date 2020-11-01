@@ -8,45 +8,65 @@ import { BackgroundContainer, StyledNavLink, StyledNavLinkLogo, NavList, NavList
 import MoviePage from './MoviePage';
 import PersonPage from './PersonPage';
 import WidthContainer from './Common/WidthContainer';
+import { useDispatch } from 'react-redux';
+import { setStatus } from './MoviesSlice';
 
-export default () => (
-  <HashRouter>
-    <nav>
-      <BackgroundContainer>
-        <WidthContainer>
-          <NavList>
-            <NavContainer>
-              <NavListItem>
-                <StyledNavLinkLogo to="/movies"><NavLogoButton /></StyledNavLinkLogo>
-              </NavListItem>
-              <NavListItem>
-                <StyledNavLink to="/movies">MOVIES</StyledNavLink>
-              </NavListItem>
-              <NavListItem>
-                <StyledNavLink to="/people">PEOPLE</StyledNavLink>
-              </NavListItem>
-            </NavContainer>
-            <Browser />
-          </NavList>
-        </WidthContainer>
-      </BackgroundContainer>
-      <Switch>
-        <Route path="/movies/:id">
-          <MoviePage />
-        </Route>
-        <Route path="/people/:id">
-          <PersonPage />
-        </Route>
-        <Route path="/movies">
-          <Movies />
-        </Route>
-        <Route path="/people">
-          <People />
-        </Route>
-        <Route path="/">
-          <Redirect to="/movies" />
-        </Route>
-      </Switch>
-    </nav>
-  </HashRouter>
-);
+export default () => {
+  const dispatch = useDispatch()
+  return (
+    <HashRouter>
+      <nav>
+        <BackgroundContainer>
+          <WidthContainer>
+            <NavList>
+              <NavContainer>
+                <NavListItem>
+                  <StyledNavLinkLogo
+                    to="/movies"
+                    onClick={() => { dispatch(setStatus("loading")) }}
+                  >
+                    <NavLogoButton />
+                  </StyledNavLinkLogo>
+                </NavListItem>
+                <NavListItem>
+                  <StyledNavLink
+                    to="/movies"
+                    onClick={() => { dispatch(setStatus("loading")) }}
+                  >
+                    MOVIES
+                </StyledNavLink>
+                </NavListItem>
+                <NavListItem>
+                  <StyledNavLink
+                    to="/people"
+                    onClick={() => { dispatch(setStatus("loading")) }}
+                  >
+                    PEOPLE
+                     </StyledNavLink>
+                </NavListItem>
+              </NavContainer>
+              <Browser />
+            </NavList>
+          </WidthContainer>
+        </BackgroundContainer>
+        <Switch>
+          <Route path="/movies/:id">
+            <MoviePage />
+          </Route>
+          <Route path="/people/:id">
+            <PersonPage />
+          </Route>
+          <Route path="/movies">
+            <Movies />
+          </Route>
+          <Route path="/people">
+            <People />
+          </Route>
+          <Route path="/">
+            <Redirect to="/movies" />
+          </Route>
+        </Switch>
+      </nav>
+    </HashRouter>
+  );
+}

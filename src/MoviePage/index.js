@@ -21,9 +21,10 @@ import GridTemplate from '../Common/GridTemplate';
 import { movieKey, peopleKey } from '../keys';
 import UniversalBigTile from '../UniversalBigTile';
 import { useDispatch, useSelector } from 'react-redux';
-import { initiateMovieOrPersonFetch, selectMovieCredits, selectMovieDetails, selectStatus } from '../MoviesSlice';
+import { initiateMovieOrPersonFetch, selectAdult, selectMovieCredits, selectMovieDetails, selectStatus } from '../MoviesSlice';
 import LoadingPage from '../Common/LoadingPage';
 import Failed from '../Common/Failed';
+import AdultContent from '../Common/AdultContent';
 
 function MoviePage() {
     const dispatch = useDispatch();
@@ -31,13 +32,14 @@ function MoviePage() {
     const posterImageBaseLink = imageBaseLink("w1280");
 
     const status = useSelector(selectStatus)
+    const adult = useSelector(selectAdult)
 
     useEffect(() => {
         dispatch(initiateMovieOrPersonFetch({
             id: id,
             type: movieKey,
         }))
-    }, [])
+    }, [id, dispatch])
 
     const movieDetails = useSelector(selectMovieDetails);
     const movieCredits = useSelector(selectMovieCredits);
@@ -54,7 +56,11 @@ function MoviePage() {
                 <LoadingPage /> :
                 ""
             }
-            {status === "success" ?
+            {status === "success" && movieDetails.adult && !adult ?
+                <AdultContent /> :
+                ""
+            }
+            {status === "success" && (!movieDetails.adult || (movieDetails.adult && adult)) ?
                 <div>
                     {movieDetails.backdrop_path !== null
                         ? <PosterBackgrundContainer>

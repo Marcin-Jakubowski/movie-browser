@@ -18,7 +18,6 @@ import { apiKey, movieKey, moviesKey, peopleKey, personKey } from "./keys"
 import Axios from "axios"
 
 function* fetchHandler(action) {
-    yield put(setStatus("loading"))
     const page = yield action.payload.page
     const type = yield action.payload.type
     const query = yield action.payload.query
@@ -96,7 +95,6 @@ export function* setGenresList() {
 
 
 function* fetchMovieOrPersonData(action) {
-    yield put(setStatus("loading"))
     yield delay(300)
     const id = yield action.payload.id
     const type = yield action.payload.type

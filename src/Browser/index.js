@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { moviesKey, peopleKey } from '../keys';
-import { inputChange, selectQueryString } from '../MoviesSlice';
+import { inputChange, selectQueryString, setStatus } from '../MoviesSlice';
 import { BrowserInput } from "./styled"
 import useSearchByQuery from './useSearchByQuery';
 
@@ -15,6 +15,8 @@ function Browser() {
 
     const type = location.pathname.includes(moviesKey) ? moviesKey : peopleKey
 
+    useEffect(() => {setValue("")}, [type])
+
     const queryString = useSelector(selectQueryString);
 
     const onInputChange = ({ target }) => {
@@ -23,9 +25,9 @@ function Browser() {
     };
 
     useEffect(() => { 
+        dispatch(setStatus("loading"))
         searchByQuery(queryString);
-        setValue("")
-     }, [queryString])
+     }, [queryString, dispatch])
 
     return (
         <BrowserInput

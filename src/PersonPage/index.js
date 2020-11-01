@@ -6,9 +6,10 @@ import GridTemplate from '../Common/GridTemplate';
 import { moviesKey, personKey } from '../keys';
 import UniversalBigTile from '../UniversalBigTile';
 import { useDispatch, useSelector } from 'react-redux';
-import { initiateMovieOrPersonFetch, selectPersonCredits, selectPersonDetails, selectStatus } from '../MoviesSlice';
+import { initiateMovieOrPersonFetch, selectAdult, selectPersonCredits, selectPersonDetails, selectStatus } from '../MoviesSlice';
 import LoadingPage from '../Common/LoadingPage';
 import Failed from '../Common/Failed';
+import AdultContent from '../Common/AdultContent';
 
 function MoviePage() {
     const dispatch = useDispatch();
@@ -19,12 +20,13 @@ function MoviePage() {
             id: id,
             type: personKey,
         }))
-    }, [id, personKey, dispatch])
+    }, [id, dispatch])
 
     const personDetails = useSelector(selectPersonDetails);
     const personCredits = useSelector(selectPersonCredits);
 
     const status = useSelector(selectStatus);
+    const adult = useSelector(selectAdult)
 
     return (
         <div>
@@ -37,7 +39,11 @@ function MoviePage() {
                 <LoadingPage /> :
                 ""
             }
-            {status === "success" ?
+            {status === "success" && personDetails.adult && !adult ?
+                <AdultContent /> :
+                ""
+            }
+            {status === "success" && (!personDetails.adult || (personDetails.adult && adult)) ?
                 <div>
                     <Container>
                         <UniversalBigTile
@@ -50,6 +56,7 @@ function MoviePage() {
                         <GridTemplate
                             content={personCredits.cast}
                             type={moviesKey}
+                            castAndCrew="movies"
                         />
                     </Container>
                     <Container>
@@ -57,6 +64,7 @@ function MoviePage() {
                         <GridTemplate
                             content={personCredits.crew}
                             type={moviesKey}
+                            castAndCrew="movies"
                         />
                     </Container>
                 </div> :
