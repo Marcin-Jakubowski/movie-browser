@@ -24,6 +24,7 @@ export const TileContainer = styled.div`
 
 export const ContentContainer = styled.div`
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-rows: repeat(3, auto) 1fr;
