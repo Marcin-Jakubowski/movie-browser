@@ -17,7 +17,10 @@ export const theme = {
         noImageBackground: "#C4C4C4",
         jobOrCharacterName: "#7E839A",
         ShowMoreButton: "#ADB5BD",
-        adultButton: "#FF0000"
+        adultButton: "#FF0000",
+        themeButtonFont: "#DEE2E6",
+        themeButtonBackground: "#aaaaaa",
+        themeButtonItem: "#212529",
     },
     breakpoint: {
         noContainer: 1400,
@@ -49,7 +52,10 @@ export const darkTheme = {
         noImageBackground: "#6C757D",
         jobOrCharacterName: "#7E839A",
         ShowMoreButton: "#DEE2E6",
-        adultButton: "#FF0000"
+        adultButton: "#FF0000",
+        themeButtonFont: "#DEE2E6",
+        themeButtonBackground: "#343A40",
+        themeButtonItem: "#212529",
     },
     breakpoint: {
         noContainer: 1400,
