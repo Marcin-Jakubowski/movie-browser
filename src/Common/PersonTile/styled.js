@@ -21,8 +21,12 @@ export const StyledImage = styled.div`
     width: 177px;
     height: 232px;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     ${({ noImage }) => noImage && css`
+        background-image: none;
         background-color: ${({ theme }) => theme.color.noImageBackground};
         background-size: initial;
         background-repeat: no-repeat;
@@ -32,6 +36,15 @@ export const StyledImage = styled.div`
         width: 120px;
         height: 178px;
     }
+`
+
+export const Icon = styled.img`
+    display: none;
+
+    ${({ noImage }) => noImage && css`
+        display: unset
+    `}
+    
 `
 
 export const Name = styled.h3`

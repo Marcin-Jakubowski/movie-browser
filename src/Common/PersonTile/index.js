@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Name, StyledImage, JobOrCharacterName } from "./styled"
+import { Container, Name, StyledImage, JobOrCharacterName, Icon } from "./styled"
 import imageBaseLink from "../../imageBaseLink"
 import noImage from "../../noPersonImage.svg"
 
@@ -11,24 +11,29 @@ const PersonTile = ({ person, castAndCrew }) => {
 
 
     return (
-       
-            <Container>
-                <StyledImage
-                    alt={person.name}
-                    src={person.profile_path ? imageLink : noImage}
+
+        <Container>
+            <StyledImage
+                alt={person.name}
+                src={imageLink}
+                noImage={!person.profile_path}
+            >
+                <Icon
+                    src={noImage}
                     noImage={!person.profile_path}
                 />
-                <Name>
-                    {person.name}
-                </Name>
-                {castAndCrew ?
-                    <JobOrCharacterName>
-                        {castAndCrew === "cast" ? person.character : person.job}
-                    </JobOrCharacterName>
-                    :
-                    ""
-                }
-            </Container>
+            </StyledImage>
+            <Name>
+                {person.name}
+            </Name>
+            {castAndCrew ?
+                <JobOrCharacterName>
+                    {castAndCrew === "cast" ? person.character : person.job}
+                </JobOrCharacterName>
+                :
+                ""
+            }
+        </Container>
     )
 }
 
