@@ -15,7 +15,9 @@ export const theme = {
         refreshButtonFont: "#ffffff",
         refreshButtonBackground: "#0044CC",
         noImageBackground: "#C4C4C4",
-        jobOrCharacterName: "#7E839A"
+        jobOrCharacterName: "#7E839A",
+        ShowMoreButton: "#0CB8FC",
+        adultButton: "#FF0000"
     },
     breakpoint: {
         noContainer: 1400,

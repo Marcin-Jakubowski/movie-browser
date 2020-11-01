@@ -13,8 +13,11 @@ import { GlobalStyle } from "./GlobalStyle";
 import { darkTheme, theme } from "./theme";
 import { useSelector } from 'react-redux';
 import { selectThemeStatus } from './MoviesSlice';
+import { useDispatch } from 'react-redux';
+import { setStatus } from './MoviesSlice';
 
 function App() {
+  const dispatch = useDispatch()
   const themeStatus = useSelector(selectThemeStatus);
 
   return (
@@ -24,20 +27,35 @@ function App() {
         <nav>
           <BackgroundContainer>
             <WidthContainer>
-              <NavList>
-                <NavContainer>
-                  <NavListItem>
-                    <StyledNavLinkLogo to="/movies"><NavLogoButton /></StyledNavLinkLogo>
-                  </NavListItem>
-                  <NavListItem>
-                    <StyledNavLink to="/movies">MOVIES</StyledNavLink>
-                  </NavListItem>
-                  <NavListItem>
-                    <StyledNavLink to="/people">PEOPLE</StyledNavLink>
-                  </NavListItem>
-                </NavContainer>
-                <Browser />
-              </NavList>
+            <NavList>
+              <NavContainer>
+                <NavListItem>
+                  <StyledNavLinkLogo
+                    to="/movies"
+                    onClick={() => { dispatch(setStatus("loading")) }}
+                  >
+                    <NavLogoButton />
+                  </StyledNavLinkLogo>
+                </NavListItem>
+                <NavListItem>
+                  <StyledNavLink
+                    to="/movies"
+                    onClick={() => { dispatch(setStatus("loading")) }}
+                  >
+                    MOVIES
+                </StyledNavLink>
+                </NavListItem>
+                <NavListItem>
+                  <StyledNavLink
+                    to="/people"
+                    onClick={() => { dispatch(setStatus("loading")) }}
+                  >
+                    PEOPLE
+                     </StyledNavLink>
+                </NavListItem>
+              </NavContainer>
+              <Browser />
+            </NavList>
             </WidthContainer>
           </BackgroundContainer>
           <Switch>

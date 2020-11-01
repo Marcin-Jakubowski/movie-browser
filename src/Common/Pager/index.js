@@ -5,22 +5,25 @@ import disabledArrow from "./disabledArrow.svg"
 import useQueryParameter from "../../useQueryParameter"
 import useReplaceQueryParameter from "../../useReplaceQueryParameter"
 import { pageKey } from "../../keys"
+import { setStatus } from "../../MoviesSlice"
+import { useDispatch } from "react-redux"
 
 const Pager = ({ content, type }) => {
 
     const page = useQueryParameter(pageKey)
     const replaceQueryParameter = useReplaceQueryParameter()
+    const dispatch = useDispatch()
     const maxPage = content.total_pages
 
     const pageNumber = Number(page)
 
     const onClickButton = (value) => {
+        dispatch(setStatus("loading"))
         replaceQueryParameter(type, {
             key: pageKey,
             value: value,
         })
     }
-
 
     return (
         <Wrapper>

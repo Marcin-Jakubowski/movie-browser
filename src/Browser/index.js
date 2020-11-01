@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { moviesKey, peopleKey } from '../keys';
-import { inputChange, selectQueryString } from '../MoviesSlice';
+import { inputChange, selectQueryString, setStatus } from '../MoviesSlice';
 import { BrowserContainer, BrowserInput, BrowserLogo } from "./styled"
 import useSearchByQuery from './useSearchByQuery';
 import browserLogo from "./browserLogo.svg"
@@ -16,6 +16,8 @@ function Browser() {
 
     const type = location.pathname.includes(moviesKey) ? moviesKey : peopleKey
 
+    useEffect(() => {setValue("")}, [type])
+
     const queryString = useSelector(selectQueryString);
 
     const onInputChange = ({ target }) => {
@@ -23,10 +25,10 @@ function Browser() {
         dispatch(inputChange(target.value))
     };
 
-    useEffect(() => {
+    useEffect(() => { 
+        dispatch(setStatus("loading"))
         searchByQuery(queryString);
-        setValue("")
-    }, [queryString])
+     }, [queryString, dispatch])
 
     return (
         <BrowserContainer>
