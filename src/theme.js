@@ -21,6 +21,8 @@ export const theme = {
         themeButtonFont: "#DEE2E6",
         themeButtonBackground: "#aaaaaa",
         themeButtonItem: "#212529",
+        navigationBackground: "#000000",
+        navigationFont: "#ffffff"
     },
     breakpoint: {
         noContainer: 1400,
@@ -56,6 +58,8 @@ export const darkTheme = {
         themeButtonFont: "#DEE2E6",
         themeButtonBackground: "#343A40",
         themeButtonItem: "#212529",
+        navigationBackground: "#000000",
+        navigationFont: "#ffffff"
     },
     breakpoint: {
         noContainer: 1400,

@@ -4,7 +4,7 @@ import styled from "styled-components";
 const activeClassName = "active";
 
 export const BackgroundContainer = styled.ul`
-    background-color: black;
+    background-color: ${({ theme }) => theme.color.navigationBackground};
     margin: 0;
     padding: 0;
 `;
@@ -14,7 +14,7 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
 }))`
     text-decoration: none;
     font-weight: 600;
-    color: white;
+    color: ${({ theme }) => theme.color.navigationFont};
     padding: 13px 20px;
     border-radius: 24px;
         
@@ -31,14 +31,14 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     }
     
     &.${activeClassName} {
-        border: 1px solid white;
+        border: 1px solid ${({ theme }) => theme.color.navigationFont};
 
         @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
             border-radius: 18px;
         }
     }
     &:link {
-        color: white
+        color: ${({ theme }) => theme.color.navigationFont}
     }
 `;
 
@@ -46,11 +46,11 @@ export const StyledNavLinkLogo = styled(NavLink).attrs(() => ({
     activeClassName,
 }))`
     text-decoration: none;
-    color: white;
+    color: ${({ theme }) => theme.color.navigationFont};
     padding: 13px;
 
     &:link {
-        color: white
+        color: ${({ theme }) => theme.color.navigationFont}
     }
 `;
 
@@ -60,7 +60,7 @@ export const NavListItem = styled.li`
 
 export const NavList = styled.ul`
     list-style: none;
-    background-color: black;
+    background-color: ${({ theme }) => theme.color.navigationBackground};
     display: flex;
     align-items: center;
     margin: 0;

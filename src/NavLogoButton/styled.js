@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const NavButton = styled.button`
-    color: white;
-    background-color: black;
+    color: ${({ theme }) => theme.color.navigationFont};
+    background-color: ${({ theme }) => theme.color.navigationBackground};
     border: none;
     display: flex;
     align-items: center;
