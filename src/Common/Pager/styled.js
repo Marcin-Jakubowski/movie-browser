@@ -6,9 +6,10 @@ export const Wrapper = styled.nav`
     height: 36px;
     margin: 40px auto;
     justify-content: space-between;
+    align-items: center;
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-            width: 250px;
+            width: 100%;
             margin: 32px auto;
         }
 `
@@ -27,7 +28,7 @@ export const TextContainer = styled.div`
     color: ${({ theme }) => theme.color.pageText};
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-            font-size: 10px;
+            font-size: 13px;
             padding: 7.5px 8px
         }
 `
