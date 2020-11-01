@@ -1,12 +1,20 @@
-import React from "react"
-import { useDispatch } from "react-redux"
-import { setAdult, setStatus } from "../../MoviesSlice"
-import icon from "./AdultIcon.svg"
-import { Container, StyledImage, MainHeader, SmallHeader, StyledLink, Button, ButtonContainer } from "./styled"
+import React from "react";
+import { useDispatch } from "react-redux";
+import { setAdult, setStatus } from "../../MoviesSlice";
+import icon from "./AdultIcon.svg";
+import {
+    Container,
+    StyledImage,
+    MainHeader,
+    SmallHeader,
+    StyledLink,
+    Button,
+    ButtonContainer
+} from "./styled";
 
 const AdultContent = () => {
+    const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
     return (
         <Container>
             <StyledImage
@@ -34,6 +42,6 @@ const AdultContent = () => {
             </ButtonContainer>
         </Container>
     )
-}
+};
 
-export default AdultContent
+export default AdultContent;

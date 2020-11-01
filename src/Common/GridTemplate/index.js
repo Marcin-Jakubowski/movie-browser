@@ -1,20 +1,20 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Grid } from "./styled";
 import { selectGenres, setGenres } from "../../MoviesSlice";
 import GridListItem from "../GridListItem";
+import { Button, Grid } from "./styled";
 
 const GridTemplate = ({ content, type, castAndCrew }) => {
   const dispatch = useDispatch();
   const genresData = useSelector(selectGenres);
-
   const [showMore, setShowMore] = useState(false)
 
   if (genresData === []) {
     dispatch(setGenres([]))
-  } else { };
+  } else { }
 
-  const toHide = (i) => i > 11 && castAndCrew
+  const toHide = (i) => i > 11 && castAndCrew;
+
   return (
     <>
       <Grid
@@ -29,19 +29,18 @@ const GridTemplate = ({ content, type, castAndCrew }) => {
             type={type}
             showMore={showMore}
           />
-        )
-        )}
+        ))}
       </Grid>
-      {content.length > 12 && castAndCrew  ?
-        <Button
+      {content.length > 12 && castAndCrew
+        ? <Button
           onClick={() => setShowMore(!showMore)}
         >
-          {showMore? "Hide" : "Show More"}
-      </Button> :
-        ""
+          {showMore ? "Hide" : "Show More"}
+        </Button>
+        : ""
       }
     </>
   )
-}
+};
 
 export default GridTemplate;

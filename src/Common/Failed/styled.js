@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const Container = styled.div`
     width: 592px;
@@ -7,12 +7,12 @@ export const Container = styled.div`
     text-align: center;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        width: 90vw
+        width: 90vw;
     }
-`
+`;
 export const StyledImage = styled.img`
     width: 100px;
-`
+`;
 
 export const MainHeader = styled.h2`
     font-weight: 600;
@@ -23,7 +23,7 @@ export const MainHeader = styled.h2`
         font-size: 20px;
         margin: 12px auto;
     }
-`
+`;
 
 export const SmallHeader = styled.h3`
     font-weight: 500;
@@ -36,7 +36,7 @@ export const SmallHeader = styled.h3`
         margin: 12px auto;
         padding: 0 20px;
     }
-`
+`;
 
 export const StyledLink = styled(Link)`
     display: inline-block;
@@ -49,18 +49,17 @@ export const StyledLink = styled(Link)`
     background-color: ${({ theme }) => theme.color.refreshButtonBackground};
     border-radius: 5px;
      
-     &:hover {
-        filter: brightness(105%)
-     }
+    &:hover {
+        filter: brightness(105%);
+    }
        
-     &:active {
-        filter: brightness(110%)
-     }
+    &:active {
+        filter: brightness(110%);
+    }
 
-     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 9px;
         margin: 12px auto;
         padding: 8 12px;
     }
-
-`
+`;

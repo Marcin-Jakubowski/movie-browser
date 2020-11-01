@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components"
-
+import styled, { css } from "styled-components";
 
 export const Container = styled.section`
     width: 100%;
@@ -14,9 +13,9 @@ export const Container = styled.section`
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-       padding: 8px
+       padding: 8px;
     }
-`
+`;
 
 export const StyledImage = styled.div`
     background-image: url(${({ src }) => src});
@@ -36,7 +35,7 @@ export const StyledImage = styled.div`
         width: 120px;
         height: 178px;
     }
-`
+`;
 
 export const Name = styled.h3`
     margin: 0;
@@ -49,7 +48,7 @@ export const Name = styled.h3`
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 14px;
     }
-`
+`;
 
 export const JobOrCharacterName = styled.h4`
     font-weight: 400;
@@ -61,5 +60,4 @@ export const JobOrCharacterName = styled.h4`
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 13px;
     }
-
-`
+`;

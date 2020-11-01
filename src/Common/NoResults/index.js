@@ -1,6 +1,6 @@
-import React from "react"
-import noResultsImage from "./noResultsImage.svg"
-import { ImageContainer, StyledImage } from "./styled"
+import React from "react";
+import noResultsImage from "./noResultsImage.svg";
+import { ImageContainer, StyledImage } from "./styled";
 
 const NoResults = () => (
     <ImageContainer>
@@ -9,6 +9,6 @@ const NoResults = () => (
             alt="no results"
         />
     </ImageContainer>
-)
+);
 
-export default NoResults
+export default NoResults;

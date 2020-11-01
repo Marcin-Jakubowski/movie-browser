@@ -21,7 +21,7 @@ function App() {
   const themeStatus = useSelector(selectThemeStatus);
 
   return (
-    <ThemeProvider theme={themeStatus === true ? theme : darkTheme}>
+    <ThemeProvider theme={themeStatus === false ? theme : darkTheme}>
       <GlobalStyle />
       <HashRouter>
         <nav>
