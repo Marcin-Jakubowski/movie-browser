@@ -1,14 +1,10 @@
-import React from "react"
-import { Container, Name, StyledImage, JobOrCharacterName, Icon } from "./styled"
-import imageBaseLink from "../../imageBaseLink"
-import noImage from "../../noPersonImage.svg"
-
-
+import React from "react";
+import imageBaseLink from "../../imageBaseLink";
+import noImage from "../../noPersonImage.svg";
+import { Container, Name, StyledImage, JobOrCharacterName } from "./styled";
 
 const PersonTile = ({ person, castAndCrew }) => {
-
-    const imageLink = `${imageBaseLink("w500")}${person.profile_path}`
-
+    const imageLink = `${imageBaseLink("w500")}${person.profile_path}`;
 
     return (
 
@@ -35,6 +31,6 @@ const PersonTile = ({ person, castAndCrew }) => {
             }
         </Container>
     )
-}
+};
 
-export default PersonTile 
+export default PersonTile ;

@@ -11,15 +11,20 @@ export const TileContainer = styled.div`
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+        
+    &:hover {
+       filter: brightness(93%);
+    }
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         flex-direction: row;
         width: 100%;
     }
-`
+`;
 
 export const ContentContainer = styled.div`
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-rows: repeat(3, auto) 1fr;
@@ -28,7 +33,7 @@ export const ContentContainer = styled.div`
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         padding-left: 16px;
     }
-`
+`;
 
 export const PosterImage = styled.img`
     width: 292px;
@@ -48,7 +53,7 @@ export const PosterImage = styled.img`
         background-size: initial;
         background-repeat: no-repeat;
     `}
-`
+`;
 
 export const MovieTitle = styled.h3`
     font-size: 22px;
@@ -60,7 +65,7 @@ export const MovieTitle = styled.h3`
     font-size: 16px;
     line-height: 21px;
     }
-`
+`;
 
 export const ReselaseYear = styled.h4`
     font-size: 16px;
@@ -73,7 +78,7 @@ export const ReselaseYear = styled.h4`
     line-height: 17px;
     color: ${({ theme }) => theme.color.secondaryFont};
     }
-`
+`;
 
 export const Genres = styled.div`
     font-size: 14px;
@@ -88,13 +93,13 @@ export const Genres = styled.div`
     line-height: 11px;
     padding: 4px 8px;
     }
-`
+`;
 
 export const GenresBox = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-`
+`;
 
 export const VotesBox = styled.div`
     max-height: 24px;
@@ -108,7 +113,7 @@ export const VotesBox = styled.div`
     font-size: 13px;
     line-height: 24px;
     }
-`
+`;
 
 export const VoteIcon = styled.img`
     width: 24px;
@@ -117,7 +122,7 @@ export const VoteIcon = styled.img`
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 16px;
     }
-`
+`;
 
 export const VotesAverage = styled.div`
     padding: 0 12px;
@@ -133,7 +138,7 @@ export const VotesAverage = styled.div`
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMin}px) {
         padding: 0 4px;
     }
-`
+`;
 
 export const VotesCount = styled.div`
     color: ${({ theme }) => theme.color.secondaryFont};
@@ -141,4 +146,4 @@ export const VotesCount = styled.div`
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         color: ${({ theme }) => theme.color.secondaryFont};
     }
-`
+`;

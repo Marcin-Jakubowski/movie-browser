@@ -1,4 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectGenres } from "../MoviesSlice";
+import imageBaseLink from "../imageBaseLink";
+import voteIcon from "../voteIcon.svg";
+import noImage from "../noMovieImage.svg";
 import {
     TileContainer,
     ContentContainer,
@@ -12,11 +17,6 @@ import {
     VoteIcon,
     VotesCount
 } from "./styled";
-import voteIcon from "../voteIcon.svg";
-import imageBaseLink from "../imageBaseLink";
-import { useSelector } from "react-redux";
-import { selectGenres } from "../MoviesSlice";
-import noImage from "../noMovieImage.svg"
 
 const MovieSmallTile = ({ content }) => {
     const tileImageBaseLink = imageBaseLink("w342");
@@ -31,14 +31,18 @@ const MovieSmallTile = ({ content }) => {
                 noImage={!content.poster_path}
             />
             <ContentContainer>
-                <MovieTitle>{content.title}</MovieTitle>
-                <ReselaseYear>{content.release_date ? date.getFullYear() : "N/N"}</ReselaseYear>
+                <MovieTitle>
+                    {content.title}
+                </MovieTitle>
+                <ReselaseYear>
+                    {content.release_date ? date.getFullYear() : "N/N"}
+                </ReselaseYear>
                 <GenresBox>
                     {content.genre_ids && genres.genres && content.genre_ids.map((genre_id) => (
                         genres.genres.map(genre => genre.id === genre_id
                             ? <Genres key={genre.id}>{genre.name}</Genres>
-                            : "")
-                    ))}
+                            : "")))
+                    }
                 </GenresBox>
                 <VotesBox>
                     <VoteIcon src={voteIcon} />
@@ -52,6 +56,6 @@ const MovieSmallTile = ({ content }) => {
             </ContentContainer>
         </TileContainer>
     )
-}
+};
 
-export default MovieSmallTile
+export default MovieSmallTile;

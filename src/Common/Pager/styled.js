@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.nav`
     display: flex;
@@ -12,14 +12,14 @@ export const Wrapper = styled.nav`
             width: 100%;
             margin: 32px auto;
         }
-`
+`;
 
 export const ButtonContainer = styled.div`
     height: 100%;
     display: flex;
     justify-content: space-between;
     margin: 0 -6px;
-`
+`;
 
 export const TextContainer = styled.div`
     font-weight: 400;
@@ -31,16 +31,17 @@ export const TextContainer = styled.div`
             font-size: 13px;
             padding: 7.5px 8px
         }
-`
+`;
+
 export const Counter = styled.strong`
     display: inline-block;
     margin: 0 8px;
     color: ${({ theme }) => theme.color.black};
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-            margin: 0 2px
-        }
-`
+        margin: 0 2px;
+    }
+`;
 
 export const Button = styled.button`
     font-weight: 400;
@@ -72,18 +73,17 @@ export const Button = styled.button`
     }
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-            padding: 7.5px 12px;
-            font-size: 5px;
-            margin: 0 4px;
-        }
-
-`
+        padding: 7.5px 12px;
+        font-size: 5px;
+        margin: 0 4px;
+    }
+`;
 
 export const TextToHide = styled.span`
-     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-            display: none;
-        }
-`
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        display: none;
+    }
+`;
 
 export const Img = styled.img`
     display: inline-block;
@@ -100,9 +100,7 @@ export const Img = styled.img`
         @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             margin-right: 2px;
         }
-
-    `
-    }
+    `}
 
     ${({ second }) => second && css`
         display: none;
@@ -110,7 +108,5 @@ export const Img = styled.img`
         @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             display: inline-block;
         }
-        
     ` }
-
-`
+`;

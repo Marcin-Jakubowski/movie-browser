@@ -1,9 +1,8 @@
 import React from 'react';
-import { NavButton, NavContent, NavLogo } from "./styled"
-import navLogo from "./navLogo.svg"
+import navLogo from "./navLogo.svg";
+import { NavButton, NavContent, NavLogo } from "./styled";
 
 function NavLogoButton() {
-
     return (
         <NavButton>
             <NavLogo src={navLogo} alt="Navigation Logo" />

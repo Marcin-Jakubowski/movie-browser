@@ -61,7 +61,8 @@ export const ContentContainer = styled.div`
     display: grid;
     grid-template-rows: ${({ type }) => type === movieKey
         ? "repeat(6, auto)"
-        : "repeat(3, auto)"} 1fr;
+        : "repeat(3, auto)"
+    } 1fr;
     grid-gap: 24px;
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {

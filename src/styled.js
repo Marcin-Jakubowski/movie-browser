@@ -4,7 +4,7 @@ import styled from "styled-components";
 const activeClassName = "active";
 
 export const BackgroundContainer = styled.ul`
-    background-color: black;
+    background-color: ${({ theme }) => theme.color.navigationBackground};
     margin: 0;
     padding: 0;
 `;
@@ -14,23 +14,31 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
 }))`
     text-decoration: none;
     font-weight: 600;
-    color: white;
+    color: ${({ theme }) => theme.color.navigationFont};
     padding: 13px 20px;
+    border-radius: 24px;
+        
+    &:hover {
+        background-image: radial-gradient(rgb(40, 40, 40), rgb(0, 0, 0));
+    }
+    
+    &:active {
+        background-image: radial-gradient(rgb(55, 55, 55), rgb(0, 0, 0));
+    }
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         padding: 8px 12px;
     }
     
     &.${activeClassName} {
-        border: 1px solid white;
-        border-radius: 24px;
+        border: 1px solid ${({ theme }) => theme.color.navigationFont};
 
         @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
             border-radius: 18px;
         }
     }
     &:link {
-        color: white
+        color: ${({ theme }) => theme.color.navigationFont}
     }
 `;
 
@@ -38,11 +46,11 @@ export const StyledNavLinkLogo = styled(NavLink).attrs(() => ({
     activeClassName,
 }))`
     text-decoration: none;
-    color: white;
+    color: ${({ theme }) => theme.color.navigationFont};
     padding: 13px;
 
     &:link {
-        color: white
+        color: ${({ theme }) => theme.color.navigationFont}
     }
 `;
 
@@ -52,7 +60,7 @@ export const NavListItem = styled.li`
 
 export const NavList = styled.ul`
     list-style: none;
-    background-color: black;
+    background-color: ${({ theme }) => theme.color.navigationBackground};
     display: flex;
     align-items: center;
     margin: 0;
@@ -78,7 +86,7 @@ export const NavContainer = styled.div`
     align-items: center;
     margin: 0 auto;
 
-@media( max-width: 767px) {
-    grid-template-columns: repeat(3, auto);
-}
+    @media( max-width: 767px) {
+        grid-template-columns: repeat(3, auto);
+    }
 `;

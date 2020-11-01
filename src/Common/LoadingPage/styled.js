@@ -4,11 +4,11 @@ export const ImageContainer = styled.div`
     margin: 120px auto;
     width: 91px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px){
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         margin: 24px auto;
         width: 35px;
     }
-`
+`;
 
 export const StyledImage = styled.img`
     width: 100%;
@@ -18,9 +18,7 @@ export const StyledImage = styled.img`
     animation-timing-function: linear;
 
     @keyframes spiner {
-        from {
-            
-        }
+        from { }
         50% {
             transform: rotateZ(180deg);
         }
@@ -28,4 +26,4 @@ export const StyledImage = styled.img`
             transform: rotateZ(360deg);
         }
     }
-`
+`;

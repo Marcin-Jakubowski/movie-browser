@@ -1,26 +1,23 @@
-import { useLocation, useHistory } from "react-router-dom"
+import { useLocation, useHistory } from "react-router-dom";
 import { pageKey, searchKey } from "./keys";
 
 const useReplaceQueryParameter = () => {
-
-
-    const location = useLocation()
-    const history = useHistory()
+    const location = useLocation();
+    const history = useHistory();
 
     const setQueryValue = (type, { key, value }) => {
-        const searchParams = new URLSearchParams(location.search)
+        const searchParams = new URLSearchParams(location.search);
         if (!value) {
-            searchParams.delete(key)
+            searchParams.delete(key);
         } else {
-            searchParams.set(key, value)
-
+            searchParams.set(key, value);
         }
         if (key === searchKey) {
-            searchParams.set(pageKey, 1)
+            searchParams.set(pageKey, 1);
         }
-        history.push(`/${type}?${searchParams.toString()}`)
+        history.push(`/${type}?${searchParams.toString()}`);
     }
-    return setQueryValue
+    return setQueryValue;
 };
 
-export default useReplaceQueryParameter
+export default useReplaceQueryParameter;

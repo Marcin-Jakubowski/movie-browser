@@ -1,9 +1,8 @@
 import Axios from "axios";
-import { apiKey } from "./keys"
+import { apiKey } from "./keys";
 
 export const fetchFromApi = async (link, page, query) => {
-
-    const queryIfExist = query ? { query: query } : ""
+    const queryIfExist = query ? { query: query } : "";
 
     try {
         const response = await Axios.get(link, {
@@ -13,9 +12,9 @@ export const fetchFromApi = async (link, page, query) => {
                 ...queryIfExist
 
             }
-        })
+        });
         return await response.data;
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}
+};
