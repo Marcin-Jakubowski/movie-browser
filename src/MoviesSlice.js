@@ -54,7 +54,7 @@ const moviesSlice = createSlice({
             state.queryString = payload
         },
         toggleThemeStatus: state => {
-            state.theme = !state.theme;
+            state.themeStatus = !state.themeStatus;
         },
     }
 });

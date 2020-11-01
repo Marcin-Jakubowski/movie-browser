@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 export const TileContainer = styled.div`
     width: 324px;
+    height: 100%;
     margin: 0 auto;
     padding: 16px;
     color: ${({ theme }) => theme.color.mainFont};
