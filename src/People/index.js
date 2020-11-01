@@ -20,13 +20,13 @@ function People() {
   const people = useSelector(selectPageInformation);
   const status = useSelector(selectStatus);
 
-  useEffect(() => {
+  if (status === "loading") {
     dispatch(initiateFetch({
       page: page ? page : 1,
       type: type,
       query: query
-    }))
-  }, [query, page, type, dispatch]);
+    }));
+  }
 
   return (
     <>
