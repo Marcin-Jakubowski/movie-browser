@@ -1,7 +1,7 @@
 export const theme = {
     color: {
         black: "#18181B",
-        background: "#E5E5E5",
+        background: "#F5F5FA",
         boxShadow: "rgba(186, 199, 213, 0.5)",
         pagerButton: "#D6E4FF",
         pagerButtonDisabled: "#E4E6F0",
@@ -16,7 +16,7 @@ export const theme = {
         refreshButtonBackground: "#0044CC",
         noImageBackground: "#C4C4C4",
         jobOrCharacterName: "#7E839A",
-        ShowMoreButton: "#0CB8FC",
+        ShowMoreButton: "#ADB5BD",
         adultButton: "#FF0000"
     },
     breakpoint: {
@@ -44,7 +44,9 @@ export const darkTheme = {
         refreshButtonFont: "#DEE2E6",
         refreshButtonBackground: "#6C757D",
         noImageBackground: "#6C757D",
-        jobOrCharacterName: "#7E839A"
+        jobOrCharacterName: "#7E839A",
+        ShowMoreButton: "#DEE2E6",
+        adultButton: "#FF0000"
     },
     breakpoint: {
         noContainer: 1400,
