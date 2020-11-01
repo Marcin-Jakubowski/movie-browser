@@ -1,7 +1,7 @@
 function ImageBaseLink(size) {
     return (
         `http://image.tmdb.org/t/p/${size}`
-    );
+    )
 };
 
 export default ImageBaseLink;

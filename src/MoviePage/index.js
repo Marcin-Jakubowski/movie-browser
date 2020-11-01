@@ -1,5 +1,24 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    initiateMovieOrPersonFetch,
+    selectAdult,
+    selectMovieCredits,
+    selectMovieDetails,
+    selectStatus
+} from '../MoviesSlice';
+import { movieKey, peopleKey } from '../keys';
+import imageBaseLink from "../imageBaseLink";
+import voteIcon from "./voteIcon.svg";
+import Container from '../Common/Container';
+import Header from '../Common/Header';
+import GridTemplate from '../Common/GridTemplate';
+import UniversalBigTile from '../UniversalBigTile';
+import LoadingPage from '../Common/LoadingPage';
+import Failed from '../Common/Failed';
+import AdultContent from '../Common/AdultContent';
+import ToggleThemeButton from '../ToggleThemeButton';
 import {
     PosterBackgrundContainer,
     PosterShadowContainer,
@@ -12,20 +31,7 @@ import {
     VoteIcon,
     VotesSmallContent,
     VotesBigContent,
-
 } from './styled';
-import imageBaseLink from "../imageBaseLink";
-import voteIcon from "./voteIcon.svg";
-import Container from '../Common/Container';
-import Header from '../Common/Header';
-import GridTemplate from '../Common/GridTemplate';
-import { movieKey, peopleKey } from '../keys';
-import UniversalBigTile from '../UniversalBigTile';
-import { useDispatch, useSelector } from 'react-redux';
-import { initiateMovieOrPersonFetch, selectAdult, selectMovieCredits, selectMovieDetails, selectStatus } from '../MoviesSlice';
-import LoadingPage from '../Common/LoadingPage';
-import Failed from '../Common/Failed';
-import AdultContent from '../Common/AdultContent';
 
 function MoviePage() {
     const dispatch = useDispatch();
@@ -40,32 +46,32 @@ function MoviePage() {
             id: id,
             type: movieKey,
         }))
-    }, [id, dispatch])
+    }, [id, dispatch]);
 
     const movieDetails = useSelector(selectMovieDetails);
     const movieCredits = useSelector(selectMovieCredits);
 
-
     return (
-        <div>
-            {status === "failed" ?
-                <Failed />
-                :
-                ""
+        <>
+            {status === "failed"
+                ? <Failed />
+                : ""
             }
-            {status === "loading" ?
-                <LoadingPage /> :
-                ""
+            {status === "loading"
+                ? <LoadingPage />
+                : ""
             }
-            {status === "success" && movieDetails.adult && !adult ?
-                <AdultContent /> :
-                ""
+            {status === "success" && movieDetails.adult && !adult
+                ? <AdultContent />
+                : ""
             }
-            {status === "success" && (!movieDetails.adult || (movieDetails.adult && adult)) ?
-                <div>
+            {status === "success" && (!movieDetails.adult || (movieDetails.adult && adult))
+                ? <div>
                     {movieDetails.backdrop_path !== null
                         ? <PosterBackgrundContainer>
-                            <PosterBackgroundImageContainer link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}>
+                            <PosterBackgroundImageContainer
+                                link={'"' + posterImageBaseLink + movieDetails.backdrop_path + '"'}
+                            >
                                 <PosterShadowContainer>
                                     <PosterItemsContainer>
                                         <Title>
@@ -75,8 +81,12 @@ function MoviePage() {
                                             <VotesContainer>
                                                 <VoteIcon src={voteIcon} alt="Vote icon" />
                                                 <VotesAverageBox>
-                                                    <VotesBigContent>{movieDetails.vote_average}</VotesBigContent>
-                                                    <VotesSmallContent> / 10</VotesSmallContent>
+                                                    <VotesBigContent>
+                                                        {movieDetails.vote_average}
+                                                    </VotesBigContent>
+                                                    <VotesSmallContent>
+                                                         / 10
+                                                    </VotesSmallContent>
                                                 </VotesAverageBox>
                                             </VotesContainer>
                                             <VotesSmallContent>
@@ -110,10 +120,13 @@ function MoviePage() {
                             castAndCrew="crew"
                         />
                     </Container>
-                </div> :
-                ""
+                </div>
+                : ""}
+            {status === "loading"
+                ? ""
+                : <ToggleThemeButton />
             }
-        </div>
+        </>
     );
 };
 

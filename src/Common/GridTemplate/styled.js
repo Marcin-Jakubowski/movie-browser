@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import { moviesKey, peopleKey } from "../../keys";
 
-
 export const Grid = styled.ul`
     width: 100%;
     margin: 0;
@@ -10,7 +9,6 @@ export const Grid = styled.ul`
     grid-gap: 24px;
     justify-content: center;
     list-style: none;
-  
 
     ${({ type }) => type === moviesKey && css`
         grid-template-columns: repeat(auto-fill, 324px);
@@ -19,18 +17,19 @@ export const Grid = styled.ul`
             grid-template-columns: 1fr;
             grid-gap: 16px 0;
         }
-`}
+    `}
 
     ${({ type }) => type === peopleKey && css`
         grid-template-columns: repeat(auto-fill, 208px);
         grid-auto-rows: minmax(339px, min-content);
+
         @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             grid-template-columns: repeat(auto-fill, 136px);
             grid-auto-rows: minmax(245px, min-content);
-            grid-gap: 16px;}
+            grid-gap: 16px;
+        }
     `}
-
-`
+`;
 
 export const Button = styled.button`
     background: none;
@@ -45,7 +44,6 @@ export const Button = styled.button`
     transition: 0.3s;
 
     &:hover {
-       filter: brightness(110%)
+       filter: brightness(110%);
     }
-
-`
+`;

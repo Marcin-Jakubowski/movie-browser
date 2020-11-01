@@ -1,61 +1,66 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import Movies from "./Movies/index";
-import People from "./People/index";
-import NavLogoButton from "./NavLogoButton/index";
-import Browser from "./Browser/index";
-import { BackgroundContainer, StyledNavLink, StyledNavLinkLogo, NavList, NavListItem, NavContainer } from "./styled";
-import MoviePage from './MoviePage';
-import PersonPage from './PersonPage';
-import WidthContainer from './Common/WidthContainer';
 import { ThemeProvider } from "styled-components";
+import { selectThemeStatus, setStatus } from './MoviesSlice';
 import { GlobalStyle } from "./GlobalStyle";
 import { darkTheme, theme } from "./theme";
-import { useSelector } from 'react-redux';
-import { selectThemeStatus } from './MoviesSlice';
-import { useDispatch } from 'react-redux';
-import { setStatus } from './MoviesSlice';
+import Movies from "./Movies/index";
+import People from "./People/index";
+import MoviePage from './MoviePage';
+import PersonPage from './PersonPage';
+import Browser from "./Browser/index";
+import NavLogoButton from "./NavLogoButton/index";
+import WidthContainer from './Common/WidthContainer';
+import {
+  BackgroundContainer,
+  StyledNavLink,
+  StyledNavLinkLogo,
+  NavList,
+  NavListItem,
+  NavContainer
+} from "./styled";
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const themeStatus = useSelector(selectThemeStatus);
 
   return (
-    <ThemeProvider theme={themeStatus === true ? theme : darkTheme}>
+    <ThemeProvider theme={themeStatus === false ? theme : darkTheme}>
       <GlobalStyle />
       <HashRouter>
         <nav>
           <BackgroundContainer>
             <WidthContainer>
-            <NavList>
-              <NavContainer>
-                <NavListItem>
-                  <StyledNavLinkLogo
-                    to="/movies"
-                    onClick={() => { dispatch(setStatus("loading")) }}
-                  >
-                    <NavLogoButton />
-                  </StyledNavLinkLogo>
-                </NavListItem>
-                <NavListItem>
-                  <StyledNavLink
-                    to="/movies"
-                    onClick={() => { dispatch(setStatus("loading")) }}
-                  >
-                    MOVIES
-                </StyledNavLink>
-                </NavListItem>
-                <NavListItem>
-                  <StyledNavLink
-                    to="/people"
-                    onClick={() => { dispatch(setStatus("loading")) }}
-                  >
-                    PEOPLE
+              <NavList>
+                <NavContainer>
+                  <NavListItem>
+                    <StyledNavLinkLogo
+                      to="/movies"
+                      onClick={() => { dispatch(setStatus("loading")) }}
+                    >
+                      <NavLogoButton />
+                    </StyledNavLinkLogo>
+                  </NavListItem>
+                  <NavListItem>
+                    <StyledNavLink
+                      to="/movies"
+                      onClick={() => { dispatch(setStatus("loading")) }}
+                    >
+                      MOVIES
+                    </StyledNavLink>
+                  </NavListItem>
+                  <NavListItem>
+                    <StyledNavLink
+                      to="/people"
+                      onClick={() => { dispatch(setStatus("loading")) }}
+                    >
+                      PEOPLE
                      </StyledNavLink>
-                </NavListItem>
-              </NavContainer>
-              <Browser />
-            </NavList>
+                  </NavListItem>
+                </NavContainer>
+                <Browser />
+              </NavList>
             </WidthContainer>
           </BackgroundContainer>
           <Switch>
@@ -78,8 +83,7 @@ function App() {
         </nav>
       </HashRouter>
     </ThemeProvider>
-
   );
-}
+};
 
 export default App;

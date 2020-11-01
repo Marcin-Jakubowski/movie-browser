@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const StyledHeader = styled.h2`
     font-size: 36px;
@@ -6,6 +6,6 @@ export const StyledHeader = styled.h2`
     color: ${({ theme }) => theme.color.mainFont};
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-           font-size: 18px;
-        }
-`
+        font-size: 18px;
+    }
+`;

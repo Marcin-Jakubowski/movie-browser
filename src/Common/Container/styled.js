@@ -9,8 +9,8 @@ export const Main = styled.main`
     }
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-          max-width: unset;
-          width: calc(100% - 32px);
-          margin: 24px 16px;
-        }
-`
+        max-width: unset;
+        width: calc(100% - 32px);
+        margin: 24px 16px;
+    }
+`;

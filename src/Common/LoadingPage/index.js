@@ -1,6 +1,6 @@
-import React from "react"
-import loadingRing from "./loadingRing.svg"
-import { ImageContainer, StyledImage } from "./styled"
+import React from "react";
+import loadingRing from "./loadingRing.svg";
+import { ImageContainer, StyledImage } from "./styled";
 
 const LoadingPage = () => (
     <ImageContainer>
@@ -9,6 +9,6 @@ const LoadingPage = () => (
             alt="loadingRing"
         />
     </ImageContainer>
-)
+);
 
-export default LoadingPage
+export default LoadingPage;
