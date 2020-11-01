@@ -19,6 +19,7 @@ import {
     VotesScale,
     VotesCount,
     Overview,
+    LongOverview,
     MobileOverview,
 } from "./styled";
 import voteIcon from "../voteIcon.svg";
@@ -117,11 +118,16 @@ const UniversalBigTile = ({ type, content }) => {
                             : ""}
                         <Overview>
                             {content && type && type === movieKey
-                                ? content.overview
-                                : content.biography}
+                                ? content.overview.length < 1000 ? content.overview : ""
+                                : content.biography.length < 1000 ? content.biography : ""}
                         </Overview>
                     </ContentContainer>
                 </TileContainer>
+                <LongOverview>
+                            {content && type && type === movieKey
+                                ? content.overview.length >= 1000 ? content.overview : ""
+                                : content.biography.length >= 1000 ? content.biography : ""}
+                </LongOverview>
                 <MobileOverview>
                     {content && type && type === movieKey
                         ? content.overview

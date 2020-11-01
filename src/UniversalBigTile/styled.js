@@ -262,6 +262,16 @@ export const Overview = styled.div`
     }
 `;
 
+export const LongOverview = styled.div`
+    font-size: 20px;
+    line-height: 32px;
+    padding: 24px 0;
+
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        display: none;
+    }
+`;
+
 export const MobileOverview = styled.div`
     display: none;
     padding: 16px 0;
