@@ -6,7 +6,7 @@ export const Container = styled.section`
     height: 100%;
     padding: 16px;
     background-color: ${({ theme }) => theme.color.tileBackground};
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0px 4px 12px ${({ theme }) => theme.color.boxShadow};
     border-radius: 5px;
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {

@@ -18,7 +18,7 @@ export const MobileTileContainer = styled.div`
     padding: 40px;
     color: ${({ theme }) => theme.color.mainFont};
     background-color: ${({ theme }) => theme.color.tileBackground};
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0px 4px 12px ${({ theme }) => theme.color.boxShadow};
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin: 24px auto;
