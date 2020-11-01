@@ -16,7 +16,6 @@ import ToggleThemeButton from '../ToggleThemeButton';
 
 function Movies() {
   const dispatch = useDispatch();
-  dispatch(fetchGenresList());
   const type = moviesKey
   const query = useQueryParameter(searchKey)
   const page = useQueryParameter(pageKey)
@@ -24,12 +23,17 @@ function Movies() {
   const status = useSelector(selectStatus)
 
   useEffect(() => {
+    dispatch(fetchGenresList());
+  },
+    [dispatch]);
+
+  if (status === "loading") {
     dispatch(initiateFetch({
       page: page ? page : 1,
       type: type,
       query: query
-    }))
-  }, [query, page, type, dispatch])
+    }));
+  }
 
   return (
     <Container>

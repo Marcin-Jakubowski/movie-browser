@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Container from '../Common/Container';
 import GridTemplate from '../Common/GridTemplate';
 import Header from '../Common/Header';
@@ -19,13 +19,13 @@ function People() {
   const people = useSelector(selectPageInformation)
   const status = useSelector(selectStatus)
 
-  useEffect(() => {
+  if (status === "loading") {
     dispatch(initiateFetch({
       page: page ? page : 1,
       type: type,
       query: query
-    }))
-  }, [query, page, type, dispatch])
+    }));
+  }
 
   return (
     <Container>
