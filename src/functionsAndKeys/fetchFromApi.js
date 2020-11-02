@@ -15,6 +15,6 @@ export const fetchFromApi = async (link, page, query) => {
         });
         return await response.data;
     } catch (error) {
-        console.log(error);
+        
     }
 };

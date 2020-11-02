@@ -26,7 +26,7 @@ function People() {
       type: type,
       query: query
     }));
-  }
+  };
 
   return (
     <>

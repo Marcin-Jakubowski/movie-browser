@@ -84,7 +84,6 @@ function* fetchGenresFromAPI() {
         });
         yield put(setGenres(response.data));
     } catch (error) {
-        console.log(error);
     }
 };
 

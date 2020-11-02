@@ -46,9 +46,8 @@ export const Icon = styled.img`
     display: none;
 
     ${({ noImage }) => noImage && css`
-        display: unset
+        display: unset;
     `}
-    
 `
 
 export const Name = styled.h3`
