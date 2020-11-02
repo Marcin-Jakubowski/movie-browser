@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { inputChange, selectQueryString, setStatus } from '../../MoviesSlice';
 import useSearchByQuery from './useSearchByQuery';
 import { moviesKey, peopleKey } from '../../functionsAndKeys/keys';
-import browserLogo from "./browserLogo.svg";
+import browserLogo from "../../assets/browserLogo.svg";
 import { BrowserContainer, BrowserInput, BrowserLogo } from "./styled";
 
 function Browser() {

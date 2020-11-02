@@ -1,5 +1,5 @@
 import React from "react";
-import loadingRing from "./loadingRing.svg";
+import loadingRing from "../../assets/loadingRing.svg";
 import { ImageContainer, StyledImage } from "./styled";
 
 const LoadingPage = () => (

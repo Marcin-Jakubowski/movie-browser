@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setAdult, setStatus } from "../../MoviesSlice";
-import icon from "./AdultIcon.svg";
+import icon from "../../assets/AdultIcon.svg";
 import {
     Container,
     StyledImage,

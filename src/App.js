@@ -10,7 +10,7 @@ import People from "./features/People/index";
 import MoviePage from './features/MoviePage';
 import PersonPage from './features/PersonPage';
 import Browser from "./features/Browser/index";
-import NavLogoButton from "./NavLogoButton/index";
+import NavLogoButton from "./Common/NavLogoButton/index";
 import WidthContainer from './Common/WidthContainer';
 import {
   BackgroundContainer,

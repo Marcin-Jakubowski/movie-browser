@@ -10,7 +10,7 @@ import {
 } from '../../MoviesSlice';
 import { movieKey, peopleKey } from '../../functionsAndKeys/keys';
 import imageBaseLink from "../../functionsAndKeys/imageBaseLink";
-import voteIcon from "./voteIcon.svg";
+import voteIcon from "../../assets/voteIcon.svg";
 import Container from '../../Common/Container';
 import Header from '../../Common/Header';
 import GridTemplate from '../../Common/GridTemplate';
