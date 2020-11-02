@@ -17,6 +17,7 @@ export const StyledNavLink = styled(NavLink).attrs(() => ({
     color: ${({ theme }) => theme.color.navigationFont};
     padding: 13px 20px;
     border-radius: 24px;
+    transition: 0.3s;
         
     &:hover {
         background-image: radial-gradient(rgb(40, 40, 40), rgb(0, 0, 0));

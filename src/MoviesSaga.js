@@ -21,7 +21,7 @@ function* fetchHandler(action) {
     const page = yield action.payload.page;
     const type = yield action.payload.type;
     const query = yield action.payload.query;
-    yield delay(300);
+    yield delay(150)
     if (query) {
         if (type === moviesKey) {
             try {
@@ -92,9 +92,9 @@ export function* setGenresList() {
 };
 
 function* fetchMovieOrPersonData(action) {
-    yield delay(300);
     const id = yield action.payload.id;
     const type = yield action.payload.type;
+    yield delay(150)
     try {
         switch (type) {
             case movieKey:

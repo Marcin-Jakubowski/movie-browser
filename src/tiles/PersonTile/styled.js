@@ -56,7 +56,7 @@ export const Name = styled.h3`
     color: ${({ theme }) => theme.color.black};
     font-weight: 500;
     font-size: 22px;
-    text-align: center;   
+    text-align: center;
     overflow-wrap: anywhere;
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {

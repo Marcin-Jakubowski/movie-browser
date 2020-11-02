@@ -7,6 +7,7 @@ export const NavButton = styled.button`
     display: flex;
     align-items: center;
     margin: 0 50px 0 0;
+    transition: 0.3s;
     
     &:hover {
         background-image: radial-gradient(rgb(40, 40, 40), rgb(0, 0, 0));

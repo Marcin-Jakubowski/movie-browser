@@ -61,6 +61,7 @@ export const MovieTitle = styled.h3`
     line-height: 29px;
     font-weight: 500;
     margin: 0;
+    overflow-wrap: anywhere;
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 16px;

@@ -9,7 +9,7 @@ import {
     MobileTileContainer,
     PosterImage,
     ContentContainer,
-    MovieTitle,
+    Title,
     ReselaseYear,
     AdditionalContentContainer,
     AdditionalContentBox,
@@ -65,12 +65,12 @@ const UniversalBigTile = ({ type, content }) => {
                     type={type}
                 />
                 <ContentContainer type={type}>
-                    <MovieTitle>
+                    <Title>
                         {content && type === movieKey
                             ? content.title
                             : content.name
                         }
-                    </MovieTitle>
+                    </Title>
                     {defaultDate && content && type && type === movieKey
                         ? <ReselaseYear>{date.getFullYear()}</ReselaseYear>
                         : ""
