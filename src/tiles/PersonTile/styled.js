@@ -57,6 +57,7 @@ export const Name = styled.h3`
     font-weight: 500;
     font-size: 22px;
     text-align: center;   
+    overflow-wrap: anywhere;
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 14px;
