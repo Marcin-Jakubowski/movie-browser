@@ -1,6 +1,6 @@
 import React from "react";
-import imageBaseLink from "../../imageBaseLink";
-import noImage from "../../noPersonImage.svg";
+import imageBaseLink from "../../functionsAndKeys/imageBaseLink";
+import noImage from "../../assets/noPersonImage.svg";
 import { Container, Name, StyledImage, JobOrCharacterName, Icon } from "./styled";
 
 const PersonTile = ({ person, castAndCrew }) => {

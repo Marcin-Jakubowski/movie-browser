@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { setStatus } from "../../MoviesSlice";
 import useQueryParameter from "../../useQueryParameter";
 import useReplaceQueryParameter from "../../useReplaceQueryParameter";
-import { pageKey } from "../../keys";
+import { pageKey } from "../../functionsAndKeys/keys";
 import arrow from "./arrow.svg";
 import disabledArrow from "./disabledArrow.svg";
 import {

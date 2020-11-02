@@ -1,9 +1,9 @@
 import React from "react";
-import { movieKey } from '../keys';
-import imageBaseLink from "../imageBaseLink";
-import voteIcon from "../voteIcon.svg";
-import noMovieImage from "../noMovieImage.svg";
-import noPersonImage from "../noPersonImage.svg";
+import { movieKey } from '../../functionsAndKeys/keys';
+import imageBaseLink from "../../functionsAndKeys/imageBaseLink";
+import voteIcon from "../../assets/voteIcon.svg";
+import noMovieImage from "../../assets/noMovieImage.svg";
+import noPersonImage from "../../assets/noPersonImage.svg";
 import {
     TileContainer,
     MobileTileContainer,

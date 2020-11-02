@@ -7,18 +7,18 @@ import {
     selectMovieCredits,
     selectMovieDetails,
     selectStatus
-} from '../MoviesSlice';
-import { movieKey, peopleKey } from '../keys';
-import imageBaseLink from "../imageBaseLink";
+} from '../../MoviesSlice';
+import { movieKey, peopleKey } from '../../functionsAndKeys/keys';
+import imageBaseLink from "../../functionsAndKeys/imageBaseLink";
 import voteIcon from "./voteIcon.svg";
-import Container from '../Common/Container';
-import Header from '../Common/Header';
-import GridTemplate from '../Common/GridTemplate';
-import UniversalBigTile from '../UniversalBigTile';
-import LoadingPage from '../Common/LoadingPage';
-import Failed from '../Common/Failed';
-import AdultContent from '../Common/AdultContent';
-import ToggleThemeButton from '../ToggleThemeButton';
+import Container from '../../Common/Container';
+import Header from '../../Common/Header';
+import GridTemplate from '../../Common/GridTemplate';
+import UniversalBigTile from '../../tiles/UniversalBigTile';
+import LoadingPage from '../../Common/LoadingPage';
+import Failed from '../../Common/Failed';
+import AdultContent from '../../Common/AdultContent';
+import ToggleThemeButton from '../../Common/ToggleThemeButton';
 import {
     PosterBackgrundContainer,
     PosterShadowContainer,

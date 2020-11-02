@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectGenres } from "../MoviesSlice";
-import imageBaseLink from "../imageBaseLink";
-import voteIcon from "../voteIcon.svg";
-import noImage from "../noMovieImage.svg";
+import { selectGenres } from "../../MoviesSlice";
+import imageBaseLink from "../../functionsAndKeys/imageBaseLink";
+import voteIcon from "../../assets/voteIcon.svg";
+import noImage from "../../assets/noMovieImage.svg";
 import {
     TileContainer,
     ContentContainer,

@@ -7,16 +7,16 @@ import {
     selectPersonCredits,
     selectPersonDetails,
     selectStatus,
-} from '../MoviesSlice';
-import { moviesKey, personKey } from '../keys';
-import Container from '../Common/Container';
-import Header from '../Common/Header';
-import GridTemplate from '../Common/GridTemplate';
-import UniversalBigTile from '../UniversalBigTile';
-import LoadingPage from '../Common/LoadingPage';
-import Failed from '../Common/Failed';
-import AdultContent from '../Common/AdultContent';
-import ToggleThemeButton from '../ToggleThemeButton';
+} from '../../MoviesSlice';
+import { moviesKey, personKey } from '../../functionsAndKeys/keys';
+import Container from '../../Common/Container';
+import Header from '../../Common/Header';
+import GridTemplate from '../../Common/GridTemplate';
+import UniversalBigTile from '../../tiles/UniversalBigTile';
+import LoadingPage from '../../Common/LoadingPage';
+import Failed from '../../Common/Failed';
+import AdultContent from '../../Common/AdultContent';
+import ToggleThemeButton from '../../Common/ToggleThemeButton';
 
 function MoviePage() {
     const dispatch = useDispatch();

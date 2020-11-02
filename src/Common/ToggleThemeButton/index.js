@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleThemeStatus } from "../MoviesSlice";
+import { toggleThemeStatus } from "../../MoviesSlice";
 import { Button, ButtonItem, ButtonContainer, Content } from "./styled";
 
 const ToggleThemeButton = () => {

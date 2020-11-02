@@ -5,17 +5,17 @@ import {
   selectPageInformation,
   selectStatus,
   fetchGenresList
-} from '../MoviesSlice';
-import { moviesKey, pageKey, searchKey } from '../keys';
-import useQueryParameter from '../useQueryParameter';
-import ToggleThemeButton from '../ToggleThemeButton';
-import Container from '../Common/Container';
-import GridTemplate from '../Common/GridTemplate';
-import Header from '../Common/Header';
-import LoadingPage from "../Common/LoadingPage"
-import NoResults from '../Common/NoResults';
-import Failed from '../Common/Failed';
-import Pager from '../Common/Pager';
+} from '../../MoviesSlice';
+import { moviesKey, pageKey, searchKey } from '../../functionsAndKeys/keys';
+import useQueryParameter from '../../useQueryParameter';
+import ToggleThemeButton from '../../Common/ToggleThemeButton';
+import Container from '../../Common/Container';
+import GridTemplate from '../../Common/GridTemplate';
+import Header from '../../Common/Header';
+import LoadingPage from "../../Common/LoadingPage"
+import NoResults from '../../Common/NoResults';
+import Failed from '../../Common/Failed';
+import Pager from '../../Common/Pager';
 
 function Movies() {
   const dispatch = useDispatch();

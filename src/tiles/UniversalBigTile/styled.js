@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { movieKey } from '../keys';
+import { movieKey } from '../../functionsAndKeys/keys';
 
 export const TileContainer = styled.div`
     width: 100%;

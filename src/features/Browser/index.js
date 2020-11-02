@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { inputChange, selectQueryString, setStatus } from '../MoviesSlice';
+import { inputChange, selectQueryString, setStatus } from '../../MoviesSlice';
 import useSearchByQuery from './useSearchByQuery';
-import { moviesKey, peopleKey } from '../keys';
+import { moviesKey, peopleKey } from '../../functionsAndKeys/keys';
 import browserLogo from "./browserLogo.svg";
 import { BrowserContainer, BrowserInput, BrowserLogo } from "./styled";
 
