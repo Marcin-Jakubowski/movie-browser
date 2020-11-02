@@ -26,6 +26,7 @@ export const theme = {
     },
     breakpoint: {
         noContainer: 1400,
+        tabletMax: 991,
         mobileMax: 767,
         mobile: 500,
         mobileMin: 350,
@@ -63,6 +64,7 @@ export const darkTheme = {
     },
     breakpoint: {
         noContainer: 1400,
+        tabletMax: 991,
         mobileMax: 767,
         mobile: 500,
         mobileMin: 350,

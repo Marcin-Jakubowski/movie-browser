@@ -1,5 +1,5 @@
 import React from "react";
-import noResultsImage from "./noResultsImage.svg";
+import noResultsImage from "../../assets/noResultsImage.svg";
 import { ImageContainer, StyledImage } from "./styled";
 
 const NoResults = () => (

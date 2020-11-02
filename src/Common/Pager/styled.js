@@ -29,7 +29,7 @@ export const TextContainer = styled.div`
 
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             font-size: 13px;
-            padding: 7.5px 8px
+            padding: 7.5px 8px;
         }
 `;
 
@@ -108,5 +108,5 @@ export const Img = styled.img`
         @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             display: inline-block;
         }
-    ` }
+    `}
 `;

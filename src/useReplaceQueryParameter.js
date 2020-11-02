@@ -1,5 +1,5 @@
 import { useLocation, useHistory } from "react-router-dom";
-import { pageKey, searchKey } from "./keys";
+import { pageKey, searchKey } from "./functionsAndKeys/keys";
 
 const useReplaceQueryParameter = () => {
     const location = useLocation();

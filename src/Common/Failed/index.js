@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setStatus } from "../../MoviesSlice";
-import icon from "./failedIcon.svg";
+import icon from "../../assets/failedIcon.svg";
 import { Container, StyledImage, MainHeader, SmallHeader, StyledLink } from "./styled";
 
 const Failed = () => {
