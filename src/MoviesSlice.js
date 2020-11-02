@@ -16,7 +16,7 @@ const moviesSlice = createSlice({
         genres: [],
         queryString: "initial",
         status: "loading",
-        themeStatus: false,
+        themeStatus: JSON.parse(localStorage.getItem("theme")) || false,
         adult: false
 
     },
@@ -57,6 +57,7 @@ const moviesSlice = createSlice({
         },
         toggleThemeStatus: state => {
             state.themeStatus = !state.themeStatus;
+            localStorage.setItem("theme", JSON.stringify(state.themeStatus));
         },
         setAdult: (state) => {
             state.adult = true;
