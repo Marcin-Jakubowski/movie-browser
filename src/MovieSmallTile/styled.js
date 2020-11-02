@@ -11,6 +11,7 @@ export const TileContainer = styled.div`
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    transition: 0.3s;
         
     &:hover {
        filter: brightness(93%);
