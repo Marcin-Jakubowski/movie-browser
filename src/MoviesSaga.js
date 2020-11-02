@@ -14,8 +14,8 @@ import {
     setQueryString,
     setStatus
 } from "./MoviesSlice";
-import { apiKey, movieKey, moviesKey, peopleKey, personKey } from "./keys";
-import { fetchFromApi } from "./fetchFromApi";
+import { apiKey, movieKey, moviesKey, peopleKey, personKey } from "./functionsAndKeys/keys";
+import { fetchFromApi } from "./functionsAndKeys/fetchFromApi";
 
 function* fetchHandler(action) {
     const page = yield action.payload.page;
@@ -84,7 +84,6 @@ function* fetchGenresFromAPI() {
         });
         yield put(setGenres(response.data));
     } catch (error) {
-        console.log(error);
     }
 };
 

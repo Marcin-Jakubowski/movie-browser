@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { moviesKey, peopleKey } from "../../keys";
+import { moviesKey, peopleKey } from "../../functionsAndKeys/keys";
 
 export const Grid = styled.ul`
     width: 100%;

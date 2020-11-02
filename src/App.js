@@ -5,12 +5,12 @@ import { ThemeProvider } from "styled-components";
 import { selectThemeStatus, setStatus } from './MoviesSlice';
 import { GlobalStyle } from "./GlobalStyle";
 import { darkTheme, theme } from "./theme";
-import Movies from "./Movies/index";
-import People from "./People/index";
-import MoviePage from './MoviePage';
-import PersonPage from './PersonPage';
-import Browser from "./Browser/index";
-import NavLogoButton from "./NavLogoButton/index";
+import Movies from "./features/Movies/index";
+import People from "./features/People/index";
+import MoviePage from './features/MoviePage';
+import PersonPage from './features/PersonPage';
+import Browser from "./features/Browser/index";
+import NavLogoButton from "./Common/NavLogoButton/index";
 import WidthContainer from './Common/WidthContainer';
 import {
   BackgroundContainer,
