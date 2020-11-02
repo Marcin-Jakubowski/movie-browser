@@ -79,11 +79,12 @@ export const ContentContainer = styled.div`
 
 `;
 
-export const MovieTitle = styled.h3`
+export const Title = styled.h3`
     font-size: 36px;
     line-height: 43px;
     font-weight: 600;
     margin: 0;
+    overflow-wrap: anywhere;
     
     @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 24px;
