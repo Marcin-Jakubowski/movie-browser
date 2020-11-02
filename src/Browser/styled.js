@@ -9,7 +9,7 @@ export const BrowserLogo = styled.img`
     top: 14px;
     left: 25px;
 
-    @media( max-width: 767px) {
+    @media( max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         left: 15px;
         top: 12px;
     }
@@ -29,12 +29,17 @@ export const BrowserInput = styled.input`
        outline: none;
     }
 
-    @media( max-width: 767px) {
+    @media( max-width:  ${({ theme }) => theme.breakpoint.tabletMax}px) {
+        width: 400px;
+    }
+
+    @media( max-width:  ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 100%;
+        font-size: 16px;
         line-height: 17px;
-        font-size: 13px;
         max-height: 44px;
         border-radius: 22px;
         padding-left: 40px;
     }
+
 `;

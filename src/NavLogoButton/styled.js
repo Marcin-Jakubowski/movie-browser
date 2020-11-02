@@ -38,6 +38,12 @@ export const NavContent = styled.h1`
     font-weight: 500;
     margin: 0;
 
+    @media( max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+
     @media( max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
         line-height: 17px;
