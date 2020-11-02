@@ -37,6 +37,30 @@ As part of this project, it is possible to:
 This project uses the API from:
 https://www.themoviedb.org/
 
+## Screenshots
+
+### Movies
+
+![movies](https://raw.githubusercontent.com/Marcin-Jakubowski/movie-browser/main/ReadMeImages/Movies.png)
+
+### Movie Search
+
+![moviesSearch](https://raw.githubusercontent.com/Marcin-Jakubowski/movie-browser/main/ReadMeImages/Search.png)
+
+### People Search
+
+![moviesSearch](https://raw.githubusercontent.com/Marcin-Jakubowski/movie-browser/main/ReadMeImages/Daniel.png)
+
+### People Page
+
+![moviesSearch](https://raw.githubusercontent.com/Marcin-Jakubowski/movie-browser/main/ReadMeImages/Person%20Page.png)
+
+### Movies Page
+
+![moviePage](https://raw.githubusercontent.com/Marcin-Jakubowski/movie-browser/main/ReadMeImages/Movie%20Page.png)
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
